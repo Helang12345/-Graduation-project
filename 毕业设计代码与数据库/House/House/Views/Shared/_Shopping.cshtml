@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <title>@ViewBag.tit - 周边商城</title>
+    <style>
+        div {
+            /*border:1px solid red;*/
+            
+        }
+
+        .pagetop_alink {
+            font-size: 17px;
+            margin-left: 35px;
+            color: white;
+        }
+
+        .page_top {
+            overflow: hidden;
+            height: 95px;
+            line-height: 85px;
+            margin-top: -35px;
+            padding-left:300px;
+            /*background-color:lavender;*/
+        }
+
+        .page_top-right {
+            float: left;
+            position: relative;
+            left: 500px;
+        }
+
+        .page_top-left {
+            float: left;
+        }
+    </style>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header>
+        <div class="page_top">
+            <div class="page_top-left">
+                <img src="~/Content/Image/首页/1.png" style="width:85px" />
+                <a class="pagetop_alink" href="#" style="margin-left: -5px ">恋家房屋</a>
+            </div>
+            <div class="page_top-right sticky-top">
+                <a class="pagetop_alink" style="color:red" href="#">登录</a>
+                <a class="pagetop_alink" href="#">二手房<span>▼</span></a>
+                <a class="pagetop_alink" href="#">新房<span>▼</span></a>
+                <a class="pagetop_alink" href="#">租房<span>▼</span></a>
+                <a class="pagetop_alink alink-con" href="#"><span class="glyphicon glyphicon-phone"></span>联系我们<span id="con_ico">▼</span></a>
+            </div>
+           
+        </div>
+
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+    <div>
+        <footer>
+            <p style="text-align:center">&copy; @DateTime.Now.Year - 项目设计-2018173801</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

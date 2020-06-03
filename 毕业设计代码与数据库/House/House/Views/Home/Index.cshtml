@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Shopping.cshtml";
+}
+<style>
+    .head {
+        width:1920px;
+        height:640px;
+        margin-top:-100px;
+        border:1px solid red;
+        background-image:url(/Content/Image/首页/bannerV2.jpg)
+    }
+    .head_words {
+        border: 1px solid red;
+        font-size: 50px;
+        color: white;
+        margin-top: 10%;
+        margin-left:35%;
+        float: left;
+    }
+    .head_search {
+        border:1px solid #00ae66;
+        width:730px;
+        height:55px;
+        position: absolute;
+        right: 30%;
+        top:35%;
+    }
+    .btn {
+        background: #00ae66;
+        width:127px;
+        height: 55px;
+        float: right;
+        border: 0;
+        display: block;
+        border-radius: 0 2px 2px 0;
+        cursor: pointer;
+        text-align: center;
+        font-size: 18px;
+        color: #fff;
+        border: 1px solid red;
+    }
+
+    .text {
+        width: 626px;
+        padding-left: 20px;
+        border: 0;
+        height: 55px;
+        line-height: 55px;
+        border-radius: 2px;
+        font-size: 14px;
+    }
+    .head_a {
+        color: white;
+    }
+    .a1 {
+        position: absolute;
+        right: 70%;
+        top:60%;
+    }
+    .a2 {
+        position: absolute;
+        right: 57%;
+        top: 60%;
+    }
+</style>
+<div class="head">
+    <span class="head_words">用心恋接每一个家的温暖</span>
+    <div class="head_search">
+        <input class="text" placeholder="请输入区域、商圈或小区名开始找房" />
+        <input class="btn" type="button" value="开始找房" />
+    </div>
+    <a href="#" class="head_a a1">
+        <img src="~/Content/Image/首页/phpAPdvEm.png" style="width:16px;height:16px"/>
+    关于仿冒我公司进行不正当竞争行为的郑重声明
+    </a>
+    <a href="#" class="head_a a2">
+        <img src="~/Content/Image/首页/phpAPdvEm (1).png" style="width:16px;height:16px" />
+        房地产中介诚信服务承诺及保证书
+    </a>
+</div>
+<div class="">
+
+</div>
+
