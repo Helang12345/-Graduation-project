@@ -133,6 +133,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Image\首页\1.png" />
     <Content Include="Content\Image\首页\bannerV2.jpg" />
+    <Content Include="Content\Image\首页\bg-app.jpg" />
     <Content Include="Content\Image\首页\dataV2.jpg" />
     <Content Include="Content\Image\首页\phpAPdvEm %281%29.png" />
     <Content Include="Content\Image\首页\phpAPdvEm.png" />
