@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <title>@ViewBag.tit - 周边商城</title>
+    <title>@ViewBag.tit - 恋家房屋</title>
     <style>
         div {
             /*border:1px solid red;*/
@@ -35,13 +35,22 @@
         .page_top-left {
             float: left;
         }
+        .bttom {
+        width:100%;
+        height:100px;
+        background-color:dimgray;
+        margin-top:20px;
+        line-height:100px;
+        font-size:18px;
+        color:white;
+        }
     </style>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
     <header>
-        <div class="page_top">
+        <div class="page_top  container">
             <div class="page_top-left">
                 <img src="~/Content/Image/首页/1.png" style="width:85px" />
                 <a class="pagetop_alink" href="#" style="margin-left: -5px ">恋家房屋</a>
@@ -53,14 +62,14 @@
                 <a class="pagetop_alink" href="#">租房<span>▼</span></a>
                 <a class="pagetop_alink alink-con" href="#"><span class="glyphicon glyphicon-phone"></span>联系我们<span id="con_ico">▼</span></a>
             </div>
-           
+
         </div>
 
     </header>
     <div>
         @RenderBody()
     </div>
-    <div>
+    <div class="bttom">
         <footer>
             <p style="text-align:center">&copy; @DateTime.Now.Year - 项目设计-2018173801</p>
         </footer>

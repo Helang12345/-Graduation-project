@@ -1,0 +1,575 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Shopping.cshtml";
+}
+<style>
+    .head {
+        width: 100%;
+        height: 100px;
+        background-color: gray;
+        margin-top: -100px;
+    }
+
+    .headnavigation {
+        height: 320px;
+        background-color: #f5f5f6;
+    }
+
+    .Navigation {
+        padding-top:60px;
+        height:150px;
+    }
+    .Navigation_a {
+        font-size: 17px;
+        margin-left: 35px;
+       
+    }
+        .Navigation_a a {
+            float: left;
+            color: black;
+            font-size: 20px;
+            margin-top: 5px;
+            margin-right: 30px;
+        }
+    .Navigation_from {
+        width:300px;
+        position:relative;
+        right:-550px;
+        float:left;
+    }
+    .sellDetailHeader {
+        margin-top: 10px;
+    }
+
+    .btnContainer {
+        /*border: 1px solid red;*/
+        width: 15%;
+        height: 90px;
+        float: left;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .followbtn {
+        width: 100%;
+        height: 50px;
+        float: left;
+    }
+
+    .title {
+        /*border: 1px solid red;*/
+        width: 83%;
+        float: left;
+    }
+
+    .content {
+        overflow: hidden;
+    }
+
+    .xiangiqng {
+        height: 1800px;
+        margin-top: 10px;
+    }
+
+    .total {
+        width: 20%;
+        font-size: 32px;
+        color: red;
+        font-weight: 600;
+        float: left;
+    }
+
+    .ptext {
+        width: 40%;
+        float: left;
+    }
+
+    .unitPriceValue {
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    .price {
+        margin-top: 30px;
+        height: 60px;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .houseInfo {
+        margin-top: 20px;
+        width: 100%;
+        height: 120px;
+        border-bottom: 1px solid #eeeeee;
+        overflow: hidden;
+    }
+
+    .room, .type, .area {
+        width: 33%;
+        float: left;
+        margin-bottom: 20px;
+    }
+
+    .mainInfo {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .subInfo {
+        font-size: 14px;
+    }
+
+    .img {
+        display: block;
+        clear: both;
+        height: 30px;
+        background: #f8f8f8;
+        line-height: 30px;
+        font-size: 13px;
+        color: #222;
+        margin-top: 56px;
+    }
+
+        .img img {
+            height: 30px;
+            margin-right: 20px;
+        }
+
+    .aroundInfo {
+        margin-top: 20px;
+        width: 100%;
+        height: 150px;
+        border-bottom: 1px solid #eeeeee;
+        overflow: hidden;
+    }
+
+    .areaName, .visitTime, .houseRecord, .communityName {
+        height: 30px;
+        line-height: 30px;
+        margin-top: 5px;
+        font-size: 15px;
+    }
+
+    .label {
+        color: black;
+        height: 15px;
+        font-size: 15px;
+        color: gray;
+    }
+
+    .component-agent-es-pc-6 {
+        position: relative;
+        display: block;
+        font-size: 0;
+        padding-top: 20px;
+        padding-bottom: 35px;
+        height: 170px;
+    }
+
+    .agent-img {
+        width: 120px;
+        height: 150px;
+        float: left;
+        margin-right: 20px;
+    }
+
+    .img-wrapper {
+        width: 120px;
+        height: 120px;
+    }
+
+    .brokerInfoText {
+        float: left;
+        margin-right: 20px;
+        margin-top: 10px;
+    }
+
+    .weapp-code {
+        float: left;
+    }
+
+    .brokerNameA {
+        font-size: 20px;
+        font-weight: 600;
+        color: black;
+        float: left;
+        margin-right: 15px;
+    }
+
+    .by {
+        height: 20px;
+    }
+
+    .dy_tag {
+        margin-top: 10px;
+        margin-left: 15px;
+        line-height: 20px;
+        font-size: 15px;
+        background-color: lavender;
+    }
+
+    .evaluate {
+        margin-top: 15px;
+        color: lightgray;
+    }
+
+    .phone {
+        font-size: 18px;
+        margin-top: 10px;
+        color: green;
+    }
+
+    .weapp-code {
+        color: black;
+        text-align: center;
+    }
+
+    .bleft {
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .basic {
+        border-bottom: 1px solid  #eeeeee;
+        width: 100%;
+    }
+
+    .base {
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .stable td {
+        width: 250px;
+        height: 40px;
+    }
+    .newwrap {
+    overflow:hidden;
+    }
+    .newwrap .name {
+    width:30%;
+    height:50px;
+    display:block;
+    float:left;
+    font-size:14px;
+    line-height:50px;
+    margin-top:20px;
+    border-bottom:1px solid #eeeeee;
+    }
+        .newwrap .context {
+            width: 70%;
+            height: 50px;
+            display: block;
+            float: left;
+            font-size: 14px;
+            line-height: 50px;
+            margin-top: 20px;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+</style>
+<script src="~/Content/jquery-1.8.3.min.js"></script>
+<link href="~/Content/shouye.css" rel="stylesheet" />
+<script src="~/Content/modernizr-custom-v2.7.1.min.js"></script>
+
+@*导航栏背景色*@
+<div class="head"></div>
+@*二级导航*@
+<div class="headnavigation">
+    @*表头*@
+    <div class="container" >
+        <div class="Navigation ">
+            <div class="Navigation_a">
+                <a href="#">在售</a>
+                <a href="#">成交</a>
+                <a href="#">小区</a>
+            </div>
+            <div  class="Navigation_input">
+                <form class="form-inline my-2 my-lg-0 Navigation_from">
+                    <input class="form-control mr-sm-2" type="search" placeholder="请输入条件" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">查询</button>
+                </form>
+            </div>
+        </div>
+        <div class="sellDetailHeader ">
+            <div class="title-wrapper" log-mod="detail_header">
+                <div class="content">
+                    <div class="title">
+                        <h1 class="main" title="商品房满五年 业主家庭名下唯一住房">商品房满五年 业主家庭名下唯一住房</h1>
+                        <div class="sub" title="南北通透 ，眼镜房，客厅带阳台 两个南向飘窗">南北通透 ，眼镜房，客厅带阳台 两个南向飘窗</div>
+                    </div>
+                    <div class="btnContainer">
+                        <button id="follow" class="followbtn">关注房源</button>
+                        <span id="favCount" class="count">376</span>人关注
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div class="xiangiqng container">
+    @*图片部分*@
+    <div class="bleft">
+        <div class="Xcontent">
+            <ul class="Xcontent01">
+                <div class="Xcontent06"><img src="~/images/shangpinxiangqing/X1.png"></div>
+                <li class="Xcontent08">
+                    <div class="Xcontent07"><img src="~/images/shangpinxiangqing/X1.png"></div>
+                    <div class="Xcontent09"><img src="~/images/shangpinxiangqing/X7.png"></div>
+                    <div class="Xcontent10"><img src="~/images/shangpinxiangqing/X8.png"></div>
+                    <div class="Xcontent11"><img src="~/images/shangpinxiangqing/X9.png"></div>
+                    <div class="Xcontent12"><img src="~/images/shangpinxiangqing/X10.png"></div>
+                </li>
+                <li class="Xcontent13">
+                    <div>
+                        <div class="price ">
+                            <div class="total">540万</div>
+                            <div class="ptext">
+                                <div class="unitPrice">
+                                    <span class="unitPriceValue">47586<i>元/平米</i></span>
+                                </div>
+                                <div class="">
+                                    <span class="taxtext">首付及贷款情况请咨询经纪人</span><i></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="houseInfo">
+                            <div class="room">
+                                <div class="mainInfo">
+                                    3室2厅
+                                </div>
+                                <div class="subInfo">
+                                    中楼层/共17层
+                                </div>
+                            </div>
+                            <div class="type">
+                                <div class="mainInfo" title="南 北">
+                                    南 北
+                                </div>
+                                <div class="subInfo">
+                                    平层/精装
+                                </div>
+                            </div>
+                            <div class="area">
+                                <div class="mainInfo">
+                                    113.48平米
+                                </div>
+                                <div class="subInfo">
+                                    2008年建/板塔结合
+                                </div>
+                            </div>
+                            <a class="img"><img src="~/Content/Image/首页/1573111250229.png">诚心卖，省心买</a>
+                        </div>
+                        <div class="aroundInfo">
+                            <div class="communityName">
+                                <i></i>
+                                <span class="label">小区名称</span>
+                                <a href="/xiaoqu/1111027375871/" target="_blank" class="info ">北京北</a>
+                                <a href="#around" class="map">地图</a>
+                            </div>
+                            <div class="areaName">
+                                <i></i>
+                                <span class="label">所在区域</span>
+                                <span class="info">
+                                    <a href="/ershoufang/changping/" target="_blank">昌平</a>&nbsp;
+                                    <a href="/ershoufang/lishuiqiao1/" target="_blank">立水桥</a>&nbsp;五至六环
+                                </span>
+                                <a href="https://bj.lianjia.com/ditiefang/li649s20600/" class="supplement" title="近5号线立水桥站" style="color: #394043; ">近5号线立水桥站</a>
+                            </div>
+                            <div class="visitTime">
+                                <i></i>
+                                <span class="label">看房时间</span>
+                                <span class="info">有租户需预约</span>
+                            </div>
+                            <div class="houseRecord">
+                                <span class="label">链家编号</span>
+                                <span class="info">
+                                    101103170066
+                                    <span class="jubao" data-lj_evtid="16224" data-lj_action_sourcetype="二手房源详情页举报按钮曝光" data-lj_action_event="ItemExpo" data-lj_action_pid="lianjiaweb">
+                                        <a href="javascript:;" class="report LOGCLICK" data-lj_evtid="16225" data-lj_action_sourcetype="二手房源详情页举报按钮点击" data-lj_action_event="WebClick" data-lj_action_pid="lianjiaweb" data-hasuserreport="1">举报</a>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="component-agent-es-pc-6">
+                            <div class="brokerInfo">
+                                <a class="" href="https://dianpu.lianjia.com/1000000010091687" target="_blank">
+                                    <img class="agent-img" src="~/Content/Image/Sale/p1.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="brokerInfoText">
+                                <div class="brokerName">
+                                    <a class="brokerNameA" href="#" target="_blank">
+                                        冯雪涛
+                                    </a>
+                                    <div class="dy">
+                                        <span class="dy_tag">恋家</span>
+                                    </div>
+                                </div>
+                                <div class="evaluate" id="evaluate">
+                                    <span>评分:4.9</span>
+                                    <span>/61次评价</span>
+                                </div>
+                                <div class="phone">
+                                    4008893219
+                                    <span class="phone-text">
+                                        转
+                                    </span>
+                                    50994
+
+                                </div>
+                            </div>
+                            <div class="weapp-code">
+                                <img class="img-wrapper" src="~/Content/Image/Sale/W1.png">
+                                <div class="qrcode-wrapper">
+                                    微信扫码拨号
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    @*基本信息*@
+    <div class="basic">
+        <div class="" style="width:900px;">
+            <h3 style="margin-bottom:20px;margin-top:20px;">基本信息</h3>
+            <div class="introContent">
+                <div class="base">
+                    <div class="basecontent" style="margin-bottom:20px;">
+                        <table class="stable" style="font-size:14px;">
+                            <tr>
+                                <td>基本信息</td>
+                                <td>房屋户型</td>
+                                <td>所在楼层</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>建筑面积&nbsp;&nbsp;&nbsp;&nbsp;189m</td>
+                                <td>户型结构</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>套内面积</td>
+                                <td>建筑类型</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>房屋朝向</td>
+                                <td>建筑结构</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>装修情况</td>
+                                <td>梯户比例</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>供暖方式</td>
+                                <td>配备电梯</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="transaction">
+                    <div class="content" style="margin-top:20px;">
+                        <table class="stable" style="font-size:14px;">
+                            <tr>
+                                <td>交易属性</td>
+                                <td>挂牌时间</td>
+                                <td>交易权属</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>上次交易&nbsp;&nbsp;&nbsp;&nbsp;189m</td>
+                                <td>房屋用途</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>房屋年限</td>
+                                <td>产权所属</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>抵押信息</td>
+                                <td>房本备件</td>
+
+                        </table>
+                    </div>
+                </div>
+
+                <div class="disclaimer" style="padding-top: 10px; font-size:12px; margin-top:20px;margin-bottom:20px;">特别提示：本房源所示信息仅供参考，购房时请以该房屋档案登记信息、产权证信息以及所签订合同条款约定为准；本房源公示信息不做为合同条款，不具有合同约束力。</div>
+
+            </div>
+        </div>
+    </div>
+    @*房源特色*@
+    <div class="newwrap baseinform">
+        <h3 style="margin-top:20px;margin-bottom:20px;">房源特色</h3>
+        <div class="introContent showbasemore">
+            <div class="newwrap_div">
+                <span class="name">户型介绍</span>
+                <span class="context">那栋八达岭看打开了背靠背把控哪里查哪里出纳出，安神补脑的参看</span>
+            </div>
+            <div class="newwrap_div">
+                <span class="name">户型介绍</span>
+                <span class="context">那栋八达岭看打开了背靠背把控哪里查哪里出纳出，安神补脑的参看</span>
+            </div>
+            <div class="newwrap_div">
+                <span class="name">户型介绍</span>
+                <span class="context">那栋八达岭看打开了背靠背把控哪里查哪里出纳出，安神补脑的参看</span>
+            </div>
+            <div class="newwrap_div">
+                <span class="name">户型介绍</span>
+                <span class="context">那栋八达岭看打开了背靠背把控哪里查哪里出纳出，安神补脑的参看</span>
+            </div>
+            <div class="newwrap_div">
+                <span class="name">户型介绍</span>
+                <span class="context">那栋八达岭看打开了背靠背把控哪里查哪里出纳出，安神补脑的参看</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            var $miaobian = $('.Xcontent08>div');
+            var $huantu = $('.Xcontent06>img');
+            var $miaobian1 = $('.Xcontent26>div');
+            $miaobian.mousemove(function () { miaobian(this); });
+            $miaobian1.click(function () { miaobian1(this); });
+            function miaobian(thisMb) {
+                for (var i = 0; i < $miaobian.length; i++) {
+                    $miaobian[i].style.borderColor = '#dedede';
+                }
+                thisMb.style.borderColor = '#cd2426';
+
+                $huantu[0].src = thisMb.children[0].src;
+            }
+            function miaobian1(thisMb1) {
+                for (var i = 0; i < $miaobian1.length; i++) {
+                    $miaobian1[i].style.borderColor = '#dedede';
+                }
+                //		thisMb.style.borderColor = '#cd2426';
+                $miaobian.css('border-color', '#dedede');
+                thisMb1.style.borderColor = '#cd2426';
+                $huantu[0].src = thisMb1.children[0].src;
+            }
+            $(".Xcontent33").click(function () {
+                var value = parseInt($('.input').val()) + 1;
+                $('.input').val(value);
+            })
+
+            $(".Xcontent32").click(function () {
+                var num = $(".input").val()
+                if (num > 0) {
+                    $(".input").val(num - 1);
+                }
+            })
+        })
+    </script>
+
+}
+

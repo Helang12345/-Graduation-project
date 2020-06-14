@@ -79,7 +79,7 @@ E:\毕业项目\毕业设计代码与数据库\House\House\bin\zh-Hans\System.We
 E:\毕业项目\毕业设计代码与数据库\House\House\bin\zh-Hans\System.Web.WebPages.resources.dll
 E:\毕业项目\毕业设计代码与数据库\House\House\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 E:\毕业项目\毕业设计代码与数据库\House\House\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
-E:\毕业项目\毕业设计代码与数据库\House\House\obj\Debug\House.csprojAssemblyReference.cache
 E:\毕业项目\毕业设计代码与数据库\House\House\obj\Debug\House.csproj.CopyComplete
 E:\毕业项目\毕业设计代码与数据库\House\House\obj\Debug\House.dll
 E:\毕业项目\毕业设计代码与数据库\House\House\obj\Debug\House.pdb
+E:\毕业项目\毕业设计代码与数据库\House\House\obj\Debug\House.csprojAssemblyReference.cache

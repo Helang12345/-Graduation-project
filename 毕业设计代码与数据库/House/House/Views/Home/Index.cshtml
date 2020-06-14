@@ -3,33 +3,37 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Shopping.cshtml";
 }
-<style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<style> 
     .head {
-        width:1920px;
-        height:640px;
-        margin-top:-100px;
+        width: 1920px;
+        height: 640px;
+        margin-top: -100px;
         /*border:1px solid red;*/
-        background-image:url(/Content/Image/首页/bannerV2.jpg)
+        background-image: url(/Content/Image/首页/bannerV2.jpg)
     }
+
     .head_words {
         /*border: 1px solid red;*/
         font-size: 50px;
         color: white;
         margin-top: 200px;
-        margin-left:700px;
+        margin-left: 700px;
         float: left;
     }
+
     .head_search {
         /*border:1px solid #00ae66;*/
-        width:730px;
-        height:55px;
+        width: 730px;
+        height: 55px;
         position: absolute;
-        left:600px;
-        top:350px;
+        left: 600px;
+        top: 350px;
     }
+
     .btn {
         background: #00ae66;
-        width:127px;
+        width: 127px;
         height: 55px;
         float: right;
         border: 0;
@@ -43,7 +47,7 @@
     }
 
     .text {
-        max-width:603px;
+        max-width: 603px;
         width: 800px;
         padding-left: 20px;
         height: 55px;
@@ -52,53 +56,49 @@
         font-size: 14px;
         /*border: 1px solid black;*/
     }
+
     .head_a {
         color: white;
     }
 
-    .a1 {
-        position: absolute;
-        right: 70%;
-        top: 60%;
-    }
-    .a2 {
-        position: absolute;
-        right: 57%;
-        top: 60%;
-    }
+   
     /*中间样式*/
     .introduce {
-        width:1920px;
-        height:486px;
-        background-image:url(/Content/Image/首页/dataV2.jpg);
-        text-align:center;
-        margin-top:-100px;
+        width: 1920px;
+        height: 486px;
+        background-image: url(/Content/Image/首页/dataV2.jpg);
+        text-align: center;
+        margin-top: -100px;
     }
+
     .gold {
         width: 1000px;
-        margin:100px auto;
-        text-align:center;
+        margin: 100px auto;
+        text-align: center;
     }
+
     .introduce li {
         display: inline-block;
         background: #80808054;
         float: left;
         width: 246px;
         height: 129px;
-        margin: 35px ;
+        margin: 35px;
         position: relative;
         padding-top: 35px;
     }
-    
+
     .introduce .gold .clear span label {
         color: white;
         font-size: 25px;
         cursor: pointer;
         font-weight: 400;
     }
+
     .introduce .gold .clear p {
         color: white;
     }
+
     .title {
         color: #fff;
         font-size: 20px;
@@ -110,26 +110,58 @@
         width: 1920px;
         height: 486px;
         background-image: url(/Content/Image/首页/bg-app.jpg);
-        text-align: center;
-        margin-top: -100px;
+        /*border: 1px solid red;*/
+        margin-top:-120px;
+    }
+
+        .hand-lianjia .ltext {
+            width: 500px;
+            /*border: 1px solid red;*/
+            padding-top: 120px;
+            margin-left: 350px;
+        }
+
+            .hand-lianjia .ltext .ftext {
+                font-size: 60px;
+                font-weight: 600;
+            }
+            .Renting h1{
+                font-size:25px;
+                font-weight:600;
+            }
+    .Renting .rtext {
+    margin-top:20px;
+    margin-left:350px;
+    }
+    /*.container {
+    border:1px solid red;
+    }*/
+    .a_a{
+        position:absolute;
+        top:100px;
+        left:100px;
     }
 </style>
-<div class="head">
+<div>
+<div class="head ">
     <span class="head_words">用心恋接每一个家的温暖</span>
     <div class="head_search">
         <input class="text" placeholder="请输入区域、商圈或小区名开始找房" />
         <input class="btn" type="button" value="开始找房" />
     </div>
-    <a href="#" class="head_a a1">
-        <img src="~/Content/Image/首页/phpAPdvEm.png" style="width:16px;height:16px"/>
-    关于仿冒我公司进行不正当竞争行为的郑重声明
-    </a>
-    <a href="#" class="head_a a2">
-        <img src="~/Content/Image/首页/phpAPdvEm (1).png" style="width:16px;height:16px" />
-        房地产中介诚信服务承诺及保证书
-    </a>
+    <div class="a_a">
+        <a href="https://page.lianjia.com/subject/11276.html" class="head_a a1">
+            <img src="~/Content/Image/首页/phpAPdvEm.png" style="width:16px;height:16px" />
+            关于仿冒我公司进行不正当竞争行为的郑重声明
+        </a>
+        <a href="https://page.lianjia.com/subject/8334.html" class="head_a a2">
+            <img src="~/Content/Image/首页/phpAPdvEm (1).png" style="width:16px;height:16px" />
+            房地产中介诚信服务承诺及保证书
+        </a>
+    </div>
+    
 </div>
-<div class="introduce">
+<div class="introduce ">
     <div class="gold">
         <div class="title">库源储备与成交量</div>
         <ul class="clear">
@@ -160,7 +192,97 @@
         </ul>
     </div>
 </div>
-<div class="hand-lianjia">
-
+<div class="hand-lianjia ">
+    <div class="ltext">
+        <h1>一恋倾城</h1>
+        <h1 class="ftext">为你为家</h1>
+        <p>集二手、租房功能于一体，随时随地任性找房。IM匿名咨询让您放心，消息动态推送让您省心，服务承诺让您安心，数据百科锦囊让您感受贴心漫漫找房路，我们努力为您想更多。</p>
+    </div>
 </div>
+<div class="Renting">
+    <div class="rtext">
+        <h1>二手好房</h1>
+        <p>好房源那么多，我们为你精选，链家网会越来越懂你</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="~/Content/Image/首页/a1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="~/Content/Image/首页/a2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="~/Content/Image/首页/a3.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="~/Content/Image/首页/a4.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Renting">
+    <div class="rtext">
+        <h1>优质租房</h1>
+        <p>好房源那么多，我们为你精选，链家网会越来越懂你</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="~/Content/Image/首页/a1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="~/Content/Image/首页/a2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="~/Content/Image/首页/a3.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="~/Content/Image/首页/a4.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+
 
