@@ -1,0 +1,755 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_House.cshtml";
+}
+<!-- Banner start -->
+<div class="banner" id="banner">
+    <div id="bannerCarousole" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner banner-slider-inner text-left">
+            <div class="carousel-item banner-max-height active">
+                <img class="d-block w-100 h-100" src="~/Content/img/banner/banner-1.jpg" alt="banner">
+            </div>
+            <div class="carousel-item banner-max-height">
+                <img class="d-block w-100 h-100" src="~/Content/img/banner/banner-3.jpg" alt="banner">
+            </div>
+            <div class="carousel-item banner-max-height">
+                <img class="d-block w-100 h-100" src="~/Content/img/banner/banner-2.jpg" alt="banner">
+            </div>
+            <div class="carousel-content container banner-info-2 bi-3 text-center">
+                <h3>用心寻找你的公寓</h3>
+                <p>恋接每一个家的故事----沃兹基硕德(2000-?)</p>
+                @*<a href="index.html" class="btn btn-white btn-read-more">Read More</a>*@
+            </div>
+        </div>
+
+        <!-- Search box 2 start -->
+        <div class="search-box-2">
+            <div class="container">
+                @*表单*@
+                <form action="/" method="post" class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="inline-search-area">
+                                <div class="row row-3">
+
+                                    <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6 search-col">
+                                        <select class="selectpicker search-fields" name="any-status">
+                                            <option>交易类型</option>
+                                            <option>出售</option>
+                                            <option>出租</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6 search-col">
+                                        <select class="selectpicker search-fields" name="all-type">
+                                            <option>房屋类型</option>
+                                            <option>三室一厅</option>
+                                            <option>一室一厅</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6 search-col">
+                                        <select class="selectpicker search-fields" name="bedrooms">
+                                            <option>房屋朝向</option>
+                                            <option>坐东朝西</option>
+                                            <option>坐西朝东</option>
+                                            <option>坐南朝北</option>
+                                            <option>坐北朝南</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6 search-col">
+                                        <select class="selectpicker search-fields" name="bathrooms">
+                                            <option>大致面积</option>
+                                            <option>10~20</option>
+                                            <option>20~30</option>
+                                            <option>30~80</option>
+                                            <option>80~120</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6 search-col">
+                                        <select class="selectpicker search-fields" name="location">
+                                            <option>所在小区</option>
+                                            <option>丹桂苑</option>
+                                            <option>翠竹苑</option>
+                                            <option>玉兰苑</option>
+                                            <option>新一栋</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6 search-col">
+                                        <button class="btn white-btn btn-search btn-block" style="background-color:black">
+                                            <i class="fa fa-search"></i><strong>查找</strong>
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Search box 2 end -->
+
+    </div>
+</div>
+<!-- Banner end -->
+<!-- Categories strat -->
+<div class="categories content-area-13">
+    <div class="container">
+        <!-- Main title -->
+        <div class="main-title text-center">
+            <h1>本店招牌</h1>
+            <p>瞧一瞧，看一看，走过路过，不要错过</p>
+        </div>
+        <div class="row row-2">
+            <div class="col-lg-4 col-md-12">
+                <div class="row">
+                    <div class="col-md-6 col-lg-12 col-pad">
+                        <div class="category">
+                            <div class="category_bg_box cat-1-bg">
+                                <div class="category-overlay">
+                                    <div class="category-content">
+                                        <h3 class="category-title">
+                                            <a href="../Selling/SellList">一室一厅</a>
+                                        </h3>
+                                        <h4 class="category-subtitle">27 套</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-12 col-pad">
+                        <div class="category">
+                            <div class="category_bg_box cat-3-bg">
+                                <div class="category-overlay">
+                                    <div class="category-content">
+                                        <h3 class="category-title">
+                                            <a href="../Selling/SellList">豪宅</a>
+                                        </h3>
+                                        <h4 class="category-subtitle">98 套</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-pad">
+                <div class="category">
+                    <div class="category_bg_box category_long_bg cat-4-bg">
+                        <div class="category-overlay">
+                            <div class="category-content">
+                                <h3 class="category-title">
+                                    <a href="../Selling/SellList">自带超大泳池</a>
+                                </h3>
+                                <h4 class="category-subtitle">12 套</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="row">
+                    <div class="col-md-6 col-lg-12 col-pad">
+                        <div class="category">
+                            <div class="category_bg_box cat-2-bg">
+                                <div class="category-overlay">
+                                    <div class="category-content">
+                                        <h3 class="category-title">
+                                            <a href="../Selling/SellList">极致售后</a>
+                                        </h3>
+                                        <h4 class="category-subtitle">27 套</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-12 col-pad">
+                        <div class="category">
+                            <div class="category_bg_box cat-5-bg">
+                                <div class="category-overlay">
+                                    <div class="category-content">
+                                        <h3 class="category-title">
+                                            <a href="../Selling/SellList">低价捡漏</a>
+                                        </h3>
+                                        <h4 class="category-subtitle">98 套</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Categories end -->
+<!-- advantages start -->
+<div class="advantages content-area">
+    <div class="container">
+        <!-- Main title -->
+        <div class="main-title-2 text-center">
+            <h1>金牌销售</h1>
+            <p>精致服务，让每位顾客都能找到家的感觉</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="advantages-box">
+                    <div class="icon">
+                        <i class="flaticon-pin"></i>
+                    </div>
+                    <div class="detail">
+                        <h5>覆盖面广</h5>
+                        <p>包含全国各个省市级</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="advantages-box">
+                    <div class="icon">
+                        <i class="flaticon-camera"></i>
+                    </div>
+                    <div class="detail">
+                        <h5>直看公寓</h5>
+                        <p>24小时随时可看</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="advantages-box">
+                    <div class="icon">
+                        <i class="flaticon-password"></i>
+                    </div>
+                    <div class="detail">
+                        <h5>安全性与隐私权</h5>
+                        <p>顾客隐私大于天</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="advantages-box">
+                    <div class="icon">
+                        <i class="flaticon-sale"></i>
+                    </div>
+                    <div class="detail">
+                        <h5>价格合理</h5>
+                        <p>按单收费绝对合理</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- advantages end -->
+<!-- Our team start -->
+<div class="our-team content-area-3" style="margin-top:50px;">
+    <div class="container">
+        <!-- Main title -->
+        <div class="main-title">
+            <h1>金牌销售</h1>
+            <p>精致服务，让每位顾客都能找到家的感觉</p>
+        </div>
+        <div class="row">
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                <div class="team-1">
+                    <div class="team-photo">
+                        <a href="#">
+                            <img src="~/Content/img/avatar/avatar-7.jpg" alt="agent" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="team-details">
+                        <h5><a href="#">张三</a></h5>
+                        <h6>一季度销冠</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                <div class="team-1">
+                    <div class="team-photo">
+                        <a href="#">
+                            <img src="~/Content/img/avatar/avatar-6.jpg" alt="agent" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="team-details">
+                        <h5><a href="agent-detail.html">李四</a></h5>
+                        <h6>二季度销冠</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                <div class="team-1">
+                    <div class="team-photo">
+                        <a href="#">
+                            <img src="~/Content/img/avatar/avatar-8.jpg" alt="agent" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="team-details">
+                        <h5><a href="#">王五</a></h5>
+                        <h6>三季度销冠</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                <div class="team-1">
+                    <div class="team-photo">
+                        <a href="#">
+                            <img src="~/Content/img/avatar/avatar-5.jpg" alt="agent" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="team-details">
+                        <h5><a href="#">赵六</a></h5>
+                        <h6>四季度销冠</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Our team end -->
+<!-- Featured Properties start -->
+<div class="featured-properties content-area-14">
+    <div class="container">
+        <!-- Main title -->
+        <div class="main-title">
+            <h1>租房推荐</h1>
+            <p>合租、整租数不胜数</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="property-box">
+                    <div class="property-thumbnail">
+                        <a href="../Lease/LeaseDetails" class="property-img">
+                            <div class="tag">精选</div>
+                            <div class="price-box"><span>$850.00</span> 月</div>
+                            <img class="d-block w-100" src="~/Content/img/properties/properties-1.jpg" alt="properties">
+                        </a>
+                    </div>
+                    <div class="detail">
+                        <h1 class="title">
+                            <a href="../Lease/Index">小别墅</a>
+                        </h1>
+                        <div class="location">
+                            <a href="#">
+                                <i class="flaticon-pin"></i>丹桂苑C栋508
+                            </a>
+                        </div>
+                        <ul class="facilities-list clearfix">
+                            <li>
+                                <i class="flaticon-bed"></i> 1张床
+                            </li>
+                            <li>
+                                <i class="flaticon-bathroom"></i> 1卫浴
+                            </li>
+                            <li>
+                                <i class="flaticon-ui"></i> 20平米
+                            </li>
+                            <li>
+                                <i class="flaticon-car"></i> 1 车位
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="property-box">
+                    <div class="property-thumbnail">
+                        <a href="../Lease/LeaseDetails" class="property-img">
+                            <div class="tag">精选</div>
+                            <div class="price-box"><span>$850.00</span> 月</div>
+                            <img class="d-block w-100" src="~/Content/img/properties/properties-1.jpg" alt="properties">
+                        </a>
+                    </div>
+                    <div class="detail">
+                        <h1 class="title">
+                            <a href="../Lease/Index">小别墅</a>
+                        </h1>
+                        <div class="location">
+                            <a href="#">
+                                <i class="flaticon-pin"></i>丹桂苑C栋508
+                            </a>
+                        </div>
+                        <ul class="facilities-list clearfix">
+                            <li>
+                                <i class="flaticon-bed"></i> 1张床
+                            </li>
+                            <li>
+                                <i class="flaticon-bathroom"></i> 1卫浴
+                            </li>
+                            <li>
+                                <i class="flaticon-ui"></i> 20平米
+                            </li>
+                            <li>
+                                <i class="flaticon-car"></i> 1 车位
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="property-box">
+                    <div class="property-thumbnail">
+                        <a href="../Lease/LeaseDetails" class="property-img">
+                            <div class="tag">精选</div>
+                            <div class="price-box"><span>$850.00</span> 月</div>
+                            <img class="d-block w-100" src="~/Content/img/properties/properties-1.jpg" alt="properties">
+                        </a>
+                    </div>
+                    <div class="detail">
+                        <h1 class="title">
+                            <a href="../Lease/Index">小别墅</a>
+                        </h1>
+                        <div class="location">
+                            <a href="#">
+                                <i class="flaticon-pin"></i>丹桂苑C栋508
+                            </a>
+                        </div>
+                        <ul class="facilities-list clearfix">
+                            <li>
+                                <i class="flaticon-bed"></i> 1张床
+                            </li>
+                            <li>
+                                <i class="flaticon-bathroom"></i> 1卫浴
+                            </li>
+                            <li>
+                                <i class="flaticon-ui"></i> 20平米
+                            </li>
+                            <li>
+                                <i class="flaticon-car"></i> 1 车位
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="property-box">
+                    <div class="property-thumbnail">
+                        <a href="../Lease/LeaseDetails" class="property-img">
+                            <div class="tag">精选</div>
+                            <div class="price-box"><span>$850.00</span> 月</div>
+                            <img class="d-block w-100" src="~/Content/img/properties/properties-1.jpg" alt="properties">
+                        </a>
+                    </div>
+                    <div class="detail">
+                        <h1 class="title">
+                            <a href="../Lease/Index">小别墅</a>
+                        </h1>
+                        <div class="location">
+                            <a href="#">
+                                <i class="flaticon-pin"></i>丹桂苑C栋508
+                            </a>
+                        </div>
+                        <ul class="facilities-list clearfix">
+                            <li>
+                                <i class="flaticon-bed"></i> 1张床
+                            </li>
+                            <li>
+                                <i class="flaticon-bathroom"></i> 1卫浴
+                            </li>
+                            <li>
+                                <i class="flaticon-ui"></i> 20平米
+                            </li>
+                            <li>
+                                <i class="flaticon-car"></i> 1 车位
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="property-box">
+                    <div class="property-thumbnail">
+                        <a href="../Lease/LeaseDetails" class="property-img">
+                            <div class="tag">精选</div>
+                            <div class="price-box"><span>$850.00</span> 月</div>
+                            <img class="d-block w-100" src="~/Content/img/properties/properties-1.jpg" alt="properties">
+                        </a>
+                    </div>
+                    <div class="detail">
+                        <h1 class="title">
+                            <a href="../Lease/Index">小别墅</a>
+                        </h1>
+                        <div class="location">
+                            <a href="properties-details.html">
+                                <i class="flaticon-pin"></i>丹桂苑C栋508
+                            </a>
+                        </div>
+                        <ul class="facilities-list clearfix">
+                            <li>
+                                <i class="flaticon-bed"></i> 1张床
+                            </li>
+                            <li>
+                                <i class="flaticon-bathroom"></i> 1卫浴
+                            </li>
+                            <li>
+                                <i class="flaticon-ui"></i> 20平米
+                            </li>
+                            <li>
+                                <i class="flaticon-car"></i> 1 车位
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="property-box">
+                    <div class="property-thumbnail">
+                        <a href="../Lease/LeaseDetails" class="property-img">
+                            <div class="tag">精选</div>
+                            <div class="price-box"><span>$850.00</span> 月</div>
+                            <img class="d-block w-100" src="~/Content/img/properties/properties-1.jpg" alt="properties">
+                        </a>
+                    </div>
+                    <div class="detail">
+                        <h1 class="title">
+                            <a href="../Lease/Index">小别墅</a>
+                        </h1>
+                        <div class="location">
+                            <a href="#">
+                                <i class="flaticon-pin"></i>丹桂苑C栋508
+                            </a>
+                        </div>
+                        <ul class="facilities-list clearfix">
+                            <li>
+                                <i class="flaticon-bed"></i> 1张床
+                            </li>
+                            <li>
+                                <i class="flaticon-bathroom"></i> 1卫浴
+                            </li>
+                            <li>
+                                <i class="flaticon-ui"></i> 20平米
+                            </li>
+                            <li>
+                                <i class="flaticon-car"></i> 1 车位
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Featured Properties end -->
+<!-- Featured Properties start -->
+<div class="featured-properties content-area-14">
+    <div class="container">
+        <!-- Main title -->
+        <div class="main-title">
+            <h1>售房推荐</h1>
+            <p>新房、二手房应有尽有</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="property-box">
+                    <div class="property-thumbnail">
+                        <a href="../Selling/SellList" class="property-img">
+                            <div class="tag">精选</div>
+                            <div class="price-box"><span>$850.00</span> 每平</div>
+                            <img class="d-block w-100" src="~/Content/img/properties/properties-1.jpg" alt="properties">
+                        </a>
+                    </div>
+                    <div class="detail">
+                        <h1 class="title">
+                            <a href="../Selling/SellList">休闲</a>
+                        </h1>
+                        <div class="location">
+                            <a href="../Selling/SellList">
+                                <i class="flaticon-pin"></i>123 Kathal St. Tampa City,
+                            </a>
+                        </div>
+                        <ul class="facilities-list clearfix">
+                            <li>
+                                <i class="flaticon-bed"></i> 3 张床
+                            </li>
+                            <li>
+                                <i class="flaticon-bathroom"></i> 2 卫浴
+                            </li>
+                            <li>
+                                <i class="flaticon-ui"></i> 600平米
+                            </li>
+                            <li>
+                                <i class="flaticon-car"></i> 1 车位
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="property-box">
+                    <div class="property-thumbnail">
+                        <a href="../Selling/SellList" class="property-img">
+                            <div class="tag">精选</div>
+                            <div class="price-box"><span>$850.00</span> 每平</div>
+                            <img class="d-block w-100" src="~/Content/img/properties/properties-1.jpg" alt="properties">
+                        </a>
+                    </div>
+                    <div class="detail">
+                        <h1 class="title">
+                            <a href="../Selling/SellList">休闲</a>
+                        </h1>
+                        <div class="location">
+                            <a href="../Selling/SellList">
+                                <i class="flaticon-pin"></i>123 Kathal St. Tampa City,
+                            </a>
+                        </div>
+                        <ul class="facilities-list clearfix">
+                            <li>
+                                <i class="flaticon-bed"></i> 3 张床
+                            </li>
+                            <li>
+                                <i class="flaticon-bathroom"></i> 2 卫浴
+                            </li>
+                            <li>
+                                <i class="flaticon-ui"></i> 600平米
+                            </li>
+                            <li>
+                                <i class="flaticon-car"></i> 1 车位
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="property-box">
+                    <div class="property-thumbnail">
+                        <a href="../Selling/SellList" class="property-img">
+                            <div class="tag">精选</div>
+                            <div class="price-box"><span>$850.00</span> 每平</div>
+                            <img class="d-block w-100" src="~/Content/img/properties/properties-1.jpg" alt="properties">
+                        </a>
+                    </div>
+                    <div class="detail">
+                        <h1 class="title">
+                            <a href="../Selling/SellList">休闲</a>
+                        </h1>
+                        <div class="location">
+                            <a href="../Selling/SellList">
+                                <i class="flaticon-pin"></i>123 Kathal St. Tampa City,
+                            </a>
+                        </div>
+                        <ul class="facilities-list clearfix">
+                            <li>
+                                <i class="flaticon-bed"></i> 3 张床
+                            </li>
+                            <li>
+                                <i class="flaticon-bathroom"></i> 2 卫浴
+                            </li>
+                            <li>
+                                <i class="flaticon-ui"></i> 600平米
+                            </li>
+                            <li>
+                                <i class="flaticon-car"></i> 1 车位
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="property-box">
+                    <div class="property-thumbnail">
+                        <a href="../Selling/SellList" class="property-img">
+                            <div class="tag">精选</div>
+                            <div class="price-box"><span>$850.00</span> 每平</div>
+                            <img class="d-block w-100" src="~/Content/img/properties/properties-1.jpg" alt="properties">
+                        </a>
+                    </div>
+                    <div class="detail">
+                        <h1 class="title">
+                            <a href="../Selling/SellList">休闲</a>
+                        </h1>
+                        <div class="location">
+                            <a href="../Selling/SellList">
+                                <i class="flaticon-pin"></i>123 Kathal St. Tampa City,
+                            </a>
+                        </div>
+                        <ul class="facilities-list clearfix">
+                            <li>
+                                <i class="flaticon-bed"></i> 3 张床
+                            </li>
+                            <li>
+                                <i class="flaticon-bathroom"></i> 2 卫浴
+                            </li>
+                            <li>
+                                <i class="flaticon-ui"></i> 600平米
+                            </li>
+                            <li>
+                                <i class="flaticon-car"></i> 1 车位
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="property-box">
+                    <div class="property-thumbnail">
+                        <a href="../Selling/SellList" class="property-img">
+                            <div class="tag">精选</div>
+                            <div class="price-box"><span>$850.00</span> 每平</div>
+                            <img class="d-block w-100" src="~/Content/img/properties/properties-1.jpg" alt="properties">
+                        </a>
+                    </div>
+                    <div class="detail">
+                        <h1 class="title">
+                            <a href="../Selling/SellList">休闲</a>
+                        </h1>
+                        <div class="location">
+                            <a href="../Selling/SellList">
+                                <i class="flaticon-pin"></i>123 Kathal St. Tampa City,
+                            </a>
+                        </div>
+                        <ul class="facilities-list clearfix">
+                            <li>
+                                <i class="flaticon-bed"></i> 3 张床
+                            </li>
+                            <li>
+                                <i class="flaticon-bathroom"></i> 2 卫浴
+                            </li>
+                            <li>
+                                <i class="flaticon-ui"></i> 600平米
+                            </li>
+                            <li>
+                                <i class="flaticon-car"></i> 1 车位
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="property-box">
+                    <div class="property-thumbnail">
+                        <a href="../Selling/SellList" class="property-img">
+                            <div class="tag">精选</div>
+                            <div class="price-box"><span>$850.00</span> 每平</div>
+                            <img class="d-block w-100" src="~/Content/img/properties/properties-1.jpg" alt="properties">
+                        </a>
+                    </div>
+                    <div class="detail">
+                        <h1 class="title">
+                            <a href="../Selling/SellList">休闲</a>
+                        </h1>
+                        <div class="location">
+                            <a href="../Selling/SellList">
+                                <i class="flaticon-pin"></i>123 Kathal St. Tampa City,
+                            </a>
+                        </div>
+                        <ul class="facilities-list clearfix">
+                            <li>
+                                <i class="flaticon-bed"></i> 3 张床
+                            </li>
+                            <li>
+                                <i class="flaticon-bathroom"></i> 2 卫浴
+                            </li>
+                            <li>
+                                <i class="flaticon-ui"></i> 600平米
+                            </li>
+                            <li>
+                                <i class="flaticon-car"></i> 1 车位
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Featured Properties end -->
+

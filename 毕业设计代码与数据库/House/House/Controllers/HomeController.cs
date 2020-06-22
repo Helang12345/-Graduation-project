@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+//初代界面
 namespace House.Controllers
 {
     public class HomeController : Controller

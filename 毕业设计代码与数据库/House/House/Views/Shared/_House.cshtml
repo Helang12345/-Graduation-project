@@ -1,0 +1,312 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <title>Fort - Real Estate HTML Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+
+    <!-- External CSS libraries -->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/bootstrap-submenu.css">
+
+    <link rel="stylesheet" type="text/css" href="~/Content/css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/Content/css/leaflet.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/css/map.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="~/fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" type="text/css" href="~/fonts/linearicons/style.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/dropzone.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/slick.css">
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/style.css">
+    <link rel="stylesheet" type="text/css" id="style_sheet" href="~/Content/css/skins/default.css">
+
+    <!-- Favicon icon -->
+    <link rel="shortcut icon" href="~/Content/img/favicon.ico" type="image/x-icon">
+
+    <!-- Google fonts -->
+    <link rel="stylesheet" type="~/Content/text/css" href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,300,700">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link rel="stylesheet" type="~/Content/text/css" href="css/ie10-viewport-bug-workaround.css">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script  src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="~/Scripts/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script  src="js/html5shiv.min.js"></script>
+    <script  src="js/respond.min.js"></script>
+    <![endif]-->
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="page_loader"></div>
+
+    <!-- Top header start -->
+    <header class="top-header" id="top-header-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-9 col-sm-7">
+                    <div class="list-inline">
+                        <a href="tel:1-8X0-666-8X88"><i class="fa fa-phone"></i>18711761803</a>
+                        <a href="tel:info@themevessel.com"><i class="fa fa-envelope"></i>hrl727273603@163.com</a>
+                        <a href="tel:info@themevessel.com"><i class="flaticon-pin"></i> 8:00am - 6:00pm</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-3 col-sm-5">
+                    <ul class="top-social-media pull-right">
+                        <li>
+                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+                        </li>
+                        <li>
+                            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i> </a>
+                        </li>
+                        <li>
+                            <a href="#" class="rss"><i class="fa fa-instagram"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Top header end -->
+    <!-- Main header start -->
+    <header class="main-header fixed-header-2">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand company-logo" href="../HomePage/index">
+                    <img src="~/Content/img/logos/black-logo.png" alt="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav header-ml">
+                        @*房屋出售标签*@
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                房屋出售
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="../Selling/SellList">新房</a></li>
+                                <li><a class="dropdown-item" href="../Selling/SellList">二手房</a></li>
+
+                            </ul>
+                        </li>
+                        @*房屋出租标签*@
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                房屋出租
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="../Lease/LeaseDetails">合租</a>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="../Lease/LeaseDetails">整租</a>
+                                </li>
+                            </ul>
+                        </li>
+                        @*我的账户标签*@
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               我的账户
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="../Login/PassWord">忘记密码</a></li>
+                                <li><a class="dropdown-item" href="../Business/Information">个人信息</a></li>
+                                <li><a class="dropdown-item" href="../Business/Order">我的房产</a></li>
+                                <li><a class="dropdown-item" href="../Business/Index">发布房源</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="../Login/Index">
+                                <i class="flaticon-logout"></i>登录
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../Business/Index" class="nav-link link-color"><i class="flaticon-plus"></i>发布房源</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- Main header end -->
+    @*中间部分*@
+    <div>
+        @RenderBody()
+    </div>
+
+    <!-- Footer start -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="row">
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer-item clearfix">
+                        <img src="~/Content/img/logos/logo.png" alt="logo" class="f-logo">
+                        <ul class="contact-info">
+                            <li>
+                                <i class="flaticon-pin"></i>恋接每一个家的故事
+                            </li>
+                            <li>
+                                <i class="flaticon-mail"></i>hrl727273603@163.com</a>
+                            </li>
+                            <li>
+                                <i class="flaticon-phone"></i><a href="tel:+55-417-634-7071">+18711761803</a>
+                            </li>
+                            <li>
+                                <i class="flaticon-fax"></i>+0477 85X6 552
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                        <div class="social-list-2">
+                            <ul>
+                                <li><a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" class="google-bg"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#" class="linkedin-bg"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6">
+                    <div class="footer-item">
+                        <h4>
+                            用户链接
+                        </h4>
+                        <ul class="links">
+                            <li>
+                                <a href="../Selling/SellList">房屋出售</a>
+                            </li>
+                            <li>
+                                <a href="../Lease/Index">房屋出租</a>
+                            </li>
+                            <li>
+                                <a href="../Business/Information">个人信息</a>
+                            </li>
+                            <li>
+                                <a href="../Business/Index">发布房源</a>
+                            </li>
+                            @*<li>
+                                <a href="dashboard.html">安全保障</a>
+                            </li>*@
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-3 col-md-6 col-sm-6">
+                    <div class="recent-properties footer-item">
+                        <h4>质量保障</h4>
+                        <div class="media mb-4">
+                            <a class="pr-3" href="properties-details.html">
+                                <img class="media-object" src="~/Content/img/properties/small-properties-1.jpg" alt="small-properties">
+                            </a>
+                            <div class="media-body align-self-center">
+                                <h5>
+                                    <a href="../Selling/SellList">休闲公寓</a>
+                                </h5>
+                                <div class="listing-post-meta">
+                                    <a href="../Selling/SellList"><i class="fa fa-calendar"></i> Oct 27, 2018 </a> | $345,00
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media mb-4">
+                            <a class="pr-3" href="properties-details.html">
+                                <img class="media-object" src="~/Content/img/properties/small-properties-2.jpg" alt="small-properties">
+                            </a>
+                            <div class="media-body align-self-center">
+                                <h5>
+                                    <a href="../Selling/SellList">办公公寓</a>
+                                </h5>
+                                <div class="listing-post-meta">
+                                    <a href="../Selling/SellList"><i class="fa fa-calendar"></i> Feb 19, 2019 </a> | $415,00
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <a class="pr-3" href="properties-details.html">
+                                <img class="media-object" src="~/Content/img/properties/small-properties-3.jpg" alt="small-properties">
+                            </a>
+                            <div class="media-body align-self-center">
+                                <h5>
+                                    <a href="../Selling/SellList">豪华别墅</a>
+                                </h5>
+                                <div class="listing-post-meta">
+                                    <a href="../Selling/SellList"><i class="fa fa-calendar"></i> Oct 12, 2018 </a> | $345,00
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer-item clearfix">
+                        <h4>订阅</h4>
+                        <div class="Subscribe-box">
+                            <p>集二手、新房、租房功能于一体，随时随地任性找房。IM匿名咨询让您放心，消息动态推送让您省心，服务承诺让您安心，数据百科锦囊让您感受贴心漫漫找房路，我们努力为您想更多。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer end -->
+    <!-- Full Page Search -->
+    <div id="full-page-search">
+        <button type="button" class="close">×</button>
+        <form action="index.html#">
+            <input type="search" value="" placeholder="type keyword(s) here" />
+            <button type="submit" class="btn btn-sm button-theme">Search</button>
+        </form>
+    </div>
+
+    <script src="~/Scripts/js/jquery-2.2.0.min.js"></script>
+    <script src="~/Scripts/js/popper.min.js"></script>
+    <script src="~/Scripts/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/js/bootstrap-submenu.js"></script>
+    <script src="~/Scripts/js/rangeslider.js"></script>
+    <script src="~/Scripts/js/jquery.mb.YTPlayer.js"></script>
+    <script src="~/Scripts/js/bootstrap-select.min.js"></script>
+    <script src="~/Scripts/js/jquery.easing.1.3.js"></script>
+    <script src="~/Scripts/js/jquery.scrollUp.js"></script>
+    <script src="~/Scripts/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/Scripts/js/leaflet.js"></script>
+    <script src="~/Scripts/js/leaflet-providers.js"></script>
+    <script src="~/Scripts/js/leaflet.markercluster.js"></script>
+    <script src="~/Scripts/js/dropzone.js"></script>
+    <script src="~/Scripts/js/slick.min.js"></script>
+    <script src="~/Scripts/js/jquery.filterizr.js"></script>
+    <script src="~/Scripts/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/Scripts/js/jquery.countdown.js"></script>
+    <script src="~/Scripts/js/maps.js"></script>
+    <script src="~/Scripts/js/app.js"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="~/Scripts/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- Custom javascript -->
+    <script src="~/Scripts/js/ie10-viewport-bug-workaround.js"></script>
+    
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

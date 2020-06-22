@@ -1,0 +1,228 @@
+﻿
+@{
+    ViewBag.Title = "LeaseDetails";
+    Layout = "~/Views/Shared/_House.cshtml";
+}
+
+<!-- Sub banner start -->
+<div class="sub-banner">
+    <div class="container breadcrumb-area">
+        <div class="breadcrumb-areas">
+            <h1>出售列表</h1>
+            <ul class="breadcrumbs">
+                <li><a href="../HomePage/index">首页</a></li>
+                <li class="active">出售列表</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Sub Banner end -->
+<!-- Properties section start -->
+<div class="properties-section content-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <!-- Option bar start -->
+                <div class="option-bar clearfix">
+                    <div class="sorting-options2">
+                        <span class="sort">排序方式：</span>
+                        <select class="selectpicker search-fields" name="default-order">
+                            <option>默认排序</option>
+                            <option>价格从高到低</option>
+                            <option>价格从低到高</option>
+                            <option>最新上架</option>
+                            <option>最早上架</option>
+                        </select>
+                    </div>
+                    <div class="sorting-options float-right">
+                        @*<a href="properties-list-rightside.html" class="change-view-btn active-view-btn float-right"><i class="fa fa-th-list"></i></a>*@
+                        <a href="LeaseDetails" class="change-view-btn float-right"><i class="fa fa-th-large"></i></a>
+                    </div>
+                </div>
+                <!-- Property box 2 start -->
+              
+                    <div class="property-box-2">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-5 col-pad">
+                                <div class="property-thumbnail">
+                                    <a href="Details" class="property-img">
+                                        <img src="~/Content/img/properties/properties-1.jpg" alt="properties" class="img-fluid">
+                                        <div class="tag">精选</div>
+                                        <div class="price-box"><span>$850.00</span> 平</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-pad align-self-center">
+                                <div class="detail">
+                                    <h3 class="title">
+                                        <a href="Details">休闲别墅</a>
+                                    </h3>
+                                    <h5 class="location">
+                                        <a href="#">
+                                            <i class="flaticon-pin"></i>丹桂苑C栋508
+                                        </a>
+                                    </h5>
+                                    <ul class="facilities-list clearfix">
+                                        <li>
+                                            <i class="flaticon-bed"></i> 3 张床
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-bathroom"></i> 1 卫浴
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-ui"></i> 20平米
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-car"></i> 0 车位
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <!-- Page navigation start -->
+                <div class="pagination-box p-box-2 text-center">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="LeaseDetails" href="#"><i class="fa fa-angle-left"></i></a>
+                            </li>
+                            <li class="page-item"><a class="page-link active" href="LeaseDetails">1</a></li>
+                            <li class="page-item"><a class="page-link" href="LeaseDetails">2</a></li>
+                            <li class="page-item"><a class="page-link" href="LeaseDetails">3</a></li>
+                            <li class="page-item">
+                                <a class="LeaseDetails" href="#"><i class="fa fa-angle-right"></i></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="sidebar-right">
+                    <!-- Advanced search start -->
+                    <div class="widget advanced-search">
+                        <h3 class="sidebar-title">搜索属性</h3>
+                        <form method="post">
+                            <div class="form-group">
+                                <select class="selectpicker search-fields" name="all-status">
+                                    <option>所有状态</option>
+                                    <option>出售</option>
+                                    <option>已售</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <select class="selectpicker search-fields" name="all-type">
+                                    <option>所有类型</option>
+                                    <option>别墅</option>
+                                    <option>一室一厅</option>
+                                    <option>三室一厅</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <select class="selectpicker search-fields" name="commercial">
+                                    <option>面积</option>
+                                    <option>20-40</option>
+                                    <option>40-80</option>
+                                    <option>80以上</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <select class="selectpicker search-fields" name="location">
+                                    <option>位置</option>
+                                    <option>丹桂苑</option>
+                                    <option>翠竹苑</option>
+                                    <option>玉兰苑</option>
+                                    <option>其它</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <select class="selectpicker search-fields" name="bedrooms">
+                                            <option>卧室</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <select class="selectpicker search-fields" name="bathroom">
+                                            <option>卫浴</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            @*<a class="show-more-options" data-toggle="collapse" data-target="#options-content">
+                                    <i class="fa fa-plus-circle"></i> 其他属性
+                                </a>*@
+                            @*<div id="options-content" class="collapse">
+                                    <h3 class="sidebar-title">便利设施</h3>
+                                    <div class="checkbox checkbox-theme checkbox-circle">
+                                        <input id="checkbox2" type="checkbox">
+                                        <label for="checkbox2">
+                                            空调
+                                        </label>
+                                    </div>
+                                    <div class="checkbox checkbox-theme checkbox-circle">
+                                        <input id="checkbox3" type="checkbox">
+                                        <label for="checkbox3">
+                                            Places to seat
+                                        </label>
+                                    </div>
+                                    <div class="checkbox checkbox-theme checkbox-circle">
+                                        <input id="checkbox4" type="checkbox">
+                                        <label for="checkbox4">
+                                            Swimming Pool
+                                        </label>
+                                    </div>
+                                    <div class="checkbox checkbox-theme checkbox-circle">
+                                        <input id="checkbox1" type="checkbox">
+                                        <label for="checkbox1">
+                                            Free Parking
+                                        </label>
+                                    </div>
+                                    <div class="checkbox checkbox-theme checkbox-circle">
+                                        <input id="checkbox7" type="checkbox">
+                                        <label for="checkbox7">
+                                            Central Heating
+                                        </label>
+                                    </div>
+                                    <div class="checkbox checkbox-theme checkbox-circle">
+                                        <input id="checkbox5" type="checkbox">
+                                        <label for="checkbox5">
+                                            Laundry Room
+                                        </label>
+                                    </div>
+                                    <div class="checkbox checkbox-theme checkbox-circle">
+                                        <input id="checkbox6" type="checkbox">
+                                        <label for="checkbox6">
+                                            Window Covering
+                                        </label>
+                                    </div>
+                                    <div class="checkbox checkbox-theme checkbox-circle">
+                                        <input id="checkbox8" type="checkbox">
+                                        <label for="checkbox8">
+                                            Alarm
+                                        </label>
+                                    </div>
+                                    <br>
+                                </div>*@
+                            <div class="form-group mb-0">
+                                <button class="search-button">查找</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Properties section end -->

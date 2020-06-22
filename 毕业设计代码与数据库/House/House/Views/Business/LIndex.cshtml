@@ -1,0 +1,249 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Backstage.cshtml";
+}
+
+    <div class="submit-address dashboard-list">
+        <h4 class="bg-grea-3">发布租房信息</h4>
+        <form method="post">
+            <h4 class="bg-grea-3">基本信息</h4>
+            <div class="search-contents-sidebar">
+                <div class="row pad-2">
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>所在城市</label>
+                            <input type="text" class="input-text" name="your name" placeholder="城市名称">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>所在小区</label>
+                            <input type="text" class="input-text" name="your name" placeholder="小区名">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>所在楼层</label>
+                            <input type="text" class="input-text" name="your name" placeholder="？层">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>面积</label>
+                            <input type="text" class="input-text" name="your name" placeholder="每平">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>维护时间</label>
+                            <input type="text" class="input-text" name="your name" placeholder="年/月/日">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>房屋类型</label>
+                            <input type="text" class="input-text" name="your name" placeholder="？室？厅">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>租金</label>
+                            <input type="text" class="input-text" name="your name" placeholder="每月">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>租赁方式</label>
+                            <select class="selectpicker search-fields" name="choose-state">
+                                <option>整租</option>
+                                <option>合租</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>入住方式</label>
+                            <select class="selectpicker search-fields" name="choose-state">
+                                <option>拎包入住</option>
+                                <option>先打扫卫生</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>车位</label>
+                            <select class="selectpicker search-fields" name="choose-state">
+                                <option>有</option>
+                                <option>无</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>朝向</label>
+                            <select class="selectpicker search-fields" name="choose-state">
+                                <option>坐北朝南</option>
+                                <option>坐南朝北</option>
+                                <option>坐东朝西</option>
+                                <option>坐西朝东</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>电梯情况</label>
+                            <select class="selectpicker search-fields" name="choose-state">
+                                <option>有</option>
+                                <option>无</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>用水</label>
+                            <input type="text" class="input-text" name="your name" placeholder="默认民用水">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>用电</label>
+                            <input type="text" class="input-text" name="your name" placeholder="默认民用电">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>燃气</label>
+                            <input type="text" class="input-text" name="your name" placeholder="煤">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>供暖</label>
+                            <input type="text" class="input-text" name="your name" placeholder="默认民用电">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>租期</label>
+                            <select class="selectpicker search-fields" name="choose-state">
+                                <option>年租</option>
+                                <option>季租</option>
+                                <option>月租</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>看房时间</label>
+                            <select class="selectpicker search-fields" name="choose-state">
+                                <option>上午（8:00-12：00）</option>
+                                <option>下午（14：00-18:00）</option>
+                                <option>晚上（19:30-22:00）</option>
+                                <option>全天（8:00-22:00）</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h4 class="bg-grea-3">配套设施</h4>
+            <div class="row pad-2">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="checkbox checkbox-theme checkbox-circle">
+                        <input id="checkbox1" type="checkbox">
+                        <label for="checkbox1">
+                            洗衣机
+                        </label>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="checkbox checkbox-theme checkbox-circle">
+                        <input id="checkbox2" type="checkbox">
+                        <label for="checkbox2">
+                            空调
+                        </label>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="checkbox checkbox-theme checkbox-circle">
+                        <input id="checkbox4" type="checkbox">
+                        <label for="checkbox4">
+                            衣柜
+                        </label>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="checkbox checkbox-theme checkbox-circle">
+                        <input id="checkbox5" type="checkbox">
+                        <label for="checkbox5">
+                            电视
+                        </label>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="checkbox checkbox-theme checkbox-circle">
+                        <input id="checkbox7" type="checkbox">
+                        <label for="checkbox7">
+                            冰箱
+                        </label>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="checkbox checkbox-theme checkbox-circle">
+                        <input id="checkbox8" type="checkbox">
+                        <label for="checkbox8">
+                            床
+                        </label>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="checkbox checkbox-theme checkbox-circle">
+                        <input id="checkbox3" type="checkbox">
+                        <label for="checkbox3">
+                            WiFi
+                        </label>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="checkbox checkbox-theme checkbox-circle">
+                        <input id="checkbox6" type="checkbox">
+                        <label for="checkbox6">
+                            天然气
+                        </label>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="checkbox checkbox-theme checkbox-circle">
+                        <input id="checkbox9" type="checkbox">
+                        <label for="checkbox9">
+                            暖气
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <h4 class="bg-grea-3">上传图片</h4>
+            <div class="row pad-20">
+                <div class="col-lg-12">
+                    <div id="myDropZone" class="dropzone dropzone-design">
+                        <div class="dz-default dz-message"><span>拖拽上传</span></div>
+                    </div>
+                </div>
+            </div>
+            <h4 class="bg-grea-3">人员指定</h4>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="form-group">
+                    <label>确定销售</label>
+                    <select class="selectpicker search-fields" name="choose-state">
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <input type="button" class="btn btn-md button-theme" value="提交财产">
+            </div>
+
+        </form>
+    </div>
+
