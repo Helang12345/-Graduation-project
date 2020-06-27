@@ -205,6 +205,12 @@
             border-bottom: 1px solid #eeeeee;
         }
 </style>
+@using Models;
+@{ 
+    Sell sell = ViewBag.Only;
+    Selling selling = ViewBag.Selling;
+    Transactions tran = ViewBag.Tran;
+}
 <script src="~/Content/jquery-1.8.3.min.js"></script>
 <link href="~/Content/shouye.css" rel="stylesheet" />
 <script src="~/Content/modernizr-custom-v2.7.1.min.js"></script>
@@ -213,21 +219,38 @@
     <div class="bleft">
         <div class="Xcontent">
             <ul class="Xcontent01">
-                <div class="Xcontent06"><img src="~/images/shangpinxiangqing/X1.png"></div>
                 <li class="Xcontent08">
-                    <div class="Xcontent07"><img src="~/images/shangpinxiangqing/X1.png"></div>
-                    <div class="Xcontent09"><img src="~/images/shangpinxiangqing/X7.png"></div>
-                    <div class="Xcontent10"><img src="~/images/shangpinxiangqing/X8.png"></div>
-                    <div class="Xcontent11"><img src="~/images/shangpinxiangqing/X9.png"></div>
-                    <div class="Xcontent12"><img src="~/images/shangpinxiangqing/X10.png"></div>
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            @foreach (var item in ViewBag.SImg as List<SImg>)
+                            {
+                                <div class="carousel-item active">
+                                    <img src="~/Content/selling/@item.Photo" class="d-block w-100" alt="...">
+                                </div>
+                            }
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
                 </li>
                 <li class="Xcontent13">
                     <div>
                         <div class="price ">
-                            <div class="total">540万</div>
+                            <div class="total">@sell.SellPriceTo 万</div>
                             <div class="ptext">
                                 <div class="unitPrice">
-                                    <span class="unitPriceValue">47586<i>元/平米</i></span>
+                                    <span class="unitPriceValue">@sell.SellPrice<i>元/平米</i></span>
                                 </div>
                                 <div class="">
                                     <span class="taxtext">首付及贷款情况请咨询经纪人</span><i></i>
@@ -237,26 +260,26 @@
                         <div class="houseInfo">
                             <div class="room">
                                 <div class="mainInfo">
-                                    3室2厅
+                                   @sell.SellHStructurechar
                                 </div>
                                 <div class="subInfo">
-                                    中楼层/共17层
+                                    @sell.SellFloor 层
                                 </div>
                             </div>
                             <div class="type">
                                 <div class="mainInfo" title="南 北">
-                                    南 北
+                                    @sell.SellOrientation
                                 </div>
                                 <div class="subInfo">
-                                    平层/精装
+                                    @sell.SellRenovation
                                 </div>
                             </div>
                             <div class="area">
                                 <div class="mainInfo">
-                                    113.48平米
+                                    @sell.SellAreaTo 平米
                                 </div>
                                 <div class="subInfo">
-                                    2008年建/板塔结合
+                                    @sell.SellAType
                                 </div>
                             </div>
                             <a class="img"><img src="~/Content/Image/首页/1573111250229.png">诚心卖，省心买</a>
@@ -264,28 +287,23 @@
                         <div class="aroundInfo">
                             <div class="communityName">
                                 <i></i>
-                                <span class="label">小区名称</span>
-                                <a href="/xiaoqu/1111027375871/" target="_blank" class="info ">北京北</a>
-                                <a href="#around" class="map">地图</a>
+                                <span class="label">所在城市</span>
+                                <a href="#" target="_blank" class="info ">@sell.SellAddress</a>
                             </div>
                             <div class="areaName">
                                 <i></i>
-                                <span class="label">所在区域</span>
-                                <span class="info">
-                                    <a href="/ershoufang/changping/" target="_blank">昌平</a>&nbsp;
-                                    <a href="/ershoufang/lishuiqiao1/" target="_blank">立水桥</a>&nbsp;五至六环
-                                </span>
-                                <a href="https://bj.lianjia.com/ditiefang/li649s20600/" class="supplement" title="近5号线立水桥站" style="color: #394043; ">近5号线立水桥站</a>
+                                <span class="label">小区名称</span>
+                                <a href="#" target="_blank" class="info ">@sell.SellVillage</a>
                             </div>
                             <div class="visitTime">
                                 <i></i>
                                 <span class="label">看房时间</span>
-                                <span class="info">有租户需预约</span>
+                                <span class="info">@sell.SellTime</span>
                             </div>
                             <div class="houseRecord">
                                 <span class="label">链家编号</span>
                                 <span class="info">
-                                    101103170066
+                                    @sell.SellID
                                     <span class="jubao" data-lj_evtid="16224" data-lj_action_sourcetype="二手房源详情页举报按钮曝光" data-lj_action_event="ItemExpo" data-lj_action_pid="lianjiaweb">
                                         <a href="javascript:;" class="report LOGCLICK" data-lj_evtid="16225" data-lj_action_sourcetype="二手房源详情页举报按钮点击" data-lj_action_event="WebClick" data-lj_action_pid="lianjiaweb" data-hasuserreport="1">举报</a>
                                     </span>
@@ -301,23 +319,18 @@
                             <div class="brokerInfoText">
                                 <div class="brokerName">
                                     <a class="brokerNameA" href="#" target="_blank">
-                                        冯雪涛
+                                        @sell.SalesmanID
                                     </a>
                                     <div class="dy">
                                         <span class="dy_tag">恋家</span>
                                     </div>
                                 </div>
-                                <div class="evaluate" id="evaluate">
+                                @*<div class="evaluate" id="evaluate">
                                     <span>评分:4.9</span>
                                     <span>/61次评价</span>
-                                </div>
+                                </div>*@
                                 <div class="phone">
-                                    4008893219
-                                    <span class="phone-text">
-                                        转
-                                    </span>
-                                    50994
-
+                                    @sell.Salesman.SalesmanPhone
                                 </div>
                             </div>
                             <div class="weapp-code">
@@ -342,33 +355,51 @@
                         <table class="stable" style="font-size:14px;">
                             <tr>
                                 <td>基本信息</td>
-                                <td>房屋户型</td>
-                                <td>所在楼层</td>
+                                <td>房屋户型&nbsp;&nbsp;&nbsp;&nbsp;@sell.SellHStructurechar</td>
+                                <td>所在楼层&nbsp;&nbsp;&nbsp;&nbsp;@sell.SellFloor</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>建筑面积&nbsp;&nbsp;&nbsp;&nbsp;189m</td>
-                                <td>户型结构</td>
+                                <td>建筑面积&nbsp;&nbsp;&nbsp;&nbsp;@sell.SellArea</td>
+                                <td>户型结构&nbsp;&nbsp;&nbsp;&nbsp;复式</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>套内面积</td>
-                                <td>建筑类型</td>
+                                <td>套内面积&nbsp;&nbsp;&nbsp;&nbsp;@sell.SellAreaTo</td>
+                                <td>建筑类型&nbsp;&nbsp;&nbsp;&nbsp;@sell.SellAType</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>房屋朝向</td>
-                                <td>建筑结构</td>
+                                <td>
+                                    房屋朝向&nbsp;&nbsp;&nbsp;&nbsp;
+                                    @if (sell.SellOrientation == 1)
+                                    {
+                                        @:坐北朝南
+                                    }
+                                    else if (sell.SellOrientation == 2)
+                                    {
+                                        @:坐南朝北
+                                    }
+                                    else if (sell.SellOrientation == 3)
+                                    {
+                                        @:坐东朝西
+                                    }
+                                    else
+                                    {
+                                        @:坐西朝东
+                                    }
+                                </td>
+                                <td>建筑结构&nbsp;&nbsp;&nbsp;&nbsp;@sell.SellBStructure</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>装修情况</td>
-                                <td>梯户比例</td>
+                                <td>装修情况&nbsp;&nbsp;&nbsp;&nbsp;@sell.SellRenovation</td>
+                                <td>梯户比例&nbsp;&nbsp;&nbsp;&nbsp;@sell.SellScale</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>供暖方式</td>
-                                <td>配备电梯</td>
+                                <td>供暖方式&nbsp;&nbsp;&nbsp;&nbsp;@sell.SellHeating</td>
+                                <td></td>
                             </tr>
                         </table>
                     </div>
@@ -378,23 +409,23 @@
                         <table class="stable" style="font-size:14px;">
                             <tr>
                                 <td>交易属性</td>
-                                <td>挂牌时间</td>
-                                <td>交易权属</td>
+                                <td>挂牌时间&nbsp;&nbsp;&nbsp;&nbsp;@tran.TransactionTime</td>
+                                <td>交易权属&nbsp;&nbsp;&nbsp;&nbsp;@tran.TransactionCommodity</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>上次交易&nbsp;&nbsp;&nbsp;&nbsp;189m</td>
-                                <td>房屋用途</td>
+                                <td>上次交易&nbsp;&nbsp;&nbsp;&nbsp;@tran.TransactionOldTransaction</td>
+                                <td>房屋用途&nbsp;&nbsp;&nbsp;&nbsp;@tran.TransactionPurpose</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>房屋年限</td>
-                                <td>产权所属</td>
+                                <td>房屋年限&nbsp;&nbsp;&nbsp;&nbsp;@tran.TransactionYears</td>
+                                <td>产权所属&nbsp;&nbsp;&nbsp;&nbsp;@tran.TransactionPropertyright</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>抵押信息</td>
-                                <td>房本备件</td>
+                                <td>抵押信息&nbsp;&nbsp;&nbsp;&nbsp;@tran.TransactionMortgage</td>
+                                <td>房本备件&nbsp;&nbsp;&nbsp;&nbsp;@tran.TransactionPOC</td>
 
                         </table>
                     </div>
@@ -410,66 +441,28 @@
         <h3 style="margin-top:20px;margin-bottom:20px;">房源特色</h3>
         <div class="introContent showbasemore">
             <div class="newwrap_div">
-                <span class="name">户型介绍</span>
-                <span class="context">那栋八达岭看打开了背靠背把控哪里查哪里出纳出，安神补脑的参看</span>
+                <span class="name">交通出行</span>
+                <span class="context">@selling.SellingTraffic</span>
+            </div>
+            <div class="newwrap_div">
+                <span class="name">周边配套</span>
+                <span class="context">@selling.SellingInfrastructure</span>
+            </div>
+            <div class="newwrap_div">
+                <span class="name">税费服务</span>
+                <span class="context">@selling.SellingTaxation</span>
             </div>
             <div class="newwrap_div">
                 <span class="name">户型介绍</span>
-                <span class="context">那栋八达岭看打开了背靠背把控哪里查哪里出纳出，安神补脑的参看</span>
+                <span class="context">@selling.SellingIntroduce</span>
             </div>
             <div class="newwrap_div">
-                <span class="name">户型介绍</span>
-                <span class="context">那栋八达岭看打开了背靠背把控哪里查哪里出纳出，安神补脑的参看</span>
-            </div>
-            <div class="newwrap_div">
-                <span class="name">户型介绍</span>
-                <span class="context">那栋八达岭看打开了背靠背把控哪里查哪里出纳出，安神补脑的参看</span>
-            </div>
-            <div class="newwrap_div">
-                <span class="name">户型介绍</span>
-                <span class="context">那栋八达岭看打开了背靠背把控哪里查哪里出纳出，安神补脑的参看</span>
+                <span class="name">小区介绍</span>
+                <span class="context">@selling.SellingVillage</span>
             </div>
         </div>
     </div>
 </div>
 
-@section scripts{
-    <script>
-        $(document).ready(function () {
-            var $miaobian = $('.Xcontent08>div');
-            var $huantu = $('.Xcontent06>img');
-            var $miaobian1 = $('.Xcontent26>div');
-            $miaobian.mousemove(function () { miaobian(this); });
-            $miaobian1.click(function () { miaobian1(this); });
-            function miaobian(thisMb) {
-                for (var i = 0; i < $miaobian.length; i++) {
-                    $miaobian[i].style.borderColor = '#dedede';
-                }
-                thisMb.style.borderColor = '#cd2426';
 
-                $huantu[0].src = thisMb.children[0].src;
-            }
-            function miaobian1(thisMb1) {
-                for (var i = 0; i < $miaobian1.length; i++) {
-                    $miaobian1[i].style.borderColor = '#dedede';
-                }
-                //		thisMb.style.borderColor = '#cd2426';
-                $miaobian.css('border-color', '#dedede');
-                thisMb1.style.borderColor = '#cd2426';
-                $huantu[0].src = thisMb1.children[0].src;
-            }
-            $(".Xcontent33").click(function () {
-                var value = parseInt($('.input').val()) + 1;
-                $('.input').val(value);
-            })
-
-            $(".Xcontent32").click(function () {
-                var num = $(".input").val()
-                if (num > 0) {
-                    $(".input").val(num - 1);
-                }
-            })
-        })
-    </script>
-}
 

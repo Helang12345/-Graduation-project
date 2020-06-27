@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Models;
+using BLL;
 
 //二代首页
 namespace House.Controllers
 {
     public class HomePageController : Controller
     {
+        HomePageBLL bll= new HomePageBLL();
         /// <summary>
         /// 网站首页
         /// </summary>
@@ -16,7 +19,10 @@ namespace House.Controllers
         // GET: HomePage
         public ActionResult Index()
         {
-            return View();
+            ViewBag.Salesman = bll.SalesmenSelect();
+            ViewBag.Sells = bll.SellsSelect();
+            ViewBag.Lease = bll.LeaseSelect();
+            return View() ;
         }
     }
 }

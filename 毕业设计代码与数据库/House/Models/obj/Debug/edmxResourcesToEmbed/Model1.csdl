@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HouseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Facilities">
+    <Key>
+      <PropertyRef Name="FacilitiesID" />
+    </Key>
+    <Property Name="FacilitiesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FacilitiesWashing" Type="Int32" />
+    <Property Name="Facilitiesairconditioner" Type="Int32" />
+    <Property Name="Facilitieswardrobe" Type="Int32" />
+    <Property Name="FacilitiesTV" Type="Int32" />
+    <Property Name="FacilitiesRefrigerator" Type="Int32" />
+    <Property Name="FacilitiesBed" Type="Int32" />
+    <Property Name="FacilitiesWIFI" Type="Int32" />
+    <Property Name="FacilitiesNaturalgas" Type="Int32" />
+    <Property Name="FacilitiesHeating" Type="Int32" />
+    <Property Name="LeaseID" Type="Int32" />
+    <NavigationProperty Name="Lease" Relationship="Self.FK__Facilitie__Lease__38996AB5" FromRole="Facilities" ToRole="Lease" />
+  </EntityType>
+  <EntityType Name="LCollection">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LeaseID" Type="Int32" />
+    <Property Name="UserID" Type="Int32" />
+    <NavigationProperty Name="Lease" Relationship="Self.FK__LCollecti__Lease__3E52440B" FromRole="LCollection" ToRole="Lease" />
+    <NavigationProperty Name="Userd" Relationship="Self.FK__LCollecti__UserI__3F466844" FromRole="LCollection" ToRole="Userd" />
+  </EntityType>
+  <EntityType Name="Lease">
+    <Key>
+      <PropertyRef Name="LeaseID" />
+    </Key>
+    <Property Name="LeaseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LeaseAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LeaseVillage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LeaseFloor" Type="Int32" />
+    <Property Name="LeaseArea" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="LeaseMaintain" Type="DateTime" Precision="0" />
+    <Property Name="LeaseHStructure" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LeasePrice" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="LeaseLease" Type="Int32" />
+    <Property Name="LeaseCheckin" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LeaseParkinglot" Type="Int32" />
+    <Property Name="LeaseOrientation" Type="Int32" />
+    <Property Name="LeaseElevator" Type="Int32" />
+    <Property Name="LeaseWaterint" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LeaseElectric" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LeaseGas" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LeaseHeating" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LeaseLeaseTerm" Type="Int32" />
+    <Property Name="LeaseTime" Type="Int32" />
+    <Property Name="TransactionStatus" Type="Int32" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="SalesmanID" Type="Int32" />
+    <Property Name="UState" Type="Int32" />
+    <NavigationProperty Name="Facilities" Relationship="Self.FK__Facilitie__Lease__38996AB5" FromRole="Lease" ToRole="Facilities" />
+    <NavigationProperty Name="LCollection" Relationship="Self.FK__LCollecti__Lease__3E52440B" FromRole="Lease" ToRole="LCollection" />
+    <NavigationProperty Name="Salesman" Relationship="Self.FK__Lease__SalesmanI__2C3393D0" FromRole="Lease" ToRole="Salesman" />
+    <NavigationProperty Name="Userd" Relationship="Self.FK__Lease__UserID__2B3F6F97" FromRole="Lease" ToRole="Userd" />
+    <NavigationProperty Name="LImg" Relationship="Self.FK__LImg__LeaseID__3B75D760" FromRole="Lease" ToRole="LImg" />
+  </EntityType>
+  <EntityType Name="LImg">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LeaseID" Type="Int32" />
+    <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Lease" Relationship="Self.FK__LImg__LeaseID__3B75D760" FromRole="LImg" ToRole="Lease" />
+  </EntityType>
+  <EntityType Name="Salesman">
+    <Key>
+      <PropertyRef Name="SalesmanID" />
+    </Key>
+    <Property Name="SalesmanID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SalesmanName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SalesmanSex" Type="Int32" />
+    <Property Name="SalesmanPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SalesmanEmail" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SalesmanVX" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SalesmanLoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SalesmanPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SalesmanPhoto" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="UState" Type="Int32" />
+    <NavigationProperty Name="Lease" Relationship="Self.FK__Lease__SalesmanI__2C3393D0" FromRole="Salesman" ToRole="Lease" />
+    <NavigationProperty Name="Sell" Relationship="Self.FK__Sell__SalesmanID__1A14E395" FromRole="Salesman" ToRole="Sell" />
+  </EntityType>
+  <EntityType Name="SCollection">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SellID" Type="Int32" />
+    <Property Name="UserID" Type="Int32" />
+    <NavigationProperty Name="Sell" Relationship="Self.FK__SCollecti__SellI__25869641" FromRole="SCollection" ToRole="Sell" />
+    <NavigationProperty Name="Userd" Relationship="Self.FK__SCollecti__UserI__267ABA7A" FromRole="SCollection" ToRole="Userd" />
+  </EntityType>
+  <EntityType Name="Sell">
+    <Key>
+      <PropertyRef Name="SellID" />
+    </Key>
+    <Property Name="SellID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SellAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SellVillage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SellFloor" Type="Int32" />
+    <Property Name="SellArea" Type="Int32" />
+    <Property Name="SellAreaTo" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="SellPrice" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="SellPriceTo" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="SellAType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SellBStructure" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SellHStructurechar" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SellRenovation" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SellScale" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SellHeating" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SellOrientation" Type="Int32" />
+    <Property Name="SellTime" Type="Int32" />
+    <Property Name="TransactionStatus" Type="Int32" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="SalesmanID" Type="Int32" />
+    <Property Name="UState" Type="Int32" />
+    <NavigationProperty Name="Salesman" Relationship="Self.FK__Sell__SalesmanID__1A14E395" FromRole="Sell" ToRole="Salesman" />
+    <NavigationProperty Name="SCollection" Relationship="Self.FK__SCollecti__SellI__25869641" FromRole="Sell" ToRole="SCollection" />
+    <NavigationProperty Name="Userd" Relationship="Self.FK__Sell__UserID__1920BF5C" FromRole="Sell" ToRole="Userd" />
+    <NavigationProperty Name="SImg" Relationship="Self.FK__SImg__SellID__22AA2996" FromRole="Sell" ToRole="SImg" />
+    <NavigationProperty Name="Transactions" Relationship="Self.FK__Transacti__SellI__1FCDBCEB" FromRole="Sell" ToRole="Transactions" />
+    <NavigationProperty Name="Selling" Relationship="HouseModel.FK__Selling__SellID__1DE57479" FromRole="Sell" ToRole="Selling" />
+  </EntityType>
+  <EntityType Name="SImg">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SellID" Type="Int32" />
+    <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Sell" Relationship="Self.FK__SImg__SellID__22AA2996" FromRole="SImg" ToRole="Sell" />
+  </EntityType>
+  <EntityType Name="Transactions">
+    <Key>
+      <PropertyRef Name="TransactionID" />
+    </Key>
+    <Property Name="TransactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransactionTime" Type="DateTime" Precision="0" />
+    <Property Name="TransactionCommodity" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TransactionOldTransaction" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TransactionPurpose" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TransactionYears" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TransactionPropertyright" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="TransactionMortgage" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="TransactionPOC" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SellID" Type="Int32" />
+    <NavigationProperty Name="Sell" Relationship="Self.FK__Transacti__SellI__1FCDBCEB" FromRole="Transactions" ToRole="Sell" />
+  </EntityType>
+  <EntityType Name="Userd">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserSex" Type="Int32" />
+    <Property Name="UserPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SalesmanEmail" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SalesmanVX" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserLoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Role" Type="Int32" />
+    <Property Name="UState" Type="Int32" />
+    <NavigationProperty Name="LCollection" Relationship="Self.FK__LCollecti__UserI__3F466844" FromRole="Userd" ToRole="LCollection" />
+    <NavigationProperty Name="Lease" Relationship="Self.FK__Lease__UserID__2B3F6F97" FromRole="Userd" ToRole="Lease" />
+    <NavigationProperty Name="SCollection" Relationship="Self.FK__SCollecti__UserI__267ABA7A" FromRole="Userd" ToRole="SCollection" />
+    <NavigationProperty Name="Sell" Relationship="Self.FK__Sell__UserID__1920BF5C" FromRole="Userd" ToRole="Sell" />
+  </EntityType>
+  <Association Name="FK__Facilitie__Lease__38996AB5">
+    <End Role="Lease" Type="Self.Lease" Multiplicity="0..1" />
+    <End Role="Facilities" Type="Self.Facilities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lease">
+        <PropertyRef Name="LeaseID" />
+      </Principal>
+      <Dependent Role="Facilities">
+        <PropertyRef Name="LeaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LCollecti__Lease__3E52440B">
+    <End Role="Lease" Type="Self.Lease" Multiplicity="0..1" />
+    <End Role="LCollection" Type="Self.LCollection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lease">
+        <PropertyRef Name="LeaseID" />
+      </Principal>
+      <Dependent Role="LCollection">
+        <PropertyRef Name="LeaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LCollecti__UserI__3F466844">
+    <End Role="Userd" Type="Self.Userd" Multiplicity="0..1" />
+    <End Role="LCollection" Type="Self.LCollection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Userd">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="LCollection">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Lease__SalesmanI__2C3393D0">
+    <End Role="Salesman" Type="Self.Salesman" Multiplicity="0..1" />
+    <End Role="Lease" Type="Self.Lease" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Salesman">
+        <PropertyRef Name="SalesmanID" />
+      </Principal>
+      <Dependent Role="Lease">
+        <PropertyRef Name="SalesmanID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Lease__UserID__2B3F6F97">
+    <End Role="Userd" Type="Self.Userd" Multiplicity="0..1" />
+    <End Role="Lease" Type="Self.Lease" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Userd">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Lease">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LImg__LeaseID__3B75D760">
+    <End Role="Lease" Type="Self.Lease" Multiplicity="0..1" />
+    <End Role="LImg" Type="Self.LImg" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lease">
+        <PropertyRef Name="LeaseID" />
+      </Principal>
+      <Dependent Role="LImg">
+        <PropertyRef Name="LeaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sell__SalesmanID__1A14E395">
+    <End Role="Salesman" Type="Self.Salesman" Multiplicity="0..1" />
+    <End Role="Sell" Type="Self.Sell" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Salesman">
+        <PropertyRef Name="SalesmanID" />
+      </Principal>
+      <Dependent Role="Sell">
+        <PropertyRef Name="SalesmanID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SCollecti__SellI__25869641">
+    <End Role="Sell" Type="Self.Sell" Multiplicity="0..1" />
+    <End Role="SCollection" Type="Self.SCollection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sell">
+        <PropertyRef Name="SellID" />
+      </Principal>
+      <Dependent Role="SCollection">
+        <PropertyRef Name="SellID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SCollecti__UserI__267ABA7A">
+    <End Role="Userd" Type="Self.Userd" Multiplicity="0..1" />
+    <End Role="SCollection" Type="Self.SCollection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Userd">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="SCollection">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sell__UserID__1920BF5C">
+    <End Role="Userd" Type="Self.Userd" Multiplicity="0..1" />
+    <End Role="Sell" Type="Self.Sell" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Userd">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Sell">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SImg__SellID__22AA2996">
+    <End Role="Sell" Type="Self.Sell" Multiplicity="0..1" />
+    <End Role="SImg" Type="Self.SImg" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sell">
+        <PropertyRef Name="SellID" />
+      </Principal>
+      <Dependent Role="SImg">
+        <PropertyRef Name="SellID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transacti__SellI__1FCDBCEB">
+    <End Role="Sell" Type="Self.Sell" Multiplicity="0..1" />
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sell">
+        <PropertyRef Name="SellID" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="SellID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HouseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Facilities" EntityType="Self.Facilities" />
+    <EntitySet Name="LCollection" EntityType="Self.LCollection" />
+    <EntitySet Name="Lease" EntityType="Self.Lease" />
+    <EntitySet Name="LImg" EntityType="Self.LImg" />
+    <EntitySet Name="Salesman" EntityType="Self.Salesman" />
+    <EntitySet Name="SCollection" EntityType="Self.SCollection" />
+    <EntitySet Name="Sell" EntityType="Self.Sell" />
+    <EntitySet Name="SImg" EntityType="Self.SImg" />
+    <EntitySet Name="Transactions" EntityType="Self.Transactions" />
+    <EntitySet Name="Userd" EntityType="Self.Userd" />
+    <AssociationSet Name="FK__Facilitie__Lease__38996AB5" Association="Self.FK__Facilitie__Lease__38996AB5">
+      <End Role="Lease" EntitySet="Lease" />
+      <End Role="Facilities" EntitySet="Facilities" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LCollecti__Lease__3E52440B" Association="Self.FK__LCollecti__Lease__3E52440B">
+      <End Role="Lease" EntitySet="Lease" />
+      <End Role="LCollection" EntitySet="LCollection" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LCollecti__UserI__3F466844" Association="Self.FK__LCollecti__UserI__3F466844">
+      <End Role="Userd" EntitySet="Userd" />
+      <End Role="LCollection" EntitySet="LCollection" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Lease__SalesmanI__2C3393D0" Association="Self.FK__Lease__SalesmanI__2C3393D0">
+      <End Role="Salesman" EntitySet="Salesman" />
+      <End Role="Lease" EntitySet="Lease" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Lease__UserID__2B3F6F97" Association="Self.FK__Lease__UserID__2B3F6F97">
+      <End Role="Userd" EntitySet="Userd" />
+      <End Role="Lease" EntitySet="Lease" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LImg__LeaseID__3B75D760" Association="Self.FK__LImg__LeaseID__3B75D760">
+      <End Role="Lease" EntitySet="Lease" />
+      <End Role="LImg" EntitySet="LImg" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sell__SalesmanID__1A14E395" Association="Self.FK__Sell__SalesmanID__1A14E395">
+      <End Role="Salesman" EntitySet="Salesman" />
+      <End Role="Sell" EntitySet="Sell" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SCollecti__SellI__25869641" Association="Self.FK__SCollecti__SellI__25869641">
+      <End Role="Sell" EntitySet="Sell" />
+      <End Role="SCollection" EntitySet="SCollection" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SCollecti__UserI__267ABA7A" Association="Self.FK__SCollecti__UserI__267ABA7A">
+      <End Role="Userd" EntitySet="Userd" />
+      <End Role="SCollection" EntitySet="SCollection" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sell__UserID__1920BF5C" Association="Self.FK__Sell__UserID__1920BF5C">
+      <End Role="Userd" EntitySet="Userd" />
+      <End Role="Sell" EntitySet="Sell" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SImg__SellID__22AA2996" Association="Self.FK__SImg__SellID__22AA2996">
+      <End Role="Sell" EntitySet="Sell" />
+      <End Role="SImg" EntitySet="SImg" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transacti__SellI__1FCDBCEB" Association="Self.FK__Transacti__SellI__1FCDBCEB">
+      <End Role="Sell" EntitySet="Sell" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <EntitySet Name="Selling" EntityType="HouseModel.Selling" />
+    <AssociationSet Name="FK__Selling__SellID__1DE57479" Association="HouseModel.FK__Selling__SellID__1DE57479">
+      <End Role="Sell" EntitySet="Sell" />
+      <End Role="Selling" EntitySet="Selling" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Selling">
+    <Key>
+      <PropertyRef Name="SellingID" />
+    </Key>
+    <Property Name="SellingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SellingTraffic" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SellingInfrastructure" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SellingTaxation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SellingIntroduce" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SellingVillage" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SellID" Type="Int32" />
+    <NavigationProperty Name="Sell" Relationship="HouseModel.FK__Selling__SellID__1DE57479" FromRole="Selling" ToRole="Sell" />
+  </EntityType>
+  <Association Name="FK__Selling__SellID__1DE57479">
+    <End Type="HouseModel.Sell" Role="Sell" Multiplicity="0..1" />
+    <End Type="HouseModel.Selling" Role="Selling" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sell">
+        <PropertyRef Name="SellID" />
+      </Principal>
+      <Dependent Role="Selling">
+        <PropertyRef Name="SellID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

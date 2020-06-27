@@ -61,6 +61,7 @@ UState int default(0),--状态，0默认存在
 --出售卖点表
 create table Selling
 (
+SellingID int identity(1,1) primary key not null,--编号
 SellingTraffic nvarchar(200),--交通出行
 SellingInfrastructure nvarchar(200),--周边配套
 SellingTaxation nvarchar(200),--税费服务
@@ -271,3 +272,4 @@ insert into LImg values(1,'a1.jpg'),(1,'a2.jpg'),(1,'a3.jpg'),(1,'a4.jpg'),(1,'a
 (8,'i1.jpg'),(8,'i2.jpg'),(8,'i3.jpg'),(8,'i4.jpg'),(8,'i5.jpg')
 
 select * from Lease
+select * from Selling where SellID=1

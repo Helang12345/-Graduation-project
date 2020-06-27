@@ -1,0 +1,12 @@
+E:\毕业项目\毕业设计代码与数据库\House\Models\bin\Debug\Models.dll.config
+E:\毕业项目\毕业设计代码与数据库\House\Models\bin\Debug\Models.dll
+E:\毕业项目\毕业设计代码与数据库\House\Models\bin\Debug\Models.pdb
+E:\毕业项目\毕业设计代码与数据库\House\Models\bin\Debug\EntityFramework.dll
+E:\毕业项目\毕业设计代码与数据库\House\Models\bin\Debug\EntityFramework.SqlServer.dll
+E:\毕业项目\毕业设计代码与数据库\House\Models\bin\Debug\EntityFramework.xml
+E:\毕业项目\毕业设计代码与数据库\House\Models\bin\Debug\EntityFramework.SqlServer.xml
+E:\毕业项目\毕业设计代码与数据库\House\Models\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\毕业项目\毕业设计代码与数据库\House\Models\obj\Debug\Models.csproj.CopyComplete
+E:\毕业项目\毕业设计代码与数据库\House\Models\obj\Debug\Models.dll
+E:\毕业项目\毕业设计代码与数据库\House\Models\obj\Debug\Models.pdb
+E:\毕业项目\毕业设计代码与数据库\House\Models\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll

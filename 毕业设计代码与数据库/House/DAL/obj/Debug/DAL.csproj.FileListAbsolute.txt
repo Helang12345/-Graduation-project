@@ -1,0 +1,14 @@
+E:\毕业项目\毕业设计代码与数据库\House\DAL\bin\Debug\DAL.dll
+E:\毕业项目\毕业设计代码与数据库\House\DAL\bin\Debug\DAL.pdb
+E:\毕业项目\毕业设计代码与数据库\House\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+E:\毕业项目\毕业设计代码与数据库\House\DAL\obj\Debug\DAL.dll
+E:\毕业项目\毕业设计代码与数据库\House\DAL\obj\Debug\DAL.pdb
+E:\毕业项目\毕业设计代码与数据库\House\DAL\bin\Debug\Models.dll
+E:\毕业项目\毕业设计代码与数据库\House\DAL\bin\Debug\EntityFramework.dll
+E:\毕业项目\毕业设计代码与数据库\House\DAL\bin\Debug\Models.pdb
+E:\毕业项目\毕业设计代码与数据库\House\DAL\bin\Debug\Models.dll.config
+E:\毕业项目\毕业设计代码与数据库\House\DAL\bin\Debug\EntityFramework.xml
+E:\毕业项目\毕业设计代码与数据库\House\DAL\obj\Debug\DAL.csproj.CopyComplete
+E:\毕业项目\毕业设计代码与数据库\House\DAL\bin\Debug\DAL.dll.config
+E:\毕业项目\毕业设计代码与数据库\House\DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\毕业项目\毕业设计代码与数据库\House\DAL\bin\Debug\EntityFramework.SqlServer.xml

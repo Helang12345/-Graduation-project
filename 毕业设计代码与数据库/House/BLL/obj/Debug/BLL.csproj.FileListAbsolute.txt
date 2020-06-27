@@ -1,0 +1,14 @@
+E:\毕业项目\毕业设计代码与数据库\House\BLL\bin\Debug\BLL.dll
+E:\毕业项目\毕业设计代码与数据库\House\BLL\bin\Debug\BLL.pdb
+E:\毕业项目\毕业设计代码与数据库\House\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+E:\毕业项目\毕业设计代码与数据库\House\BLL\obj\Debug\BLL.dll
+E:\毕业项目\毕业设计代码与数据库\House\BLL\obj\Debug\BLL.pdb
+E:\毕业项目\毕业设计代码与数据库\House\BLL\bin\Debug\DAL.dll
+E:\毕业项目\毕业设计代码与数据库\House\BLL\bin\Debug\Models.dll
+E:\毕业项目\毕业设计代码与数据库\House\BLL\bin\Debug\EntityFramework.dll
+E:\毕业项目\毕业设计代码与数据库\House\BLL\bin\Debug\DAL.pdb
+E:\毕业项目\毕业设计代码与数据库\House\BLL\bin\Debug\Models.pdb
+E:\毕业项目\毕业设计代码与数据库\House\BLL\bin\Debug\Models.dll.config
+E:\毕业项目\毕业设计代码与数据库\House\BLL\bin\Debug\EntityFramework.xml
+E:\毕业项目\毕业设计代码与数据库\House\BLL\obj\Debug\BLL.csproj.CopyComplete
+E:\毕业项目\毕业设计代码与数据库\House\BLL\bin\Debug\DAL.dll.config

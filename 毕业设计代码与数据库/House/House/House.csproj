@@ -47,10 +47,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -236,6 +244,96 @@
     <Content Include="Content\img\properties\small-properties-1.jpg" />
     <Content Include="Content\img\properties\small-properties-2.jpg" />
     <Content Include="Content\img\properties\small-properties-3.jpg" />
+    <Content Include="Content\Renting\a1.jpg" />
+    <Content Include="Content\Renting\a2.jpg" />
+    <Content Include="Content\Renting\a3.jpg" />
+    <Content Include="Content\Renting\a4.jpg" />
+    <Content Include="Content\Renting\b1.jpg" />
+    <Content Include="Content\Renting\b2.jpg" />
+    <Content Include="Content\Renting\b3.jpg" />
+    <Content Include="Content\Renting\b4.jpg" />
+    <Content Include="Content\Renting\b5.jpg" />
+    <Content Include="Content\Renting\c1.jpg" />
+    <Content Include="Content\Renting\c2.jpg" />
+    <Content Include="Content\Renting\c3.jpg" />
+    <Content Include="Content\Renting\c4.jpg" />
+    <Content Include="Content\Renting\c5.jpg" />
+    <Content Include="Content\Renting\d1.jpg" />
+    <Content Include="Content\Renting\d2.jpg" />
+    <Content Include="Content\Renting\d3.jpg" />
+    <Content Include="Content\Renting\d4.jpg" />
+    <Content Include="Content\Renting\e2.jpg" />
+    <Content Include="Content\Renting\e1.jpg" />
+    <Content Include="Content\Renting\e3.jpg" />
+    <Content Include="Content\Renting\e4.jpg" />
+    <Content Include="Content\Renting\e5.jpg" />
+    <Content Include="Content\Renting\f1.jpg" />
+    <Content Include="Content\Renting\f2.jpg" />
+    <Content Include="Content\Renting\f3.jpg" />
+    <Content Include="Content\Renting\f4.jpg" />
+    <Content Include="Content\Renting\f5.jpg" />
+    <Content Include="Content\Renting\g1.jpg" />
+    <Content Include="Content\Renting\g2.jpg" />
+    <Content Include="Content\Renting\g3.jpg" />
+    <Content Include="Content\Renting\g4.jpg" />
+    <Content Include="Content\Renting\g5.jpg" />
+    <Content Include="Content\Renting\h1.jpg" />
+    <Content Include="Content\Renting\h2.jpg" />
+    <Content Include="Content\Renting\h3.jpg" />
+    <Content Include="Content\Renting\h4.jpg" />
+    <Content Include="Content\Renting\h5.jpg" />
+    <Content Include="Content\Renting\i1.jpg" />
+    <Content Include="Content\Renting\i2.jpg" />
+    <Content Include="Content\Renting\i3.jpg" />
+    <Content Include="Content\Renting\i4.jpg" />
+    <Content Include="Content\Renting\i5.jpg" />
+    <Content Include="Content\Renting\i6.jpg" />
+    <Content Include="Content\Renting\waneng1.jpg" />
+    <Content Include="Content\Selling\a1.jpg" />
+    <Content Include="Content\Selling\a2.jpg" />
+    <Content Include="Content\Selling\a3.jpg" />
+    <Content Include="Content\Selling\a4.jpg" />
+    <Content Include="Content\Selling\a5.jpg" />
+    <Content Include="Content\Selling\b1.jpg" />
+    <Content Include="Content\Selling\b2.jpg" />
+    <Content Include="Content\Selling\b3.jpg" />
+    <Content Include="Content\Selling\b4.jpg" />
+    <Content Include="Content\Selling\b5.jpg" />
+    <Content Include="Content\Selling\c1.jpg" />
+    <Content Include="Content\Selling\c2.jpg" />
+    <Content Include="Content\Selling\c3.jpg" />
+    <Content Include="Content\Selling\c4.jpg" />
+    <Content Include="Content\Selling\c5.jpg" />
+    <Content Include="Content\Selling\d1.jpg" />
+    <Content Include="Content\Selling\d2.jpg" />
+    <Content Include="Content\Selling\d3.jpg" />
+    <Content Include="Content\Selling\d4.jpg" />
+    <Content Include="Content\Selling\d5.jpg" />
+    <Content Include="Content\Selling\e1.jpg" />
+    <Content Include="Content\Selling\e2.jpg" />
+    <Content Include="Content\Selling\e3.jpg" />
+    <Content Include="Content\Selling\e4.jpg" />
+    <Content Include="Content\Selling\e5.jpg" />
+    <Content Include="Content\Selling\f1.jpg" />
+    <Content Include="Content\Selling\f2.jpg" />
+    <Content Include="Content\Selling\f3.jpg" />
+    <Content Include="Content\Selling\f4.jpg" />
+    <Content Include="Content\Selling\f5.jpg" />
+    <Content Include="Content\Selling\g1.jpg" />
+    <Content Include="Content\Selling\g2.png" />
+    <Content Include="Content\Selling\g3.jpg" />
+    <Content Include="Content\Selling\g4.jpg" />
+    <Content Include="Content\Selling\g5.jpg" />
+    <Content Include="Content\Selling\h1.jpg" />
+    <Content Include="Content\Selling\h2.png" />
+    <Content Include="Content\Selling\h3.png" />
+    <Content Include="Content\Selling\h4.jpg" />
+    <Content Include="Content\Selling\h4.png" />
+    <Content Include="Content\Selling\i1.jpg" />
+    <Content Include="Content\Selling\i2.png" />
+    <Content Include="Content\Selling\i3.png" />
+    <Content Include="Content\Selling\i4.png" />
+    <Content Include="Content\Selling\i5.jpg" />
     <Content Include="Content\shouye.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\flaticon\font\flaticon.css" />
@@ -454,6 +552,21 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{2685e790-e90a-460f-9957-ccffc9502cda}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{3bd4d8c2-245c-4c35-8309-041690cd6ae7}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{1ede26ee-3ddd-4c5e-9432-2dc088b597ce}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

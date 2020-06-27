@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cec86ba856734d8eb8a0e8162fe8c1e7" Name="Diagram1">
+        <EntityTypeShape EntityType="HouseModel.Facilities" Width="1.5" PointX="8.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HouseModel.LCollection" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HouseModel.Lease" Width="1.5" PointX="6" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HouseModel.LImg" Width="1.5" PointX="8.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HouseModel.Salesman" Width="1.5" PointX="0.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="HouseModel.SCollection" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HouseModel.Sell" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HouseModel.SImg" Width="1.5" PointX="5.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HouseModel.Transactions" Width="1.5" PointX="5.25" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HouseModel.Userd" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <AssociationConnector Association="HouseModel.FK__Facilitie__Lease__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="HouseModel.FK__LCollecti__Lease__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="HouseModel.FK__LCollecti__UserI__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="HouseModel.FK__Lease__SalesmanI__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="HouseModel.FK__Lease__UserID__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="HouseModel.FK__LImg__LeaseID__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="HouseModel.FK__Sell__SalesmanID__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="HouseModel.FK__SCollecti__SellI__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="HouseModel.FK__SCollecti__UserI__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="HouseModel.FK__Sell__UserID__1920BF5C" ManuallyRouted="false" />
+        <AssociationConnector Association="HouseModel.FK__SImg__SellID__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="HouseModel.FK__Transacti__SellI__1FCDBCEB" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HouseModel.Selling" Width="1.5" PointX="5.25" PointY="21.5" />
+        <AssociationConnector Association="HouseModel.FK__Selling__SellID__1DE57479" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

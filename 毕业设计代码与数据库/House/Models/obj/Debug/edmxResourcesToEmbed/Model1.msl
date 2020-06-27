@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HouseModelStoreContainer" CdmEntityContainer="HouseEntities">
+    <EntitySetMapping Name="Facilities">
+      <EntityTypeMapping TypeName="HouseModel.Facilities">
+        <MappingFragment StoreEntitySet="Facilities">
+          <ScalarProperty Name="FacilitiesID" ColumnName="FacilitiesID" />
+          <ScalarProperty Name="FacilitiesWashing" ColumnName="FacilitiesWashing" />
+          <ScalarProperty Name="Facilitiesairconditioner" ColumnName="Facilitiesairconditioner" />
+          <ScalarProperty Name="Facilitieswardrobe" ColumnName="Facilitieswardrobe" />
+          <ScalarProperty Name="FacilitiesTV" ColumnName="FacilitiesTV" />
+          <ScalarProperty Name="FacilitiesRefrigerator" ColumnName="FacilitiesRefrigerator" />
+          <ScalarProperty Name="FacilitiesBed" ColumnName="FacilitiesBed" />
+          <ScalarProperty Name="FacilitiesWIFI" ColumnName="FacilitiesWIFI" />
+          <ScalarProperty Name="FacilitiesNaturalgas" ColumnName="FacilitiesNaturalgas" />
+          <ScalarProperty Name="FacilitiesHeating" ColumnName="FacilitiesHeating" />
+          <ScalarProperty Name="LeaseID" ColumnName="LeaseID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LCollection">
+      <EntityTypeMapping TypeName="HouseModel.LCollection">
+        <MappingFragment StoreEntitySet="LCollection">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="LeaseID" ColumnName="LeaseID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lease">
+      <EntityTypeMapping TypeName="HouseModel.Lease">
+        <MappingFragment StoreEntitySet="Lease">
+          <ScalarProperty Name="LeaseID" ColumnName="LeaseID" />
+          <ScalarProperty Name="LeaseAddress" ColumnName="LeaseAddress" />
+          <ScalarProperty Name="LeaseVillage" ColumnName="LeaseVillage" />
+          <ScalarProperty Name="LeaseFloor" ColumnName="LeaseFloor" />
+          <ScalarProperty Name="LeaseArea" ColumnName="LeaseArea" />
+          <ScalarProperty Name="LeaseMaintain" ColumnName="LeaseMaintain" />
+          <ScalarProperty Name="LeaseHStructure" ColumnName="LeaseHStructure" />
+          <ScalarProperty Name="LeasePrice" ColumnName="LeasePrice" />
+          <ScalarProperty Name="LeaseLease" ColumnName="LeaseLease" />
+          <ScalarProperty Name="LeaseCheckin" ColumnName="LeaseCheckin" />
+          <ScalarProperty Name="LeaseParkinglot" ColumnName="LeaseParkinglot" />
+          <ScalarProperty Name="LeaseOrientation" ColumnName="LeaseOrientation" />
+          <ScalarProperty Name="LeaseElevator" ColumnName="LeaseElevator" />
+          <ScalarProperty Name="LeaseWaterint" ColumnName="LeaseWaterint" />
+          <ScalarProperty Name="LeaseElectric" ColumnName="LeaseElectric" />
+          <ScalarProperty Name="LeaseGas" ColumnName="LeaseGas" />
+          <ScalarProperty Name="LeaseHeating" ColumnName="LeaseHeating" />
+          <ScalarProperty Name="LeaseLeaseTerm" ColumnName="LeaseLeaseTerm" />
+          <ScalarProperty Name="LeaseTime" ColumnName="LeaseTime" />
+          <ScalarProperty Name="TransactionStatus" ColumnName="TransactionStatus" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="SalesmanID" ColumnName="SalesmanID" />
+          <ScalarProperty Name="UState" ColumnName="UState" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LImg">
+      <EntityTypeMapping TypeName="HouseModel.LImg">
+        <MappingFragment StoreEntitySet="LImg">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="LeaseID" ColumnName="LeaseID" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salesman">
+      <EntityTypeMapping TypeName="HouseModel.Salesman">
+        <MappingFragment StoreEntitySet="Salesman">
+          <ScalarProperty Name="SalesmanID" ColumnName="SalesmanID" />
+          <ScalarProperty Name="SalesmanName" ColumnName="SalesmanName" />
+          <ScalarProperty Name="SalesmanSex" ColumnName="SalesmanSex" />
+          <ScalarProperty Name="SalesmanPhone" ColumnName="SalesmanPhone" />
+          <ScalarProperty Name="SalesmanEmail" ColumnName="SalesmanEmail" />
+          <ScalarProperty Name="SalesmanVX" ColumnName="SalesmanVX" />
+          <ScalarProperty Name="SalesmanLoginName" ColumnName="SalesmanLoginName" />
+          <ScalarProperty Name="SalesmanPassword" ColumnName="SalesmanPassword" />
+          <ScalarProperty Name="SalesmanPhoto" ColumnName="SalesmanPhoto" />
+          <ScalarProperty Name="UState" ColumnName="UState" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SCollection">
+      <EntityTypeMapping TypeName="HouseModel.SCollection">
+        <MappingFragment StoreEntitySet="SCollection">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SellID" ColumnName="SellID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sell">
+      <EntityTypeMapping TypeName="HouseModel.Sell">
+        <MappingFragment StoreEntitySet="Sell">
+          <ScalarProperty Name="SellID" ColumnName="SellID" />
+          <ScalarProperty Name="SellAddress" ColumnName="SellAddress" />
+          <ScalarProperty Name="SellVillage" ColumnName="SellVillage" />
+          <ScalarProperty Name="SellFloor" ColumnName="SellFloor" />
+          <ScalarProperty Name="SellArea" ColumnName="SellArea" />
+          <ScalarProperty Name="SellAreaTo" ColumnName="SellAreaTo" />
+          <ScalarProperty Name="SellPrice" ColumnName="SellPrice" />
+          <ScalarProperty Name="SellPriceTo" ColumnName="SellPriceTo" />
+          <ScalarProperty Name="SellAType" ColumnName="SellAType" />
+          <ScalarProperty Name="SellBStructure" ColumnName="SellBStructure" />
+          <ScalarProperty Name="SellHStructurechar" ColumnName="SellHStructurechar" />
+          <ScalarProperty Name="SellRenovation" ColumnName="SellRenovation" />
+          <ScalarProperty Name="SellScale" ColumnName="SellScale" />
+          <ScalarProperty Name="SellHeating" ColumnName="SellHeating" />
+          <ScalarProperty Name="SellOrientation" ColumnName="SellOrientation" />
+          <ScalarProperty Name="SellTime" ColumnName="SellTime" />
+          <ScalarProperty Name="TransactionStatus" ColumnName="TransactionStatus" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="SalesmanID" ColumnName="SalesmanID" />
+          <ScalarProperty Name="UState" ColumnName="UState" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SImg">
+      <EntityTypeMapping TypeName="HouseModel.SImg">
+        <MappingFragment StoreEntitySet="SImg">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SellID" ColumnName="SellID" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="HouseModel.Transactions">
+        <MappingFragment StoreEntitySet="Transactions">
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+          <ScalarProperty Name="TransactionTime" ColumnName="TransactionTime" />
+          <ScalarProperty Name="TransactionCommodity" ColumnName="TransactionCommodity" />
+          <ScalarProperty Name="TransactionOldTransaction" ColumnName="TransactionOldTransaction" />
+          <ScalarProperty Name="TransactionPurpose" ColumnName="TransactionPurpose" />
+          <ScalarProperty Name="TransactionYears" ColumnName="TransactionYears" />
+          <ScalarProperty Name="TransactionPropertyright" ColumnName="TransactionPropertyright" />
+          <ScalarProperty Name="TransactionMortgage" ColumnName="TransactionMortgage" />
+          <ScalarProperty Name="TransactionPOC" ColumnName="TransactionPOC" />
+          <ScalarProperty Name="SellID" ColumnName="SellID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Userd">
+      <EntityTypeMapping TypeName="HouseModel.Userd">
+        <MappingFragment StoreEntitySet="Userd">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserSex" ColumnName="UserSex" />
+          <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+          <ScalarProperty Name="SalesmanEmail" ColumnName="SalesmanEmail" />
+          <ScalarProperty Name="SalesmanVX" ColumnName="SalesmanVX" />
+          <ScalarProperty Name="UserLoginName" ColumnName="UserLoginName" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="UState" ColumnName="UState" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Selling">
+      <EntityTypeMapping TypeName="HouseModel.Selling">
+        <MappingFragment StoreEntitySet="Selling">
+          <ScalarProperty Name="SellID" ColumnName="SellID" />
+          <ScalarProperty Name="SellingVillage" ColumnName="SellingVillage" />
+          <ScalarProperty Name="SellingIntroduce" ColumnName="SellingIntroduce" />
+          <ScalarProperty Name="SellingTaxation" ColumnName="SellingTaxation" />
+          <ScalarProperty Name="SellingInfrastructure" ColumnName="SellingInfrastructure" />
+          <ScalarProperty Name="SellingTraffic" ColumnName="SellingTraffic" />
+          <ScalarProperty Name="SellingID" ColumnName="SellingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
