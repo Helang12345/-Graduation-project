@@ -127,6 +127,7 @@
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\LeaseController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\SaleController.cs" />
     <Compile Include="Controllers\SellingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -432,6 +433,12 @@
     <Content Include="Views\Business\Property.cshtml" />
     <Content Include="Views\Business\Follow.cshtml" />
     <Content Include="Views\Business\LIndex.cshtml" />
+    <Content Include="Views\Shared\_Sale.cshtml" />
+    <Content Include="Views\Sale\Information.cshtml" />
+    <Content Include="Views\Sale\EditSelling.cshtml" />
+    <Content Include="Views\Sale\EditLease.cshtml" />
+    <Content Include="Views\Sale\SOrder.cshtml" />
+    <Content Include="Views\Sale\LOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

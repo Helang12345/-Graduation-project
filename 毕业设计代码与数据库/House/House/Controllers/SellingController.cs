@@ -11,11 +11,7 @@ namespace House.Controllers
     {
         //初代出售界面
         //// GET: Selling
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
-        public ActionResult Details()
+        public ActionResult Index()
         {
             return View();
         }

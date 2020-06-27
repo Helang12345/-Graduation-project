@@ -4,25 +4,25 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-//销售后台
 namespace House.Controllers
 {
-    public class BusinessController : Controller
+    public class SaleController : Controller
     {
-        // GET: Business
+        // GET: Sale
         /// <summary>
-        /// 添加订单（出售）
+        /// 订单管理
         /// </summary>
         /// <returns></returns>
-        public ActionResult Index()
+        public ActionResult SOrder()
         {
             return View();
         }
+        // GET: Sale
         /// <summary>
-        /// 添加订单（出租）
+        /// 订单管理
         /// </summary>
         /// <returns></returns>
-        public ActionResult LIndex()
+        public ActionResult LOrder()
         {
             return View();
         }
@@ -35,18 +35,18 @@ namespace House.Controllers
             return View();
         }
         /// <summary>
-        /// 我的财产
+        /// 修改售房信息
         /// </summary>
         /// <returns></returns>
-        public ActionResult Property()
+        public ActionResult EditSelling()
         {
             return View();
         }
         /// <summary>
-        /// 我的关注
+        /// 修改租房信息
         /// </summary>
         /// <returns></returns>
-        public ActionResult Follow()
+        public ActionResult EditLease()
         {
             return View();
         }

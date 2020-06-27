@@ -1,0 +1,238 @@
+﻿
+@{
+    ViewBag.Title = "EditSelling";
+    Layout = "~/Views/Shared/_Sale.cshtml";
+}
+
+
+<div class="submit-address dashboard-list">
+    <h4 class="bg-grea-3">发布售房信息</h4>
+    <form method="GET">
+        <h4 class="bg-grea-3">基本信息</h4>
+        <div class="search-contents-sidebar">
+            <div class="row pad-2">
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <label>所在城市</label>
+                        <input type="text" class="input-text" name="your name" placeholder="城市名称">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <label>所在小区</label>
+                        <input type="text" class="input-text" name="your name" placeholder="小区名">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <label>所在楼层</label>
+                        <input type="text" class="input-text" name="your name" placeholder="？层">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <label>房屋面积</label>
+                        <input type="text" class="input-text" name="your name" placeholder="平米">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <label>实际面积</label>
+                        <input type="text" class="input-text" name="your name" placeholder="平米">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <label>价格</label>
+                        <input type="text" class="input-text" name="your name" placeholder="每平">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <label>总价格</label>
+                        <input type="text" class="input-text" name="your name" placeholder="万元">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <label>建筑类型</label>
+                        <input type="text" class="input-text" name="your name" placeholder="板塔结构">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <label>建筑结构</label>
+                        <input type="text" class="input-text" name="your name" placeholder="钢混结构">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <label>房屋类型</label>
+                        <input type="text" class="input-text" name="your name" placeholder="？室？厅">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <label>装修</label>
+                        <select class="selectpicker search-fields" name="choose-state">
+                            <option>精装</option>
+                            <option>毛坯</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <label>梯户情况</label>
+                        <input type="text" class="input-text" name="your name" placeholder="？梯？户">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <label>供暖方式</label>
+                        <input type="text" class="input-text" name="your name" placeholder="集中供暖">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <label>房屋</label>
+                        <select class="selectpicker search-fields" name="choose-state">
+                            <option>坐北朝南</option>
+                            <option>坐南朝北</option>
+                            <option>坐东朝西</option>
+                            <option>坐西朝东</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <label>看房时间</label>
+                        <select class="selectpicker search-fields" name="choose-state">
+                            <option>上午（8:00-12：00）</option>
+                            <option>下午（14：00-18:00）</option>
+                            <option>晚上（19:30-22:00）</option>
+                            <option>全天（8:00-22:00）</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h4 class="bg-grea-3">交易属性</h4>
+        <div class="row pad-2">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="form-group">
+                    <label>房屋年限</label>
+                    <input type="text" class="input-text" name="address" placeholder="默认为70-以住年限">
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="form-group">
+                    <label>上架时间</label>
+                    <input type="text" class="input-text" name="zip" placeholder="年/月/日">
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="form-group">
+                    <label>上次交易时间</label>
+                    <input type="text" class="input-text" name="zip" placeholder="年/月/日">
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="form-group">
+                    <label>交易权属（是否为商品房）</label>
+                    <select class="selectpicker search-fields" name="choose-state">
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="form-group">
+                    <label>房屋用途</label>
+                    <select class="selectpicker search-fields" name="choose-state">
+                        <option>住房</option>
+                        <option>店铺</option>
+                        <option>办公</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="form-group">
+                    <label>是否抵押</label>
+                    <select class="selectpicker search-fields" name="choose-state">
+                        <option>是</option>
+                        <option>否</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="form-group">
+                    <label>房本备份</label>
+                    <select class="selectpicker search-fields" name="choose-state">
+                        <option>已备份</option>
+                        <option>未备份</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="form-group">
+                    <label>产权所有人</label>
+                    <input type="text" class="input-text" name="zip" placeholder="姓名">
+                </div>
+            </div>
+        </div>
+        <h4 class="bg-grea-3">上传图片</h4>
+        <div class="row pad-20">
+            <div class="col-lg-12">
+                <div id="myDropZone" class="dropzone dropzone-design">
+                    <div class="dz-default dz-message"><span>拖拽上传</span></div>
+                </div>
+            </div>
+        </div>
+        <h4 class="bg-grea-3">交通出行</h4>
+        <div class="row pad-20">
+            <div class="col-lg-12">
+                <textarea class="input-text" name="message" placeholder="请详细介绍"></textarea>
+            </div>
+        </div>
+        <h4 class="bg-grea-3">周边配套</h4>
+        <div class="row pad-20">
+            <div class="col-lg-12">
+                <textarea class="input-text" name="message" placeholder="请详细介绍"></textarea>
+            </div>
+        </div>
+        <h4 class="bg-grea-3">税费服务</h4>
+        <div class="row pad-20">
+            <div class="col-lg-12">
+                <textarea class="input-text" name="message" placeholder="请详细介绍"></textarea>
+            </div>
+        </div>
+        <h4 class="bg-grea-3">户型介绍</h4>
+        <div class="row pad-20">
+            <div class="col-lg-12">
+                <textarea class="input-text" name="message" placeholder="请详细介绍"></textarea>
+            </div>
+        </div>
+        <h4 class="bg-grea-3">小区介绍</h4>
+        <div class="row pad-20">
+            <div class="col-lg-12">
+                <textarea class="input-text" name="message" placeholder="请详细介绍"></textarea>
+            </div>
+        </div>
+        <h4 class="bg-grea-3">交易状态</h4>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="form-group">
+                <label>交易状态</label>
+                <select class="selectpicker search-fields" name="choose-state">
+                    <option>待售</option>
+                    <option>出售</option>
+                    <option>下架</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <input type="button" class="btn btn-md button-theme" value="确定修改">
+        </div>
+    </form>
+</div>
+
+
