@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="HouseModelStoreContainer" CdmEntityContainer="HouseEntities">
+  <EntityContainerMapping StorageEntityContainer="HouseModelStoreContainer" CdmEntityContainer="HouseEntities1">
     <EntitySetMapping Name="Facilities">
       <EntityTypeMapping TypeName="HouseModel.Facilities">
         <MappingFragment StoreEntitySet="Facilities">
@@ -116,6 +116,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Selling">
+      <EntityTypeMapping TypeName="HouseModel.Selling">
+        <MappingFragment StoreEntitySet="Selling">
+          <ScalarProperty Name="SellingID" ColumnName="SellingID" />
+          <ScalarProperty Name="SellingTraffic" ColumnName="SellingTraffic" />
+          <ScalarProperty Name="SellingInfrastructure" ColumnName="SellingInfrastructure" />
+          <ScalarProperty Name="SellingTaxation" ColumnName="SellingTaxation" />
+          <ScalarProperty Name="SellingIntroduce" ColumnName="SellingIntroduce" />
+          <ScalarProperty Name="SellingVillage" ColumnName="SellingVillage" />
+          <ScalarProperty Name="SellID" ColumnName="SellID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="SImg">
       <EntityTypeMapping TypeName="HouseModel.SImg">
         <MappingFragment StoreEntitySet="SImg">
@@ -154,19 +167,6 @@
           <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
           <ScalarProperty Name="Role" ColumnName="Role" />
           <ScalarProperty Name="UState" ColumnName="UState" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Selling">
-      <EntityTypeMapping TypeName="HouseModel.Selling">
-        <MappingFragment StoreEntitySet="Selling">
-          <ScalarProperty Name="SellID" ColumnName="SellID" />
-          <ScalarProperty Name="SellingVillage" ColumnName="SellingVillage" />
-          <ScalarProperty Name="SellingIntroduce" ColumnName="SellingIntroduce" />
-          <ScalarProperty Name="SellingTaxation" ColumnName="SellingTaxation" />
-          <ScalarProperty Name="SellingInfrastructure" ColumnName="SellingInfrastructure" />
-          <ScalarProperty Name="SellingTraffic" ColumnName="SellingTraffic" />
-          <ScalarProperty Name="SellingID" ColumnName="SellingID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

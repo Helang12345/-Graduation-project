@@ -31,7 +31,7 @@ namespace Models
         public string LeaseHStructure { get; set; }
         public Nullable<decimal> LeasePrice { get; set; }
         public Nullable<int> LeaseLease { get; set; }
-        public string LeaseCheckin { get; set; }
+        public Nullable<int> LeaseCheckin { get; set; }
         public Nullable<int> LeaseParkinglot { get; set; }
         public Nullable<int> LeaseOrientation { get; set; }
         public Nullable<int> LeaseElevator { get; set; }

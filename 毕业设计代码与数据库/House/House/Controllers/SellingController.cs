@@ -18,8 +18,9 @@ namespace House.Controllers
         //出售界面
         // GET: Selling
 
-        public ActionResult Index(int SellID)
+        public ActionResult Index(/*int SellID*/)
         {
+            var SellID = 1;
             ViewBag.Selling = SellingHousesBLL.OnlySelling(SellID);
             ViewBag.Only = SellingHousesBLL.Only(SellID);
             ViewBag.Tran = SellingHousesBLL.OnlyTransactions(SellID);

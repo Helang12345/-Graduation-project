@@ -13,10 +13,10 @@ namespace Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class HouseEntities : DbContext
+    public partial class HouseEntities1 : DbContext
     {
-        public HouseEntities()
-            : base("name=HouseEntities")
+        public HouseEntities1()
+            : base("name=HouseEntities1")
         {
         }
     
@@ -32,9 +32,9 @@ namespace Models
         public virtual DbSet<Salesman> Salesman { get; set; }
         public virtual DbSet<SCollection> SCollection { get; set; }
         public virtual DbSet<Sell> Sell { get; set; }
+        public virtual DbSet<Selling> Selling { get; set; }
         public virtual DbSet<SImg> SImg { get; set; }
         public virtual DbSet<Transactions> Transactions { get; set; }
         public virtual DbSet<Userd> Userd { get; set; }
-        public virtual DbSet<Selling> Selling { get; set; }
     }
 }

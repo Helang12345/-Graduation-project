@@ -24,5 +24,23 @@ namespace House.Controllers
             ViewBag.Lease = bll.LeaseSelect();
             return View() ;
         }
+
+        public ActionResult Select( int TableName,int OpenHome, int House0rientation,int Area,int Renovation) 
+        {
+            if (TableName == 1)
+            {
+               List<Sell> Selllist = bll.SelectSell(OpenHome, House0rientation, Area, Renovation);
+                Session["Selllist"] = Selllist;
+                return RedirectToAction("SellList", "Selling");
+            }
+            else  
+            {
+                List<Lease> Leaselist = bll.SelectLease(OpenHome, House0rientation, Area, Renovation);
+                Session["Leaselist"] = Leaselist;
+                return RedirectToAction("LeaseDetails", "Lease");
+            }
+
+          
+        }
     }
 }

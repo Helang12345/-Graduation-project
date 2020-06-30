@@ -9,7 +9,7 @@ namespace DAL
 {
     public class SellingHousesDAL
     {
-        static HouseEntities db = new HouseEntities();
+        static HouseEntities1 db = new HouseEntities1();
         public static List<Sell> SellsList()
         {
             return db.Sell.ToList(); ;

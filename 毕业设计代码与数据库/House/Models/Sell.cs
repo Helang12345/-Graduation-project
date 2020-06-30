@@ -18,9 +18,9 @@ namespace Models
         public Sell()
         {
             this.SCollection = new HashSet<SCollection>();
+            this.Selling = new HashSet<Selling>();
             this.SImg = new HashSet<SImg>();
             this.Transactions = new HashSet<Transactions>();
-            this.Selling = new HashSet<Selling>();
         }
     
         public int SellID { get; set; }
@@ -34,7 +34,7 @@ namespace Models
         public string SellAType { get; set; }
         public string SellBStructure { get; set; }
         public string SellHStructurechar { get; set; }
-        public string SellRenovation { get; set; }
+        public Nullable<int> SellRenovation { get; set; }
         public string SellScale { get; set; }
         public string SellHeating { get; set; }
         public Nullable<int> SellOrientation { get; set; }
@@ -49,10 +49,10 @@ namespace Models
         public virtual ICollection<SCollection> SCollection { get; set; }
         public virtual Userd Userd { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Selling> Selling { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SImg> SImg { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Transactions> Transactions { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Selling> Selling { get; set; }
     }
 }

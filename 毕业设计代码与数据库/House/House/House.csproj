@@ -224,6 +224,7 @@
     <Content Include="Content\img\logos\black-logo.png" />
     <Content Include="Content\img\logos\login.png" />
     <Content Include="Content\img\logos\logo.png" />
+    <Content Include="Content\img\mask-bg.png" />
     <Content Include="Content\img\popular-places\popular-places-1.jpg" />
     <Content Include="Content\img\popular-places\popular-places-2.jpg" />
     <Content Include="Content\img\popular-places\popular-places-3.jpg" />
@@ -334,7 +335,9 @@
     <Content Include="Content\Selling\i3.png" />
     <Content Include="Content\Selling\i4.png" />
     <Content Include="Content\Selling\i5.jpg" />
+    <Content Include="Content\Selling\waneng1.jpg" />
     <Content Include="Content\shouye.css" />
+    <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\flaticon\font\flaticon.css" />
     <Content Include="fonts\font-awesome\css\font-awesome.min.css" />
@@ -417,6 +420,7 @@
     <Content Include="Scripts\js\rangeslider.js" />
     <Content Include="Scripts\js\slick.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\move.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -484,6 +488,7 @@
     <Content Include="Scripts\src\utils\setAttributes.js" />
     <Content Include="Scripts\src\utils\setStyles.js" />
     <Content Include="Scripts\src\utils\setupEventListeners.js" />
+    <Content Include="Scripts\tools.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />

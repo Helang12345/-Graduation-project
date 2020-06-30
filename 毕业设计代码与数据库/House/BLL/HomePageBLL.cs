@@ -29,7 +29,7 @@ namespace BLL
         /// <returns></returns>
         public List<Sell> SellsSelect()
         {
-            return dal.SellsSelect();
+            return dal.SellSelect();
         }
         /// <summary>
         /// 查询租房数据
@@ -39,6 +39,13 @@ namespace BLL
         {
             return dal.LeaseSelect();
         }
-       
+        public List<Sell> SelectSell( int OpenHome, int House0rientation, int Area, int Renovation)
+        {
+            return dal.SelectSell(OpenHome,  House0rientation,  Area,  Renovation);
+        }
+        public List<Lease> SelectLease(int OpenHome, int House0rientation, int Area, int Renovation)
+        {
+            return dal.SelectLease(OpenHome, House0rientation, Area, Renovation);
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace Models
     public partial class Transactions
     {
         public int TransactionID { get; set; }
-        public Nullable<System.DateTime> TransactionTime { get; set; }
+        public string TransactionTime { get; set; }
         public string TransactionCommodity { get; set; }
         public string TransactionOldTransaction { get; set; }
         public string TransactionPurpose { get; set; }

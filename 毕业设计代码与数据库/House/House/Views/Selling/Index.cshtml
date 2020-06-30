@@ -1,16 +1,28 @@
 ﻿
 @{ ViewBag.Title = "Index";
-               Layout = "~/Views/Shared/_House.cshtml"; }
+    Layout = "~/Views/Shared/_House.cshtml"; }
 <style>
-
-
-    .xiangiqng {
-        height: 1800px;
-        margin-top: 100px;
+    .aaaaa {
+        margin-bottom:50px;
+        margin-top:50px;
+        height:600px;
+        overflow:hidden;
+    /*border: 1px solid red;*/
+    }
+    .left {
+        float: left;
+        width: 40%;
+        /*border: 1px solid red;*/
+    }
+    .right {
+        float: left;
+        width: 50%;
+        /*border: 1px solid red;*/
+        margin-left:50%;
     }
 
     .total {
-        width: 20%;
+        width: 50%;
         font-size: 32px;
         color: red;
         font-weight: 600;
@@ -56,7 +68,7 @@
         font-size: 14px;
     }
 
-    .img {
+    .aimg {
         display: block;
         clear: both;
         height: 30px;
@@ -153,7 +165,6 @@
     .phone {
         font-size: 18px;
         margin-top: 10px;
-        color: green;
     }
 
     .weapp-code {
@@ -164,10 +175,11 @@
     .bleft {
         border-bottom: 1px solid #eeeeee;
     }
-
+    /*基本信息*/
     .basic {
         border-bottom: 1px solid #eeeeee;
         width: 100%;
+        margin-bottom:50px;
     }
 
     .base {
@@ -175,12 +187,13 @@
     }
 
     .stable td {
-        width: 250px;
+        width: 400px;
         height: 40px;
     }
-
+    /*房源特色样式*/
     .newwrap {
         overflow: hidden;
+        margin-bottom:100px;
     }
 
         .newwrap .name {
@@ -205,146 +218,152 @@
             border-bottom: 1px solid #eeeeee;
         }
 </style>
+<link href="~/Content/style.css" rel="stylesheet" />
 @using Models;
-@{ 
+@{
     Sell sell = ViewBag.Only;
     Selling selling = ViewBag.Selling;
     Transactions tran = ViewBag.Tran;
+    List<SImg> imgs = ViewBag.SImg;
 }
 <script src="~/Content/jquery-1.8.3.min.js"></script>
 <link href="~/Content/shouye.css" rel="stylesheet" />
 <script src="~/Content/modernizr-custom-v2.7.1.min.js"></script>
 <div class="xiangiqng container">
     @*图片部分*@
-    <div class="bleft">
-        <div class="Xcontent">
-            <ul class="Xcontent01">
-                <li class="Xcontent08">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            @foreach (var item in ViewBag.SImg as List<SImg>)
-                            {
-                                <div class="carousel-item active">
-                                    <img src="~/Content/selling/@item.Photo" class="d-block w-100" alt="...">
-                                </div>
-                            }
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
+    <div class="aaaaa">
+        <div class="left">
+            <div class="wrap">
+                <div class="biger" id="biger"></div>
+                <div class="imgs">
+                    <div class="main" id="main">
+                        <div class="mask" id="mask"></div>
                     </div>
-                </li>
-                <li class="Xcontent13">
-                    <div>
-                        <div class="price ">
-                            <div class="total">@sell.SellPriceTo 万</div>
-                            <div class="ptext">
-                                <div class="unitPrice">
-                                    <span class="unitPriceValue">@sell.SellPrice<i>元/平米</i></span>
-                                </div>
-                                <div class="">
-                                    <span class="taxtext">首付及贷款情况请咨询经纪人</span><i></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="houseInfo">
-                            <div class="room">
-                                <div class="mainInfo">
-                                   @sell.SellHStructurechar
-                                </div>
-                                <div class="subInfo">
-                                    @sell.SellFloor 层
-                                </div>
-                            </div>
-                            <div class="type">
-                                <div class="mainInfo" title="南 北">
-                                    @sell.SellOrientation
-                                </div>
-                                <div class="subInfo">
-                                    @sell.SellRenovation
-                                </div>
-                            </div>
-                            <div class="area">
-                                <div class="mainInfo">
-                                    @sell.SellAreaTo 平米
-                                </div>
-                                <div class="subInfo">
-                                    @sell.SellAType
-                                </div>
-                            </div>
-                            <a class="img"><img src="~/Content/Image/首页/1573111250229.png">诚心卖，省心买</a>
-                        </div>
-                        <div class="aroundInfo">
-                            <div class="communityName">
-                                <i></i>
-                                <span class="label">所在城市</span>
-                                <a href="#" target="_blank" class="info ">@sell.SellAddress</a>
-                            </div>
-                            <div class="areaName">
-                                <i></i>
-                                <span class="label">小区名称</span>
-                                <a href="#" target="_blank" class="info ">@sell.SellVillage</a>
-                            </div>
-                            <div class="visitTime">
-                                <i></i>
-                                <span class="label">看房时间</span>
-                                <span class="info">@sell.SellTime</span>
-                            </div>
-                            <div class="houseRecord">
-                                <span class="label">链家编号</span>
-                                <span class="info">
-                                    @sell.SellID
-                                    <span class="jubao" data-lj_evtid="16224" data-lj_action_sourcetype="二手房源详情页举报按钮曝光" data-lj_action_event="ItemExpo" data-lj_action_pid="lianjiaweb">
-                                        <a href="javascript:;" class="report LOGCLICK" data-lj_evtid="16225" data-lj_action_sourcetype="二手房源详情页举报按钮点击" data-lj_action_event="WebClick" data-lj_action_pid="lianjiaweb" data-hasuserreport="1">举报</a>
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="component-agent-es-pc-6">
-                            <div class="brokerInfo">
-                                <a class="" href="https://dianpu.lianjia.com/1000000010091687" target="_blank">
-                                    <img class="agent-img" src="~/Content/Image/Sale/p1.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="brokerInfoText">
-                                <div class="brokerName">
-                                    <a class="brokerNameA" href="#" target="_blank">
-                                        @sell.SalesmanID
-                                    </a>
-                                    <div class="dy">
-                                        <span class="dy_tag">恋家</span>
-                                    </div>
-                                </div>
-                                @*<div class="evaluate" id="evaluate">
-                                    <span>评分:4.9</span>
-                                    <span>/61次评价</span>
-                                </div>*@
-                                <div class="phone">
-                                    @sell.Salesman.SalesmanPhone
-                                </div>
-                            </div>
-                            <div class="weapp-code">
-                                <img class="img-wrapper" src="~/Content/Image/Sale/W1.png">
-                                <div class="qrcode-wrapper">
-                                    微信扫码拨号
-                                </div>
-                            </div>
-                        </div>
+                    <ul class="smaller" id="smaller"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="price ">
+                <div class="total">@(sell.SellPriceTo / 10000) 万</div>
+                <div class="ptext">
+                    <div class="unitPrice">
+                        <span class="unitPriceValue">@sell.SellPrice<i>元/平米</i></span>
                     </div>
-                </li>
-            </ul>
+                    <div class="">
+                        <span class="taxtext">首付及贷款情况请咨询经纪人</span><i></i>
+                    </div>
+                </div>
+            </div>
+            <div class="houseInfo">
+                <div class="room">
+                    <div class="mainInfo">
+                        @sell.SellHStructurechar
+                    </div>
+                    <div class="subInfo">
+                        @sell.SellFloor 层
+                    </div>
+                </div>
+                <div class="type">
+                    <div class="mainInfo" title="南 北">
+                        @if (sell.SellOrientation == 1)
+                        {
+                            @:坐北朝南
+                        }
+                        else if (sell.SellOrientation == 2)
+                        {
+                            @:坐南朝北
+                        }
+                        else if (sell.SellOrientation == 3)
+                        {
+                            @:坐东朝西
+                        }
+                        else
+                        {
+                            @:坐西朝东
+                        }
+                    </div>
+                    <div class="subInfo">
+                        @sell.SellRenovation
+                    </div>
+                </div>
+                <div class="area">
+                    <div class="mainInfo">
+                        @sell.SellAreaTo 平米
+                    </div>
+                    <div class="subInfo">
+                        @sell.SellAType
+                    </div>
+                </div>
+                <a class="aimg">@*<img src="~/Content/Image/首页/1573111250229.png">*@诚心卖，省心买</a>
+            </div>
+            <div class="aroundInfo">
+                <div class="communityName">
+                    <i></i>
+                    <span class="label">所在城市</span>
+                    <span class="info ">@sell.SellAddress</span>
+                </div>
+                <div class="areaName">
+                    <i></i>
+                    <span class="label">小区名称</span>
+                    <span class="info ">@sell.SellVillage</span>
+                </div>
+                <div class="visitTime">
+                    <i></i>
+                    <span class="label">看房时间</span>
+                    <span class="info">
+                        @if (sell.SellTime == 1)
+                        {
+                            @:上午（8:00-12:00）
+                        }
+                        else if (sell.SellTime == 2)
+                        {
+                            @:下午（13:00-17:00）
+                        }
+                        else if (sell.SellTime == 3)
+                        {
+                            @:晚上（17:00-22:00）
+                        }
+                        else
+                        {
+                            @:全天（8:00-22:00）
+                        }
+                    </span>
+                </div>
+                <div class="houseRecord">
+                    <span class="label">恋家编号</span>
+                    <span class="info">
+                        @sell.SellID
+                    </span>
+                </div>
+            </div>
+            <div class="component-agent-es-pc-6" style="z-index:-1;">
+                <div class="brokerInfo">
+                    <a class="" href="https://dianpu.lianjia.com/1000000010091687" target="_blank">
+                        <img class="agent-img" src="~/Content/Image/Sale/p1.jpg" alt="">
+                    </a>
+                </div>
+                <div class="brokerInfoText" >
+                    <div class="phone">
+                        销售：@sell.Salesman.SalesmanName
+                    </div>
+                    <div class="phone">
+                        电话：@sell.Salesman.SalesmanPhone
+                    </div>
+                    <div class="phone">
+                        微信：@sell.Salesman.SalesmanVX
+                    </div>
+                </div>
+                <div class="weapp-code">
+                    <img class="img-wrapper" src="~/Content/Image/Sale/W1.png">
+                    <div class="qrcode-wrapper">
+                        微信扫码加好友
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    
     @*基本信息*@
     <div class="basic">
         <div class="" style="width:900px;">
@@ -409,7 +428,7 @@
                         <table class="stable" style="font-size:14px;">
                             <tr>
                                 <td>交易属性</td>
-                                <td>挂牌时间&nbsp;&nbsp;&nbsp;&nbsp;@tran.TransactionTime</td>
+                                <td>挂牌时间&nbsp;&nbsp;&nbsp;&nbsp;@tran.TransactionTime.ToString()</td>
                                 <td>交易权属&nbsp;&nbsp;&nbsp;&nbsp;@tran.TransactionCommodity</td>
                             </tr>
                             <tr>
@@ -464,5 +483,121 @@
     </div>
 </div>
 
+@section scripts
+    {
+    <script>
+        window.onload = function () {
+            var biger = document.getElementById('biger');
+            var main = document.getElementById('main');
+            var smaller = document.getElementById('smaller');
+            var mask = document.getElementById('mask');
+            var wrap = biger.parentNode;
+            var imgArr = [
+                //{ "path": "../../Content/Selling/a1.jpg" },
+                //{ "path": "../../Content/Selling/a2.jpg" }
+                    @{
+                        for (int i = 0; i < imgs.Count(); i++)
+                        {
+                            if (i == imgs.Count())
+                            {
+                            @:{ "path": "../../Content/Selling/@imgs[i].Photo" }
+                            }
+                            else {
+                            @:{ "path": "../../Content/Selling/@imgs[i].Photo" },
+                            }
+                        }
+                    }
+                ];
+                                var imgSum = imgArr.length;
+                                if (imgSum > 5) {
+                                    imgSum = 5;
+                                }
+                                for (var i = 0; i < imgSum; i++) {
+                                    var lis = document.createElement('li');
+                                    var imgs = document.createElement('img');
+                                    imgs.src = imgArr[i].path;
+                                    lis.appendChild(imgs);
+                                    smaller.appendChild(lis);
+                                }
+                                var mainImg = document.createElement('img');
+                                var bigImg = document.createElement('img');
+                                var liArr = smaller.children;
+                                bigImg.src = mainImg.src = liArr[0].children[0].src;
+                                main.insertBefore(mainImg, mask);
+                                biger.appendChild(bigImg);
+                                var bigPic = biger.children[0];
+                                liArr[0].className = 'current';
+                                for (var i = 0; i < liArr.length; i++) {
+                                    liArr[i].index = i;
+                                    liArr[i].onclick = function () {
+                                        this.className = 'current';
+                                        bigPic.src = main.children[0].src = this.children[0].src;
+                                        for (var j = 0; j < liArr.length; j++) {
+                                            if (this != liArr[j]) {
+                                                liArr[j].removeAttribute('class');
+                                                liArr[j].removeAttribute('className');
+                                            }
+                                        }
+                                    }
+                                }
+                                main.onmouseenter = function () {
+                                    mask.style.display = 'block';
+                                    biger.style.display = 'block';
+                                }
+                                main.onmouseleave = function () {
+                                    mask.style.display = 'none';
+                                    biger.style.display = 'none';
+                                }
+                                main.onmousemove = function (e) {
+                                    var e = e || window.event;
+                            var pagex = e.pageX || scroll().left + e.clientX;
+                var pagey = e.pageY || scroll().top + e.clientY;
+                            pagex = pagex - wrap.offsetLeft - mask.offsetWidth / 2;;
+                pagey = pagey - wrap.offsetTop - mask.offsetHeight / 2;
+                if (pagex < 0) {
+                    pagex = 0;
+                }
+                if (pagey < 0) {
+                    pagey = 0;
+                }
+                if (pagex >
+                    main.offsetWidth - mask.offsetWidth) {
+                    pagex = main.offsetWidth - mask.offsetWidth;
+                }
+                if (pagey > main.offsetHeight - mask.offsetHeight) {
+                    pagey = main.offsetHeight - mask.offsetHeight;
+                }
+                mask.style.left = pagex + 'px';
+                mask.style.top = pagey + 'px';
+                var scale = (bigPic.offsetWidth - biger.offsetWidth) / (main.offsetWidth - mask.offsetWidth);
+                    var xx = pagex * scale;
+                    var yy = pagey * scale;
+                    bigPic.style.left = -xx + 'px';
+                bigPic.style.top = -yy + 'px';
+            }
+        }
+
+        // 屏幕滚动
+        function scroll() {
+            if (window.pageXOffset != undefined) {
+                return {
+                    "left": window.pageXOffset,
+                    "top": window.pageYOffset
+                }
+            } else if (document.compatMode != 'BackCompat') {
+                return {
+                    "left": document.body.scrollLeft,
+                    "top": document.body.scrollTop
+                }
+            } else {
+                return {
+                    "left": document.documentElement.scrollLeft,
+                    "top": document.documentElement.scrollTop
+                }
+            }
+        }
+
+    </script>
+}
 
 

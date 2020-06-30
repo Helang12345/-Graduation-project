@@ -9,7 +9,7 @@
     List<Sell> sells = ViewBag.Sells;
     List<Lease> leases = ViewBag.Lease;
 }
-<!-- Banner start -->
+<!-- 轮播 -->
 <div class="banner" id="banner">
     <div id="bannerCarousole" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner banner-slider-inner text-left">
@@ -29,61 +29,61 @@
             </div>
         </div>
 
-        <!-- Search box 2 start -->
+        <!-- 模糊查询 -->
         <div class="search-box-2">
             <div class="container">
                 @*表单*@
-                <form action="/" method="post" class="container">
+                <form action="Select" method="post" class="container">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="inline-search-area">
                                 <div class="row row-3">
 
                                     <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6 search-col">
-                                        <select class="selectpicker search-fields" name="any-status">
-                                            <option>交易类型</option>
-                                            <option>出售</option>
-                                            <option>出租</option>
+                                        <select class="selectpicker search-fields" name="TableName">
+                                            <option value="0">交易类型</option>
+                                            <option value="1">出售</option>
+                                            <option value="2">出租</option>
                                         </select>
                                     </div>
                                     <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6 search-col">
-                                        <select class="selectpicker search-fields" name="all-type">
-                                            <option>租房买房</option>
-                                            <option>租房</option>
-                                            <option>买房</option>
+                                        <select class="selectpicker search-fields" name="OpenHome">
+                                            <option value="0">看房时间</option>
+                                            <option value="1">上午</option>
+                                            <option value="2">下午</option>
+                                            <option value="3">晚上</option>
+                                            <option value="4">全天</option>
                                         </select>
                                     </div>
                                     <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6 search-col">
-                                        <select class="selectpicker search-fields" name="bedrooms">
-                                            <option>房屋朝向</option>
-                                            <option>坐东朝西</option>
-                                            <option>坐西朝东</option>
-                                            <option>坐南朝北</option>
-                                            <option>坐北朝南</option>
+                                        <select class="selectpicker search-fields" name="House0rientation">
+                                            <option value="0">房屋朝向</option>
+                                            <option value="1">坐东朝西</option>
+                                            <option value="2">坐西朝东</option>
+                                            <option value="3">坐南朝北</option>
+                                            <option value="4">坐北朝南</option>
                                         </select>
                                     </div>
                                     <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6 search-col">
-                                        <select class="selectpicker search-fields" name="bathrooms">
-                                            <option>大致面积</option>
-                                            <option>10~20</option>
-                                            <option>20~30</option>
-                                            <option>30~80</option>
-                                            <option>80~120</option>
+                                        <select class="selectpicker search-fields" name="Area">
+                                            <option value="0">大致面积</option>
+                                            <option value="1">50以下</option>
+                                            <option value="2">50~80</option>
+                                            <option value="3">80~120</option>
+                                            <option value="4">120以上</option>
                                         </select>
                                     </div>
                                     <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6 search-col">
-                                        <select class="selectpicker search-fields" name="location">
-                                            <option>所在小区</option>
-                                            <option>丹桂苑</option>
-                                            <option>翠竹苑</option>
-                                            <option>玉兰苑</option>
-                                            <option>新一栋</option>
+                                        <select class="selectpicker search-fields" name="Renovation">
+                                            <option value="0">装修\入住</option>
+                                            <option value="精装">精装</option>
+                                            <option value="毛坯">毛坯</option> 
                                         </select>
                                     </div>
                                     <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6 search-col">
-                                        <button class="btn white-btn btn-search btn-block" style="background-color:black">
-                                            <i class="fa fa-search"></i><strong>查找</strong>
-                                        </button>
+                                        <input type="submit" class="btn white-btn btn-search btn-block" style="background-color:black; color:white;height:100%;" />
+                                            @*<i class="fa fa-search"></i><strong>查找</strong>*@
+                                        
                                     </div>
 
                                 </div>
@@ -300,7 +300,7 @@
                             </div>
                             <div class="detail">
                                 <h1 class="title">
-                                    <a href="../Selling/SellList">休闲</a>
+                                    <a href="../Selling/SellList">@item.LeaseAddress/@item.LeaseVillage</a>
                                 </h1>
                                 <div class="location">
                                     <a href="../Selling/SellList">
@@ -363,7 +363,7 @@
                             </div>
                             <div class="detail">
                                 <h1 class="title">
-                                    <a href="../Selling/SellList">休闲</a>
+                                    <a href="../Selling/SellList">@item.SellAddress/@item.SellVillage</a>
                                 </h1>
                                 <div class="location">
                                     <a href="../Selling/SellList">

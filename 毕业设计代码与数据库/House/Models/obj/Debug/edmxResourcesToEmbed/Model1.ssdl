@@ -37,7 +37,7 @@
     <Property Name="LeaseHStructure" Type="nvarchar" MaxLength="20" />
     <Property Name="LeasePrice" Type="decimal" Precision="12" Scale="2" />
     <Property Name="LeaseLease" Type="int" />
-    <Property Name="LeaseCheckin" Type="nvarchar" MaxLength="20" />
+    <Property Name="LeaseCheckin" Type="int" />
     <Property Name="LeaseParkinglot" Type="int" />
     <Property Name="LeaseOrientation" Type="int" />
     <Property Name="LeaseElevator" Type="int" />
@@ -98,7 +98,7 @@
     <Property Name="SellAType" Type="nvarchar" MaxLength="20" />
     <Property Name="SellBStructure" Type="nvarchar" MaxLength="20" />
     <Property Name="SellHStructurechar" Type="nvarchar" MaxLength="20" />
-    <Property Name="SellRenovation" Type="nvarchar" MaxLength="20" />
+    <Property Name="SellRenovation" Type="int" />
     <Property Name="SellScale" Type="nvarchar" MaxLength="20" />
     <Property Name="SellHeating" Type="nvarchar" MaxLength="20" />
     <Property Name="SellOrientation" Type="int" />
@@ -133,7 +133,7 @@
       <PropertyRef Name="TransactionID" />
     </Key>
     <Property Name="TransactionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="TransactionTime" Type="date" />
+    <Property Name="TransactionTime" Type="nvarchar" MaxLength="20" />
     <Property Name="TransactionCommodity" Type="nvarchar" MaxLength="20" />
     <Property Name="TransactionOldTransaction" Type="nvarchar" MaxLength="20" />
     <Property Name="TransactionPurpose" Type="nvarchar" MaxLength="20" />
