@@ -3,28 +3,56 @@
     ViewBag.Title = "SOrder";
     Layout = "~/Views/Shared/_Sale.cshtml";
 }
-
+@using Models;
 <div class="dashboard-list">
     <h3>订单管理 </h3>
     <table class="manage-table">
         <tbody>
-            <tr class="responsive-table">
-                <td class="listing-photoo">
-                    <img src="~/Content/Image/首页/a1.jpg" alt="listing-photo" class="img-fluid">
-                </td>
-                <td class="title-container">
-                    <h2><a href="#">古风公寓</a></h2>
-                    <h5 class="d-none d-xl-block d-lg-block d-md-block"><i class="flaticon-pin"></i> 丹桂苑C栋 </h5>
-                    <h6 class="table-property-price">租金：$900 / 每月</h6>
-                    <h6 class="table-property-price">获取方式：售房</h6>
-                    <h6 class="table-property-price">状态：出售</h6>
-                </td>
-                <td class="expire-date">4.01.2018</td>
-                <td class="action">
-                    <a href="EditSelling"><i class="fa fa-pencil"></i> 修改</a>
-                    <a href="#" class="delete"><i class="fa fa-remove"></i> 删除</a>
-                </td>
-            </tr>
+            @{
+                foreach (var item in ViewBag.SOrder as List<Sell>)
+                {
+
+                    <tr class="responsive-table">
+                        <td class="listing-photoo">
+                            @if (@item.SImg.Count() == 0)
+                            {
+                                <img src="~/Content/Selling/waneng1.jpg" alt="listing-photo" class="img-fluid">
+                            }
+                            else
+                            {
+                                <img src="~/Content/Selling/@item.SImg.FirstOrDefault().Photo" alt="listing-photo" class="img-fluid">
+                            }
+                        </td>
+                        <td class="title-container">
+                            <h2><a href="../Selling/Index?SellID=@item.SellID">@item.SellAddress/@item.SellVillage</a></h2>
+                            <h5 class="d-none d-xl-block d-lg-block d-md-block">@item.SellHStructurechar </h5>
+                            <h6 class="table-property-price">价格：@item.SellPrice /每平</h6>
+                            <h6 class="table-property-price">联系方式：@item.Phone</h6>
+                            <h6 class="table-property-price">
+                                状态：
+                                @if (item.TransactionStatus == 0)
+                                {
+                                    @:待售
+                                }
+                                else if (item.TransactionStatus == 1)
+                                {
+                                    @:出售
+                                }
+                                else
+                                {
+                                    @:下架
+                                }
+                            </h6>
+                        </td>
+                        <td class="expire-date">@item.NewTime</td>
+                        <td class="action">
+                            <a href="EditSelling?SellID=@item.SellID"><i class="fa fa-pencil"></i> 修改</a>
+                            <a href="#" class="delete"><i class="fa fa-remove"></i> 删除</a>
+                        </td>
+                    </tr>
+
+                }
+            }
 
         </tbody>
     </table>

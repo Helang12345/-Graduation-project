@@ -63,7 +63,7 @@
                                     <div class="property-thumbnail">
                                         <a href="Index?SellID=@item.SellID" class="property-img">
                                             <img src="~/Content/Selling/@item.SImg.FirstOrDefault().Photo" alt="properties" class="img-fluid">
-                                            <div class="tag">精选</div>
+                                            <div class="tag"><a href="/Selling/Index?SellID=@item.SellID" style="color:white;">关注</a></div>
                                             <div class="price-box"><span>@item.SellPrice 元</span> 平</div>
                                         </a>
                                     </div>
@@ -142,7 +142,6 @@
                                     <div class="property-thumbnail">
                                         <a href="Index?SellID=@item.LeaseID" class="property-img">
                                             <img src="~/Content/Selling/@item.LImg.FirstOrDefault().Photo" alt="properties" class="img-fluid">
-                                            <div class="tag">精选</div>
                                             <div class="price-box"><span>@item.LeasePrice 元</span> 平</div>
                                         </a>
                                     </div>
@@ -178,7 +177,14 @@
                                                 }
                                             </li>
                                             <li>
-                                                装修情况：@item.LeaseCheckin
+                                                装修情况：@if (item.LeaseCheckin == 1)
+                                                {
+                                                    @:入住
+                                                }
+                                                else
+                                                {
+                                                    @:需整理
+                                                }
                                             </li>
                                             <li>
                                                 维护时间：@item.LeaseMaintain
@@ -218,7 +224,6 @@
                                 <div class="property-thumbnail">
                                     <a href="#" class="property-img">
                                         <img src="~/Content/Selling/waneng1.jpg" alt="properties" class="img-fluid">
-                                        <div class="tag">精选</div>
                                         <div class="price-box"><span>--- 元</span> 平</div>
                                     </a>
                                 </div>
@@ -333,61 +338,7 @@
                                     </div>
                                 </div>
                             </div>
-                            @*<a class="show-more-options" data-toggle="collapse" data-target="#options-content">
-                                    <i class="fa fa-plus-circle"></i> 其他属性
-                                </a>*@
-                            @*<div id="options-content" class="collapse">
-                                    <h3 class="sidebar-title">便利设施</h3>
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox2" type="checkbox">
-                                        <label for="checkbox2">
-                                            空调
-                                        </label>
-                                    </div>
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox3" type="checkbox">
-                                        <label for="checkbox3">
-                                            Places to seat
-                                        </label>
-                                    </div>
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox4" type="checkbox">
-                                        <label for="checkbox4">
-                                            Swimming Pool
-                                        </label>
-                                    </div>
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox1" type="checkbox">
-                                        <label for="checkbox1">
-                                            Free Parking
-                                        </label>
-                                    </div>
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox7" type="checkbox">
-                                        <label for="checkbox7">
-                                            Central Heating
-                                        </label>
-                                    </div>
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox5" type="checkbox">
-                                        <label for="checkbox5">
-                                            Laundry Room
-                                        </label>
-                                    </div>
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox6" type="checkbox">
-                                        <label for="checkbox6">
-                                            Window Covering
-                                        </label>
-                                    </div>
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox8" type="checkbox">
-                                        <label for="checkbox8">
-                                            Alarm
-                                        </label>
-                                    </div>
-                                    <br>
-                                </div>*@
+                            
                             <div class="form-group mb-0">
                                 <button class="search-button">查找</button>
                             </div>

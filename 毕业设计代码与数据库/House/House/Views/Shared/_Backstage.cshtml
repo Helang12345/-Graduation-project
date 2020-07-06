@@ -47,6 +47,11 @@
     <script  src="js/respond.min.js"></script>
     <![endif]-->
 </head>
+@using Models;
+@{
+    Models.Userd userds = Session["Userds"] as Userd;
+    Models.Salesman salesman = Session["Salesman"] as Salesman;
+}
 <body>
     <div class="page_loader"></div>
 
@@ -61,48 +66,27 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    @*<ul class="navbar-nav ml-auto d-lg-none d-xl-none">
-                            <li class="nav-item dropdown">
-                                <a href="dashboard.html" class="nav-link">Dashboard</a>
-                            </li>
-                            <li class="nav-item dropdown active">
-                                <a href="messages.html" class="nav-link">Messages</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="bookings.html" class="nav-link">Bookings</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="my-properties.html" class="nav-link">My Properties</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="my-invoices.html" class="nav-link">My Invoices</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="favorited-properties.html" class="nav-link">Favorited Properties</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="submit-property.html" class="nav-link">Submit Property</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="my-profile.html" class="nav-link">My Profile</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="index.html" class="nav-link">Logout</a>
-                            </li>
-                        </ul>*@
+                   
                     <div class="navbar-buttons ml-auto d-none d-xl-block d-lg-block">
                         <ul>
                             <li>
                                 <div class="dropdown btns">
                                     <a class="dropdown-toggle" data-toggle="dropdown">
-                                        <img src="~/Content/img/avatar/avatar-1.jpg" alt="avatar">
-                                        我的账户
+                                        @if ( userds.Photo != null)
+                                        {
+                                            <img src="~/Content/Photo/@userds.Photo" alt="avatar">
+                                            @userds.UserName
+                                        }
+                                        else
+                                        {
+                                            <img src="~/Content/Photo/a3.jpg" alt="avatar">
+                                        }
                                     </a>
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="../Business/Property">我的财产</a>
                                         <a class="dropdown-item" href="../Business/Follow">我的关注</a>
-                                        <a class="dropdown-item" href="../Business/Index">发布租房</a>
-                                        <a class="dropdown-item" href="../Business/LIndex">发布售房</a>
+                                        <a class="dropdown-item" href="../Business/Index">发布售房</a>
+                                        <a class="dropdown-item" href="../Business/LIndex">发布租房</a>
                                         <a class="dropdown-item" href="../Business/Information">个人简历</a>
                                         <a class="dropdown-item" href="../Login/Index">登出</a>
                                     </div>
@@ -135,13 +119,13 @@
                             <ul>
                                 <li><a href="../Business/Property"><i class="flaticon-apartment"></i>我的财产</a></li>
                                 <li><a href="../Business/Follow"><i class="flaticon-heart"></i>我的关注</a></li>
-                                <li><a href="../Business/Index"><i class="flaticon-plus"></i>发布租房</a></li>
-                                <li><a href="../Business/LIndex"><i class="flaticon-plus"></i>发布售房</a></li>
+                                <li><a href="../Business/Index"><i class="flaticon-plus"></i>发布售房</a></li>
+                                <li><a href="../Business/LIndex"><i class="flaticon-plus"></i>发布租房</a></li>
                             </ul>
                             <h4 style="font-size:18px;">账户</h4>
                             <ul>
                                 <li><a href="../Business/Information"><i class="flaticon-user"></i>个人简历</a></li>
-                                <li><a href="../Login/Index"><i class="flaticon-logout"></i>登出</a></li>
+                                <li><a href="../Login/Logout"><i class="flaticon-logout"></i>登出</a></li>
                             </ul>
                         </div>
                     </div>
@@ -185,7 +169,7 @@
             </form>
         </div>*@
 
-
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
     <script src="~/Scripts/js/jquery-2.2.0.min.js"></script>
     <script src="~/Scripts/js/popper.min.js"></script>
     <script src="~/Scripts/js/bootstrap.min.js"></script>

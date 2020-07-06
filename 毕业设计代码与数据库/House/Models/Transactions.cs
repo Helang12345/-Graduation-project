@@ -16,13 +16,13 @@ namespace Models
     {
         public int TransactionID { get; set; }
         public string TransactionTime { get; set; }
-        public string TransactionCommodity { get; set; }
+        public Nullable<int> TransactionCommodity { get; set; }
         public string TransactionOldTransaction { get; set; }
         public string TransactionPurpose { get; set; }
         public string TransactionYears { get; set; }
         public string TransactionPropertyright { get; set; }
-        public string TransactionMortgage { get; set; }
-        public string TransactionPOC { get; set; }
+        public Nullable<int> TransactionMortgage { get; set; }
+        public Nullable<int> TransactionPOC { get; set; }
         public Nullable<int> SellID { get; set; }
     
         public virtual Sell Sell { get; set; }

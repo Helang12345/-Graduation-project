@@ -12,7 +12,7 @@ namespace DAL
 {
     public class HomePageDAL
     {
-        HouseEntities1 db = new HouseEntities1();
+        HouseEntities2 db = new HouseEntities2();
         /// <summary>
         /// 查询金牌销售
         /// </summary>

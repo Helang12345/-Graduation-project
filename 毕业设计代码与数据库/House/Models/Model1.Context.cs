@@ -13,10 +13,10 @@ namespace Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class HouseEntities1 : DbContext
+    public partial class HouseEntities2 : DbContext
     {
-        public HouseEntities1()
-            : base("name=HouseEntities1")
+        public HouseEntities2()
+            : base("name=HouseEntities2")
         {
         }
     

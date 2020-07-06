@@ -16,8 +16,13 @@
 
 @using Models;
 @{
-    List<Sell> sell = ViewBag.Sell;
+    IPagedList<Sell> sell = ViewBag.course;
+    int a = ViewBag.a;
 }
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<Sell>
+<link href="~/Content/page.css" rel="stylesheet" />
 <!-- Sub banner start -->
 <div class="sub-banner">
     <div class="container breadcrumb-area">
@@ -31,7 +36,7 @@
     </div>
 </div>
 <!-- Sub Banner end -->
-<!-- Properties section start -->
+<!-- 查询结果 -->
 <div class="properties-section content-area">
     <div class="container">
         <div class="row">
@@ -39,14 +44,16 @@
                 <!-- Option bar start -->
                 <div class="option-bar clearfix">
                     <div class="sorting-options2">
-                        <span class="sort">排序方式：</span>
-                        <select class="selectpicker search-fields" name="default-order">
-                            <option>默认排序</option>
-                            <option>价格从高到低</option>
-                            <option>价格从低到高</option>
-                            <option>最新上架</option>
-                            <option>最早上架</option>
-                        </select>
+                        <form id="form" method="post" action="SellAll">
+                            <span class="sort">排序方式：</span>
+                            <select class="selectpicker search-fields" name="a" id="select">
+                                <option value="0" selected="@(a==0)">默认排序</option>
+                                <option value="1" selected="@(a==1)">价格从高到低</option>
+                                <option value="2" selected="@(a==2)">价格从低到高</option>
+                                <option value="3" selected="@(a==3)">最新上架</option>
+                                <option value="4" selected="@(a==4)">最早上架</option>
+                            </select>
+                        </form>
                     </div>
                     <div class="sorting-options float-right">
                         @*<a href="properties-list-rightside.html" class="change-view-btn active-view-btn float-right"><i class="fa fa-th-list"></i></a>*@
@@ -54,10 +61,10 @@
                     </div>
                 </div>
                 <!-- Property box 2 start -->
-                @if (Selllist != null&&Selllist.Count()!=0)
+                @if (Selllist != null && Selllist.Count() != 0)
                 {
 
-                    foreach (var item in Selllist)
+                    foreach (var item in sell)
                     {
                         <div class="property-box-2">
                             <div class="row">
@@ -65,7 +72,6 @@
                                     <div class="property-thumbnail">
                                         <a href="Index?SellID=@item.SellID" class="property-img">
                                             <img src="~/Content/Selling/@item.SImg.FirstOrDefault().Photo" alt="properties" class="img-fluid">
-                                            <div class="tag">精选</div>
                                             <div class="price-box"><span>@item.SellPrice 元</span> 平</div>
                                         </a>
                                     </div>
@@ -101,7 +107,14 @@
                                                 }
                                             </li>
                                             <li>
-                                                装修情况：@item.SellRenovation
+                                                装修情况：@if (item.SellRenovation == 1)
+                                                {
+                                                    @:精装
+                                                }
+                                                else
+                                                {
+                                                    @:毛坯
+                                                }
                                             </li>
                                             <li>
                                                 实际面积：@item.SellAreaTo
@@ -134,7 +147,7 @@
                     }
 
                 }
-                else if (Leaselist != null&&Leaselist.Count()!=0)
+                else if (Leaselist != null && Leaselist.Count() != 0)
                 {
                     foreach (var item in Leaselist)
                     {
@@ -144,7 +157,6 @@
                                     <div class="property-thumbnail">
                                         <a href="Index?SellID=@item.LeaseID" class="property-img">
                                             <img src="~/Content/Selling/@item.LImg.FirstOrDefault().Photo" alt="properties" class="img-fluid">
-                                            <div class="tag">精选</div>
                                             <div class="price-box"><span>@item.LeasePrice 元</span> 平</div>
                                         </a>
                                     </div>
@@ -220,7 +232,6 @@
                                 <div class="property-thumbnail">
                                     <a href="#" class="property-img">
                                         <img src="~/Content/Selling/waneng1.jpg" alt="properties" class="img-fluid">
-                                        <div class="tag">精选</div>
                                         <div class="price-box"><span>--- 元</span> 平</div>
                                     </a>
                                 </div>
@@ -259,26 +270,16 @@
                 }
 
 
-                <!-- Page navigation start -->
+                <!-- 分页 -->
                 <div class="pagination-box p-box-2 text-center">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a class="LeaseDetails" href="#"><i class="fa fa-angle-left"></i></a>
-                            </li>
-                            <li class="page-item"><a class="page-link active" href="LeaseDetails">1</a></li>
-                            <li class="page-item"><a class="page-link" href="LeaseDetails">2</a></li>
-                            <li class="page-item"><a class="page-link" href="LeaseDetails">3</a></li>
-                            <li class="page-item">
-                                <a class="LeaseDetails" href="#"><i class="fa fa-angle-right"></i></a>
-                            </li>
-                        </ul>
-                    </nav>
+
+                    @Html.PagedListPager(Model, page => Url.Action("SellAll", new { page, a }))
                 </div>
+                <!-- 分页 -->
             </div>
+            <!-- Advanced search start -->
             <div class="col-lg-4 col-md-12">
                 <div class="sidebar-right">
-                    <!-- Advanced search start -->
                     <div class="widget advanced-search">
                         <h3 class="sidebar-title">搜索属性</h3>
                         <form method="post">
@@ -336,61 +337,6 @@
                                     </div>
                                 </div>
                             </div>
-                            @*<a class="show-more-options" data-toggle="collapse" data-target="#options-content">
-                                    <i class="fa fa-plus-circle"></i> 其他属性
-                                </a>*@
-                            @*<div id="options-content" class="collapse">
-                                    <h3 class="sidebar-title">便利设施</h3>
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox2" type="checkbox">
-                                        <label for="checkbox2">
-                                            空调
-                                        </label>
-                                    </div>
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox3" type="checkbox">
-                                        <label for="checkbox3">
-                                            Places to seat
-                                        </label>
-                                    </div>
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox4" type="checkbox">
-                                        <label for="checkbox4">
-                                            Swimming Pool
-                                        </label>
-                                    </div>
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox1" type="checkbox">
-                                        <label for="checkbox1">
-                                            Free Parking
-                                        </label>
-                                    </div>
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox7" type="checkbox">
-                                        <label for="checkbox7">
-                                            Central Heating
-                                        </label>
-                                    </div>
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox5" type="checkbox">
-                                        <label for="checkbox5">
-                                            Laundry Room
-                                        </label>
-                                    </div>
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox6" type="checkbox">
-                                        <label for="checkbox6">
-                                            Window Covering
-                                        </label>
-                                    </div>
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox8" type="checkbox">
-                                        <label for="checkbox8">
-                                            Alarm
-                                        </label>
-                                    </div>
-                                    <br>
-                                </div>*@
                             <div class="form-group mb-0">
                                 <button class="search-button">查找</button>
                             </div>
@@ -401,4 +347,4 @@
         </div>
     </div>
 </div>
-<!-- Properties section end -->
+<!-- 查询结果 -->

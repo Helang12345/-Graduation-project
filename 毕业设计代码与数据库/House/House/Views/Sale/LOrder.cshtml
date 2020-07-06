@@ -3,29 +3,69 @@
     ViewBag.Title = "LOrder";
     Layout = "~/Views/Shared/_Sale.cshtml";
 }
-
+@using Models;
+@{
+    List<Lease> leases = ViewBag.LOrder;
+}
 <div class="dashboard-list">
     <h3>订单管理 </h3>
     <table class="manage-table">
         <tbody>
-            <tr class="responsive-table">
-                <td class="listing-photoo">
-                    <img src="~/Content/Image/首页/a1.jpg" alt="listing-photo" class="img-fluid">
-                </td>
-                <td class="title-container">
-                    <h2><a href="#">古风公寓</a></h2>
-                    <h5 class="d-none d-xl-block d-lg-block d-md-block"><i class="flaticon-pin"></i> 丹桂苑C栋 </h5>
-                    <h6 class="table-property-price">租金：$900 / 每月</h6>
-                    <h6 class="table-property-price">入住方式：出租</h6>
-                    <h6 class="table-property-price">状态：出售</h6>
-                </td>
-                <td class="expire-date">4.01.2018</td>
-                <td class="action">
-                    <a href="EditLease"><i class="fa fa-pencil"></i> 修改</a>
-                    <a href="#" class="delete"><i class="fa fa-remove"></i> 删除</a>
-                </td>
-            </tr>
+            @{
+                foreach (var item in leases)
+                {
+                    <tr class="responsive-table">
+                        <td class="listing-photoo">
+                            @if (item.LImg.Count() == 0)
+                            {
+                                <img src="~/Content/Renting/waneng1.jpg" alt="listing-photo" class="img-fluid">
+                            }
+                            else
+                            {
+                                <img src="~/Content/Renting/@item.LImg.FirstOrDefault().Photo" alt="listing-photo" class="img-fluid">
+                            }
 
+                        </td>
+                        <td class="title-container">
+                            <h2><a href="#">@item.LeaseAddress/@item.LeaseVillage</a></h2>
+                            <h5 class="d-none d-xl-block d-lg-block d-md-block"> @item.LeaseHStructure </h5>
+                            <h6 class="table-property-price">租金：@item.LeasePrice/ 每月</h6>
+                            <h6 class="table-property-price">
+                                入住方式：
+                                @if (item.LeaseCheckin == 1)
+                                {
+                                    @:拎包入住
+                                }
+                                else
+                                {
+                                    @:需要打扫
+                                }
+                            </h6>
+                            <h6 class="table-property-price">
+                                状态：
+                                @if (item.TransactionStatus == 0)
+                                {
+                                    @:待售
+                                }
+                                else if (item.TransactionStatus == 1)
+                                {
+                                    @:出售
+                                }
+                                else
+                                {
+                                    @:下架
+                                }
+                            </h6>
+                        </td>
+                        <td class="expire-date">@item.NewTime</td>
+                        <td class="action">
+                            <a href="EditLease?LeaseID=@item.LeaseID"><i class="fa fa-pencil"></i> 修改</a>
+                            <a href="#" class="delete"><i class="fa fa-remove"></i> 删除</a>
+                        </td>
+                    </tr>
+                }
+
+            }
         </tbody>
     </table>
 </div>

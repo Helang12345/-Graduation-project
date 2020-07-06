@@ -1,72 +1,86 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "EditLease";
     Layout = "~/Views/Shared/_Sale.cshtml";
 }
-
+@using Models;
+@{ 
+    Lease lease = ViewBag.SLease;
+    Facilities facilities = ViewBag.SFacilities;
+    List<LImg> imgs = ViewBag.SLImg;
+}
 <div class="submit-address dashboard-list">
     <h4 class="bg-grea-3">发布租房信息</h4>
-    <form method="post">
+    <form method="post" action="EditLEASE">
+        <input type="hidden" class="input-text" name="UState" value="0">
+        <input type="hidden" class="input-text" name="NewTime" value="@DateTime.Now">
+        <input type="hidden" class="input-text" name="LeaseID" value="@lease.LeaseID">
+        <input type="hidden" class="input-text" name="FacilitiesID" value="@facilities.FacilitiesID">
         <h4 class="bg-grea-3">基本信息</h4>
         <div class="search-contents-sidebar">
             <div class="row pad-2">
+                <input type="hidden" class="input-text" name="UserID" value="@lease.UserID">
+                <input type="hidden" class="input-text" name="UserID" value="@lease.SalesmanID">
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
+                        <label>财产名称</label>
+                        <input type="text" class="input-text" name="UserID" value="@lease.Userd.UserName">
+                    </div>
+                    <div class="form-group">
                         <label>所在城市</label>
-                        <input type="text" class="input-text" name="your name" placeholder="城市名称">
+                        <input type="text" class="input-text" name="LeaseAddress" placeholder="城市名称" value="@lease.LeaseAddress">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>所在小区</label>
-                        <input type="text" class="input-text" name="your name" placeholder="小区名">
+                        <input type="text" class="input-text" name="LeaseVillage" placeholder="小区名" value="@lease.LeaseVillage">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>所在楼层</label>
-                        <input type="text" class="input-text" name="your name" placeholder="？层">
+                        <input type="text" class="input-text" name="LeaseFloor" placeholder="？层" value="@lease.LeaseFloor">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>面积</label>
-                        <input type="text" class="input-text" name="your name" placeholder="每平">
+                        <input type="text" class="input-text" name="LeaseArea" placeholder="平米" value="@lease.LeaseArea">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>维护时间</label>
-                        <input type="text" class="input-text" name="your name" placeholder="年/月/日">
+                        <input type="text" class="input-text" name="LeaseMaintain" placeholder="年/月/日" value="@lease.LeaseMaintain">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>房屋类型</label>
-                        <input type="text" class="input-text" name="your name" placeholder="？室？厅">
+                        <input type="text" class="input-text" name="LeaseHStructure" placeholder="？室？厅" value="@lease.LeaseHStructure">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>租金</label>
-                        <input type="text" class="input-text" name="your name" placeholder="每月">
+                        <input type="text" class="input-text" name="LeasePrice" placeholder="每月" value="@lease.LeasePrice">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>租赁方式</label>
-                        <select class="selectpicker search-fields" name="choose-state">
-                            <option>整租</option>
-                            <option>合租</option>
+                        <select class="selectpicker search-fields" name="LeaseLease">
+                            <option value="1" selected="@(lease.LeaseLease==1)">整租</option>
+                            <option value="2" selected="@(lease.LeaseLease==2)">合租</option>
                         </select>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>入住方式</label>
-                        <select class="selectpicker search-fields" name="choose-state">
-                            <option>拎包入住</option>
-                            <option>先打扫卫生</option>
+                        <select class="selectpicker search-fields" name="LeaseCheckin">
+                            <option value="1" selected="@(lease.LeaseCheckin==1)">拎包入住</option>
+                            <option value="2" selected="@(lease.LeaseCheckin==2)">需要打扫</option>
                         </select>
                     </div>
                 </div>
@@ -74,74 +88,87 @@
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>车位</label>
-                        <select class="selectpicker search-fields" name="choose-state">
-                            <option>有</option>
-                            <option>无</option>
+                        <select class="selectpicker search-fields" name="LeaseParkinglot">
+                            <option value="1" selected="@(lease.LeaseParkinglot==1)">有</option>
+                            <option value="2" selected="@(lease.LeaseParkinglot==2)">无</option>
                         </select>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>朝向</label>
-                        <select class="selectpicker search-fields" name="choose-state">
-                            <option>坐北朝南</option>
-                            <option>坐南朝北</option>
-                            <option>坐东朝西</option>
-                            <option>坐西朝东</option>
+                        <select class="selectpicker search-fields" name="LeaseOrientation">
+                            <option value="1" selected="@(lease.LeaseOrientation==1)">坐北朝南</option>
+                            <option value="2" selected="@(lease.LeaseOrientation==2)">坐南朝北</option>
+                            <option value="3" selected="@(lease.LeaseOrientation==3)">坐东朝西</option>
+                            <option value="4" selected="@(lease.LeaseOrientation==4)">坐西朝东</option>
                         </select>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>电梯情况</label>
-                        <select class="selectpicker search-fields" name="choose-state">
-                            <option>有</option>
-                            <option>无</option>
+                        <select class="selectpicker search-fields" name="LeaseElevator">
+                            <option value="1" selected="@(lease.LeaseElevator==1)">有</option>
+                            <option value="2" selected="@(lease.LeaseElevator==2)">无</option>
                         </select>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>用水</label>
-                        <input type="text" class="input-text" name="your name" placeholder="默认民用水">
+                        <select class="selectpicker search-fields" name="LeaseWaterint">
+                            <option value="1" selected="@(lease.LeaseWaterint==1)">民水</option>
+                            <option value="2" selected="@(lease.LeaseWaterint==2)">其他</option>
+                        </select>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>用电</label>
-                        <input type="text" class="input-text" name="your name" placeholder="默认民用电">
+                        <select class="selectpicker search-fields" name="LeaseElectric">
+                            <option value="1" selected="@(lease.LeaseElectric==1)">民电</option>
+                            <option value="2" selected="@(lease.LeaseElectric==2)">其他</option>
+                        </select>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>燃气</label>
-                        <input type="text" class="input-text" name="your name" placeholder="煤">
+                        <select class="selectpicker search-fields" name="LeaseGas">
+                            <option value="1" selected="@(lease.LeaseGas==1)">天然气</option>
+                            <option value="2" selected="@(lease.LeaseGas==2)">液化气</option>
+                            <option value="3" selected="@(lease.LeaseGas==2)">电气</option>
+                        </select>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>供暖</label>
-                        <input type="text" class="input-text" name="your name" placeholder="默认民用电">
+                        <select class="selectpicker search-fields" name="LeaseHeating">
+                            <option value="1" selected="@(lease.LeaseHeating==1)">集中供暖</option>
+                            <option value="2" selected="@(lease.LeaseHeating==2)">自给自足</option>
+                        </select>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>租期</label>
-                        <select class="selectpicker search-fields" name="choose-state">
-                            <option>年租</option>
-                            <option>季租</option>
-                            <option>月租</option>
+                        <select class="selectpicker search-fields" name="LeaseLeaseTerm">
+                            <option value="1" selected="@(lease.LeaseGas==1)">月租</option>
+                            <option value="2" selected="@(lease.LeaseGas==2)">季租</option>
+                            <option value="3" selected="@(lease.LeaseGas==2)">年租</option>
                         </select>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>看房时间</label>
-                        <select class="selectpicker search-fields" name="choose-state">
-                            <option>上午（8:00-12：00）</option>
-                            <option>下午（14：00-18:00）</option>
-                            <option>晚上（19:30-22:00）</option>
-                            <option>全天（8:00-22:00）</option>
+                        <select class="selectpicker search-fields" name="LeaseTime">
+                            <option value="1" selected="@(lease.LeaseTime==1)">上午（8:00-12：00）</option>
+                            <option value="2" selected="@(lease.LeaseTime==2)">下午（14：00-18:00）</option>
+                            <option value="3" selected="@(lease.LeaseTime==3)">晚上（19:30-22:00）</option>
+                            <option value="4" selected="@(lease.LeaseTime==4)">全天（8:00-22:00）</option>
                         </select>
                     </div>
                 </div>
@@ -151,7 +178,7 @@
         <div class="row pad-2">
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox1" type="checkbox">
+                    <input id="checkbox1" type="checkbox" name="FacilitiesWashing" value="@facilities.FacilitiesWashing">
                     <label for="checkbox1">
                         洗衣机
                     </label>
@@ -159,7 +186,7 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox2" type="checkbox">
+                    <input id="checkbox2" type="checkbox" name="Facilitiesairconditioner" value="@facilities.Facilitiesairconditioner">
                     <label for="checkbox2">
                         空调
                     </label>
@@ -167,7 +194,7 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox4" type="checkbox">
+                    <input id="checkbox4" type="checkbox" name="Facilitieswardrobe" value="@facilities.Facilitieswardrobe">
                     <label for="checkbox4">
                         衣柜
                     </label>
@@ -175,7 +202,7 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox5" type="checkbox">
+                    <input id="checkbox5" type="checkbox" name="FacilitiesTV" value="@facilities.FacilitiesTV">
                     <label for="checkbox5">
                         电视
                     </label>
@@ -183,7 +210,7 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox7" type="checkbox">
+                    <input id="checkbox7" type="checkbox" name="FacilitiesRefrigerator" value="@facilities.FacilitiesRefrigerator">
                     <label for="checkbox7">
                         冰箱
                     </label>
@@ -191,7 +218,7 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox8" type="checkbox">
+                    <input id="checkbox8" type="checkbox" name="FacilitiesBed" value="@facilities.FacilitiesBed">
                     <label for="checkbox8">
                         床
                     </label>
@@ -199,7 +226,7 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox3" type="checkbox">
+                    <input id="checkbox3" type="checkbox" name="FacilitiesWIFI" value="@facilities.FacilitiesWIFI">
                     <label for="checkbox3">
                         WiFi
                     </label>
@@ -207,7 +234,7 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox6" type="checkbox">
+                    <input id="checkbox6" type="checkbox" name="FacilitiesNaturalgas" value="@facilities.FacilitiesNaturalgas">
                     <label for="checkbox6">
                         天然气
                     </label>
@@ -215,7 +242,7 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox9" type="checkbox">
+                    <input id="checkbox9" type="checkbox" name="FacilitiesHeating" value="@facilities.FacilitiesHeating">
                     <label for="checkbox9">
                         暖气
                     </label>
@@ -225,25 +252,51 @@
         <h4 class="bg-grea-3">上传图片</h4>
         <div class="row pad-20">
             <div class="col-lg-12">
-                <div id="myDropZone" class="dropzone dropzone-design">
-                    <div class="dz-default dz-message"><span>拖拽上传</span></div>
+                @{
+                    foreach (var item in imgs)
+                    {
+                        <input type="hidden" class="input-text" name="ID" value="@item.ID">
+                        <img src="~/Content/Selling/@item.Photo" width="80px" height="120px" />
+                    }
+                }
+            </div>
+        </div>
+        <h4 class="bg-grea-3">更新图片</h4>
+        <div class="row pad-20">
+            <div class="col-lg-12">
+                <input type="file" name="Photo" multiple="multiple" class="form-control update_file" />
+            </div>
+        </div>
+        <h4 class="bg-grea-3">人员指定</h4>
+        <div class="row pad-2">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="form-group">
+                    <label>订单状态</label>
+                    <select class="selectpicker search-fields" name="TransactionStatus">
+                        <option value="0" selected="@(lease.TransactionStatus==0)">待售</option>
+                        <option value="1" selected="@(lease.TransactionStatus==1)">在售</option>
+                        <option value="2" selected="@(lease.TransactionStatus==2)">下架</option>
+                    </select>
                 </div>
             </div>
-        </div>
-        <h4 class="bg-grea-3">交易状态</h4>
-        <div class="col-lg-4 col-md-4 col-sm-12">
-            <div class="form-group">
-                <label>交易状态</label>
-                <select class="selectpicker search-fields" name="choose-state">
-                    <option>待售</option>
-                    <option>出售</option>
-                    <option>下架</option>
-                </select>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="form-group">
+                    <label>提交时间</label>
+                    <input type="text" class="input-text" name="NewTime" value="@lease.NewTime">
+                </div>
             </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12">
-            <input type="button" class="btn btn-md button-theme" value="确定修改">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="form-group">
+                    <label>联系方式</label>
+                    <input type="text" class="input-text" name="Phone" value="@lease.Phone">
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12" style="margin-top:22px;">
+                <input type="submit" class="btn btn-md button-theme" value="提交财产" style="width:280px">
+            </div>
         </div>
     </form>
 </div>
+
+
 

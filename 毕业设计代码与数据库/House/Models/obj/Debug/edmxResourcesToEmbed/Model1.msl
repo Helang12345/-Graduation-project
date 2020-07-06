@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="HouseModelStoreContainer" CdmEntityContainer="HouseEntities1">
+  <EntityContainerMapping StorageEntityContainer="HouseModelStoreContainer" CdmEntityContainer="HouseEntities2">
     <EntitySetMapping Name="Facilities">
       <EntityTypeMapping TypeName="HouseModel.Facilities">
         <MappingFragment StoreEntitySet="Facilities">
@@ -13,6 +13,7 @@
           <ScalarProperty Name="FacilitiesBed" ColumnName="FacilitiesBed" />
           <ScalarProperty Name="FacilitiesWIFI" ColumnName="FacilitiesWIFI" />
           <ScalarProperty Name="FacilitiesNaturalgas" ColumnName="FacilitiesNaturalgas" />
+          <ScalarProperty Name="FacilitiesHeater" ColumnName="FacilitiesHeater" />
           <ScalarProperty Name="FacilitiesHeating" ColumnName="FacilitiesHeating" />
           <ScalarProperty Name="LeaseID" ColumnName="LeaseID" />
         </MappingFragment>
@@ -50,6 +51,8 @@
           <ScalarProperty Name="LeaseLeaseTerm" ColumnName="LeaseLeaseTerm" />
           <ScalarProperty Name="LeaseTime" ColumnName="LeaseTime" />
           <ScalarProperty Name="TransactionStatus" ColumnName="TransactionStatus" />
+          <ScalarProperty Name="NewTime" ColumnName="NewTime" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="SalesmanID" ColumnName="SalesmanID" />
           <ScalarProperty Name="UState" ColumnName="UState" />
@@ -74,9 +77,8 @@
           <ScalarProperty Name="SalesmanPhone" ColumnName="SalesmanPhone" />
           <ScalarProperty Name="SalesmanEmail" ColumnName="SalesmanEmail" />
           <ScalarProperty Name="SalesmanVX" ColumnName="SalesmanVX" />
-          <ScalarProperty Name="SalesmanLoginName" ColumnName="SalesmanLoginName" />
           <ScalarProperty Name="SalesmanPassword" ColumnName="SalesmanPassword" />
-          <ScalarProperty Name="SalesmanPhoto" ColumnName="SalesmanPhoto" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
           <ScalarProperty Name="UState" ColumnName="UState" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -110,6 +112,8 @@
           <ScalarProperty Name="SellOrientation" ColumnName="SellOrientation" />
           <ScalarProperty Name="SellTime" ColumnName="SellTime" />
           <ScalarProperty Name="TransactionStatus" ColumnName="TransactionStatus" />
+          <ScalarProperty Name="NewTime" ColumnName="NewTime" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="SalesmanID" ColumnName="SalesmanID" />
           <ScalarProperty Name="UState" ColumnName="UState" />
@@ -161,10 +165,10 @@
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="UserSex" ColumnName="UserSex" />
           <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
-          <ScalarProperty Name="SalesmanEmail" ColumnName="SalesmanEmail" />
-          <ScalarProperty Name="SalesmanVX" ColumnName="SalesmanVX" />
-          <ScalarProperty Name="UserLoginName" ColumnName="UserLoginName" />
+          <ScalarProperty Name="UserdEmail" ColumnName="UserdEmail" />
+          <ScalarProperty Name="UserdVX" ColumnName="UserdVX" />
           <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
           <ScalarProperty Name="Role" ColumnName="Role" />
           <ScalarProperty Name="UState" ColumnName="UState" />
         </MappingFragment>

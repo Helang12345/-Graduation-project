@@ -217,6 +217,14 @@
             margin-top: 20px;
             border-bottom: 1px solid #eeeeee;
         }
+    .content__title {
+        margin-top: 30px;
+        margin-bottom: 5px;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 40px;
+        color: #101d37;
+    }
 </style>
 <link href="~/Content/style.css" rel="stylesheet" />
 @using Models;
@@ -229,6 +237,29 @@
 <script src="~/Content/jquery-1.8.3.min.js"></script>
 <link href="~/Content/shouye.css" rel="stylesheet" />
 <script src="~/Content/modernizr-custom-v2.7.1.min.js"></script>
+
+<div class="container">
+    <p class="content__title">
+        @sell.SellAddress   @sell.SellVillage
+        @if (sell.SellOrientation == 1)
+        {
+            @:坐北朝南
+        }
+        else if (sell.SellOrientation == 2)
+        {
+            @:坐南朝北
+        }
+        else if (sell.SellOrientation == 3)
+        {
+            @:坐东朝西
+        }
+        else
+        {
+            @:坐西朝东
+        }
+
+    </p>
+</div>
 <div class="xiangiqng container">
     @*图片部分*@
     <div class="aaaaa">
@@ -284,7 +315,16 @@
                         }
                     </div>
                     <div class="subInfo">
-                        @sell.SellRenovation
+                        @{
+                            if (sell.SellRenovation == 1)
+                            {
+                                @:精装
+                            }
+                            else
+                            {
+                                @:毛坯
+                            }
+                        }
                     </div>
                 </div>
                 <div class="area">
@@ -292,7 +332,16 @@
                         @sell.SellAreaTo 平米
                     </div>
                     <div class="subInfo">
-                        @sell.SellAType
+                        @{
+                            if (sell.SellAType == 1)
+                            {
+                                @:板塔结构
+                            }
+                            else
+                            {
+                                @:其他
+                            }
+                        }
                     </div>
                 </div>
                 <a class="aimg">@*<img src="~/Content/Image/首页/1573111250229.png">*@诚心卖，省心买</a>
@@ -331,10 +380,15 @@
                     </span>
                 </div>
                 <div class="houseRecord">
-                    <span class="label">恋家编号</span>
-                    <span class="info">
-                        @sell.SellID
-                    </span>
+                    @{ if (Session["Userds"]!=null&&ViewBag.a!=0)
+                        {
+                            <a href="/Selling/RFollow?id=@sell.SellID" style="color:black">取消收藏</a>
+                        }
+                        else
+                        {
+                            <a href="/Selling/SFollow?id=@sell.SellID" style="color:black">我要收藏</a>
+                        }
+                    }
                 </div>
             </div>
             <div class="component-agent-es-pc-6" style="z-index:-1;">
@@ -385,7 +439,19 @@
                             <tr>
                                 <td></td>
                                 <td>套内面积&nbsp;&nbsp;&nbsp;&nbsp;@sell.SellAreaTo</td>
-                                <td>建筑类型&nbsp;&nbsp;&nbsp;&nbsp;@sell.SellAType</td>
+                                <td>
+                                    建筑类型&nbsp;&nbsp;&nbsp;&nbsp;
+                                    @{
+                                        if (sell.SellRenovation == 1)
+                                        {
+                                            @:精装
+                                        }
+                                        else
+                                        {
+                                            @:毛坯
+                                        }
+                                    }
+                                </td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -408,16 +474,50 @@
                                         @:坐西朝东
                                     }
                                 </td>
-                                <td>建筑结构&nbsp;&nbsp;&nbsp;&nbsp;@sell.SellBStructure</td>
+                                <td>
+                                    建筑结构&nbsp;&nbsp;&nbsp;&nbsp;
+                                    @if (sell.SellBStructure == 1)
+                                    {
+                                        @:钢混结构
+                                    }
+                                    else
+                                    {
+                                        @:其他
+                                    }
+                                </td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>装修情况&nbsp;&nbsp;&nbsp;&nbsp;@sell.SellRenovation</td>
+                                <td>
+                                    装修情况&nbsp;&nbsp;&nbsp;&nbsp;
+                                    @{
+                                        if (sell.SellRenovation == 1)
+                                        {
+                                            @:精装
+                                        }
+                                        else
+                                        {
+                                            @:毛坯
+                                        }
+                                    }
+                                </td>
                                 <td>梯户比例&nbsp;&nbsp;&nbsp;&nbsp;@sell.SellScale</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>供暖方式&nbsp;&nbsp;&nbsp;&nbsp;@sell.SellHeating</td>
+                                <td>
+                                    供暖方式&nbsp;&nbsp;&nbsp;&nbsp;
+                                    @{
+                                        if (sell.SellHeating == 1)
+                                        {
+                                            @:集中供暖
+                                        }
+                                        else
+                                        {
+                                            @:自给自足
+                                        }
+                                    }
+                                </td>
                                 <td></td>
                             </tr>
                         </table>
@@ -429,7 +529,19 @@
                             <tr>
                                 <td>交易属性</td>
                                 <td>挂牌时间&nbsp;&nbsp;&nbsp;&nbsp;@tran.TransactionTime.ToString()</td>
-                                <td>交易权属&nbsp;&nbsp;&nbsp;&nbsp;@tran.TransactionCommodity</td>
+                                <td>
+                                    交易权属&nbsp;&nbsp;&nbsp;&nbsp;
+                                    @{
+                                        if (tran.TransactionCommodity == 1)
+                                        {
+                                            @:商品房
+                                        }
+                                        else
+                                        {
+                                            @:其他
+                                        }
+                                    }
+                                </td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -443,8 +555,32 @@
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>抵押信息&nbsp;&nbsp;&nbsp;&nbsp;@tran.TransactionMortgage</td>
-                                <td>房本备件&nbsp;&nbsp;&nbsp;&nbsp;@tran.TransactionPOC</td>
+                                <td>
+                                    抵押信息&nbsp;&nbsp;&nbsp;&nbsp;
+                                    @{
+                                        if (tran.TransactionMortgage == 1)
+                                        {
+                                            @:无抵押
+                                        }
+                                        else
+                                        {
+                                            @:有抵押
+                                        }
+                                    }
+                                </td>
+                                <td>
+                                    房本备件&nbsp;&nbsp;&nbsp;&nbsp;
+                                    @{
+                                        if (tran.TransactionPOC == 1)
+                                        {
+                                            @:已备份
+                                        }
+                                        else
+                                        {
+                                            @:未备份
+                                        }
+                                    }
+                                </td>
 
                         </table>
                     </div>

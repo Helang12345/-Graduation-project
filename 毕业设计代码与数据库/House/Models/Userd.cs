@@ -27,10 +27,10 @@ namespace Models
         public string UserName { get; set; }
         public Nullable<int> UserSex { get; set; }
         public string UserPhone { get; set; }
-        public string SalesmanEmail { get; set; }
-        public string SalesmanVX { get; set; }
-        public string UserLoginName { get; set; }
+        public string UserdEmail { get; set; }
+        public string UserdVX { get; set; }
         public string UserPassword { get; set; }
+        public string Photo { get; set; }
         public Nullable<int> Role { get; set; }
         public Nullable<int> UState { get; set; }
     

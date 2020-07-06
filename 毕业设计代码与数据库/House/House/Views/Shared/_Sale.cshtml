@@ -47,6 +47,11 @@
     <script  src="js/respond.min.js"></script>
     <![endif]-->
 </head>
+@using Models;
+@{
+    Models.Userd userds = Session["Userds"] as Userd;
+    Models.Salesman salesman = Session["Salesman"] as Salesman;
+}
 <body>
     <div class="page_loader"></div>
 
@@ -61,50 +66,20 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    @*<ul class="navbar-nav ml-auto d-lg-none d-xl-none">
-                            <li class="nav-item dropdown">
-                                <a href="dashboard.html" class="nav-link">Dashboard</a>
-                            </li>
-                            <li class="nav-item dropdown active">
-                                <a href="messages.html" class="nav-link">Messages</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="bookings.html" class="nav-link">Bookings</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="my-properties.html" class="nav-link">My Properties</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="my-invoices.html" class="nav-link">My Invoices</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="favorited-properties.html" class="nav-link">Favorited Properties</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="submit-property.html" class="nav-link">Submit Property</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="my-profile.html" class="nav-link">My Profile</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="index.html" class="nav-link">Logout</a>
-                            </li>
-                        </ul>*@
+                  
                     <div class="navbar-buttons ml-auto d-none d-xl-block d-lg-block">
                         <ul>
                             <li>
                                 <div class="dropdown btns">
                                     <a class="dropdown-toggle" data-toggle="dropdown">
-                                        <img src="~/Content/img/avatar/avatar-1.jpg" alt="avatar">
-                                        我的账户
+                                        <img src="~/Content/Photo/@salesman.Photo" alt="avatar">
+                                        @salesman.SalesmanName 
                                     </a>
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="../Sale/SOrder">售房订单</a>
                                         <a class="dropdown-item" href="../Sale/LOrder">租房订单</a>
-                                        <a class="dropdown-item" href="../Business/Index">发布租房</a>
-                                        <a class="dropdown-item" href="../Business/LIndex">发布售房</a>
-                                        <a class="dropdown-item" href="../Business/Information">个人简历</a>
-                                        <a class="dropdown-item" href="../Login/Index">登出</a>
+                                        <a class="dropdown-item" href="../Sale/Information">个人简历</a>
+                                        <a class="dropdown-item" href="../Login/Logout">登出</a>
                                     </div>
                                 </div>
                             </li>
@@ -135,12 +110,10 @@
                             <ul>
                                 <li><a href="../Sale/SOrder"><i class="flaticon-bill"></i>售房管理</a></li>
                                 <li><a href="../Sale/LOrder"><i class="flaticon-bill"></i>租房管理</a></li>
-                                <li><a href="../Business/Index"><i class="flaticon-plus"></i>发布租房</a></li>
-                                <li><a href="../Business/LIndex"><i class="flaticon-plus"></i>发布售房</a></li>
                             </ul>
                             <h4 style="font-size:18px;">账户</h4>
                             <ul>
-                                <li><a href="../Business/Information"><i class="flaticon-user"></i>个人简历</a></li>
+                                <li><a href="../Sale/Information"><i class="flaticon-user"></i>个人简历</a></li>
                                 <li><a href="../Login/Index"><i class="flaticon-logout"></i>登出</a></li>
                             </ul>
                         </div>
@@ -148,24 +121,6 @@
                 </div>
                 <div class="col-lg-9 col-md-12 col-sm-12 col-pad">
                     <div class="content-area5 dashboard-content">
-                        @*<div class="dashboard-header clearfix">
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-6"><h4>Messages</h4></div>
-                                    <div class="col-sm-12 col-md-6">
-                                        <div class="breadcrumb-nav">
-                                            <ul>
-                                                <li>
-                                                    <a href="index.html">Index</a>
-                                                </li>
-                                                <li>
-                                                    <a href="dashboard.html">Dashboard</a>
-                                                </li>
-                                                <li class="active">Messages</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>*@
                         <div>
                             @RenderBody()
                         </div>
@@ -175,15 +130,7 @@
             </div>
         </div>
     </div>
-    <!-- Dashboard end -->
-    @*Full Page Search*@
-    @*<div id="full-page-search">
-            <button type="button" class="close">×</button>
-            <form action="index.html#">
-                <input type="search" value="" placeholder="type keyword(s) here" />
-                <button type="submit" class="btn btn-sm button-theme">Search</button>
-            </form>
-        </div>*@
+
 
 
     <script src="~/Scripts/js/jquery-2.2.0.min.js"></script>

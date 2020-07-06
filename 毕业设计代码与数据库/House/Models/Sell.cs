@@ -31,15 +31,17 @@ namespace Models
         public Nullable<decimal> SellAreaTo { get; set; }
         public Nullable<decimal> SellPrice { get; set; }
         public Nullable<decimal> SellPriceTo { get; set; }
-        public string SellAType { get; set; }
-        public string SellBStructure { get; set; }
+        public Nullable<int> SellAType { get; set; }
+        public Nullable<int> SellBStructure { get; set; }
         public string SellHStructurechar { get; set; }
         public Nullable<int> SellRenovation { get; set; }
         public string SellScale { get; set; }
-        public string SellHeating { get; set; }
+        public Nullable<int> SellHeating { get; set; }
         public Nullable<int> SellOrientation { get; set; }
         public Nullable<int> SellTime { get; set; }
         public Nullable<int> TransactionStatus { get; set; }
+        public string NewTime { get; set; }
+        public string Phone { get; set; }
         public Nullable<int> UserID { get; set; }
         public Nullable<int> SalesmanID { get; set; }
         public Nullable<int> UState { get; set; }

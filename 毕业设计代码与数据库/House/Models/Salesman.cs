@@ -27,9 +27,8 @@ namespace Models
         public string SalesmanPhone { get; set; }
         public string SalesmanEmail { get; set; }
         public string SalesmanVX { get; set; }
-        public string SalesmanLoginName { get; set; }
         public string SalesmanPassword { get; set; }
-        public string SalesmanPhoto { get; set; }
+        public string Photo { get; set; }
         public Nullable<int> UState { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

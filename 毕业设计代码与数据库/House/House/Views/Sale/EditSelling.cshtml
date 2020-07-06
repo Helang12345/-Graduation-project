@@ -1,116 +1,140 @@
-﻿
-@{
-    ViewBag.Title = "EditSelling";
+﻿@{
+    ViewBag.Title = "EditLease";
     Layout = "~/Views/Shared/_Sale.cshtml";
 }
-
-
+@using Models;
+@{
+    //Models.Userd userds = Session["Userds"] as Userd;
+    //Models.Salesman salesman = Session["Salesman"] as Salesman;
+    Sell sell = ViewBag.SSell;
+    Selling selling = ViewBag.SSelling;
+    Transactions transactions = ViewBag.STransactions;
+    List<SImg> sImg = ViewBag.SSImg;
+}
 <div class="submit-address dashboard-list">
     <h4 class="bg-grea-3">发布售房信息</h4>
-    <form method="GET">
+    <form method="post" action="EditSELL" enctype="multipart/form-data" id="form">
         <h4 class="bg-grea-3">基本信息</h4>
+        <input type="hidden" class="input-text" name="UserID" value="@sell.UserID">
+        <input type="hidden" class="input-text" name="SalesmanID" value="@sell.SalesmanID">
+        <input type="hidden" class="input-text" name="SellID" value="@sell.SellID">
         <div class="search-contents-sidebar">
             <div class="row pad-2">
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
+                        <label>财产名称</label>
+                        <input type="text" class="input-text" name="UserID" value="@sell.Userd.UserName">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="form-group">
                         <label>所在城市</label>
-                        <input type="text" class="input-text" name="your name" placeholder="城市名称">
+                        <input type="text" class="input-text" name="SellAddress" placeholder="城市名称" value="@sell.SellAddress">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>所在小区</label>
-                        <input type="text" class="input-text" name="your name" placeholder="小区名">
+                        <input type="text" class="input-text" name="SellVillage" placeholder="小区名" value="@sell.SellVillage">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>所在楼层</label>
-                        <input type="text" class="input-text" name="your name" placeholder="？层">
+                        <input type="text" class="input-text" name="SellFloor" placeholder="？层" value="@sell.SellFloor">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>房屋面积</label>
-                        <input type="text" class="input-text" name="your name" placeholder="平米">
+                        <input type="text" class="input-text" name="SellArea" placeholder="平米" value="@sell.SellArea">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>实际面积</label>
-                        <input type="text" class="input-text" name="your name" placeholder="平米">
+                        <input type="text" class="input-text" name="SellAreaTo" placeholder="平米" value="@sell.SellAreaTo">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>价格</label>
-                        <input type="text" class="input-text" name="your name" placeholder="每平">
+                        <input type="text" class="input-text" name="SellPrice" placeholder="每平" value="@sell.SellPrice">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>总价格</label>
-                        <input type="text" class="input-text" name="your name" placeholder="万元">
+                        <input type="text" class="input-text" name="SellPriceTo" placeholder="万元" value="@sell.SellPriceTo">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>建筑类型</label>
-                        <input type="text" class="input-text" name="your name" placeholder="板塔结构">
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="form-group">
-                        <label>建筑结构</label>
-                        <input type="text" class="input-text" name="your name" placeholder="钢混结构">
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="form-group">
-                        <label>房屋类型</label>
-                        <input type="text" class="input-text" name="your name" placeholder="？室？厅">
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="form-group">
-                        <label>装修</label>
-                        <select class="selectpicker search-fields" name="choose-state">
-                            <option>精装</option>
-                            <option>毛坯</option>
+                        <select class="selectpicker search-fields" name="SellAType">
+                            <option value="1" selected="@(sell.SellAType==1)">板塔结构</option>
+                            <option value="2" selected="@(sell.SellAType==2)">其他</option>
                         </select>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
+                        <label>建筑结构</label>
+                        <select class="selectpicker search-fields" name="SellBStructure">
+                            <option value="1" selected="@(sell.SellBStructure==1)">钢混结构</option>
+                            <option value="2" selected="@(sell.SellBStructure==2)">其他</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <label>房屋类型</label>
+                        <input type="text" class="input-text" name="SellHStructurechar" placeholder="？室？厅" value="@sell.SellHStructurechar">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="form-group">
                         <label>梯户情况</label>
-                        <input type="text" class="input-text" name="your name" placeholder="？梯？户">
+                        <input type="text" class="input-text" name="SellScale" placeholder="？梯？户" value="@sell.SellScale">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <label>装修</label>
+                        <select class="selectpicker search-fields" name="SellRenovation">
+                            <option value="1" selected="@(sell.SellRenovation==1)">精装</option>
+                            <option value="2" selected="@(sell.SellRenovation==2)">毛坯</option>
+                        </select>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>供暖方式</label>
-                        <input type="text" class="input-text" name="your name" placeholder="集中供暖">
+                        <select class="selectpicker search-fields" name="SellHeating">
+                            <option value="1" selected="@(sell.SellHeating==1)">集中供暖</option>
+                            <option value="2" selected="@(sell.SellHeating==2)">自给自足</option>
+                        </select>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
-                        <label>房屋</label>
-                        <select class="selectpicker search-fields" name="choose-state">
-                            <option>坐北朝南</option>
-                            <option>坐南朝北</option>
-                            <option>坐东朝西</option>
-                            <option>坐西朝东</option>
+                        <label>房屋朝向</label>
+                        <select class="selectpicker search-fields" name="SellOrientation">
+                            <option value="1" selected="@(sell.SellOrientation==1)">坐北朝南</option>
+                            <option value="2" selected="@(sell.SellOrientation==2)">坐南朝北</option>
+                            <option value="3" selected="@(sell.SellOrientation==3)">坐东朝西</option>
+                            <option value="4" selected="@(sell.SellOrientation==4)">坐西朝东</option>
                         </select>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>看房时间</label>
-                        <select class="selectpicker search-fields" name="choose-state">
-                            <option>上午（8:00-12：00）</option>
-                            <option>下午（14：00-18:00）</option>
-                            <option>晚上（19:30-22:00）</option>
-                            <option>全天（8:00-22:00）</option>
+                        <select class="selectpicker search-fields" name="SellTime">
+                            <option value="1" selected="@(sell.SellTime==1)">上午（8:00-12：00）</option>
+                            <option value="2" selected="@(sell.SellTime==2)">下午（14：00-18:00）</option>
+                            <option value="3" selected="@(sell.SellTime==3)">晚上（19:30-22:00）</option>
+                            <option value="4" selected="@(sell.SellTime==4)">全天（8:00-22:00）</option>
                         </select>
                     </div>
                 </div>
@@ -118,121 +142,145 @@
         </div>
         <h4 class="bg-grea-3">交易属性</h4>
         <div class="row pad-2">
+            <input type="hidden" class="input-text" name="TransactionID" value="@transactions.TransactionID">
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="form-group">
                     <label>房屋年限</label>
-                    <input type="text" class="input-text" name="address" placeholder="默认为70-以住年限">
+                    <input type="text" class="input-text" name="TransactionYears" placeholder="默认为70-以住年限" value="@transactions.TransactionYears">
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="form-group">
                     <label>上架时间</label>
-                    <input type="text" class="input-text" name="zip" placeholder="年/月/日">
+                    <input type="text" class="input-text" name="TransactionTime" placeholder="年/月/日" value="@transactions.TransactionTime">
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="form-group">
                     <label>上次交易时间</label>
-                    <input type="text" class="input-text" name="zip" placeholder="年/月/日">
+                    <input type="text" class="input-text" name="TransactionOldTransaction" placeholder="年/月/日" value="@transactions.TransactionOldTransaction">
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="form-group">
                     <label>交易权属（是否为商品房）</label>
-                    <select class="selectpicker search-fields" name="choose-state">
-                        <option>是</option>
-                        <option>否</option>
+                    <select class="selectpicker search-fields" name="TransactionCommodity">
+                        <option value="1" selected="@(transactions.TransactionCommodity==1)">是</option>
+                        <option value="2" selected="@(transactions.TransactionCommodity==2)">否</option>
                     </select>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="form-group">
                     <label>房屋用途</label>
-                    <select class="selectpicker search-fields" name="choose-state">
-                        <option>住房</option>
-                        <option>店铺</option>
-                        <option>办公</option>
+                    <select class="selectpicker search-fields" name="TransactionPurpose">
+                        <option value="1" selected="@(transactions.TransactionPurpose=="住房")">住房</option>
+                        <option value="2" selected="@(transactions.TransactionPurpose=="店铺")">店铺</option>
                     </select>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="form-group">
                     <label>是否抵押</label>
-                    <select class="selectpicker search-fields" name="choose-state">
-                        <option>是</option>
-                        <option>否</option>
+                    <select class="selectpicker search-fields" name="TransactionMortgage">
+                        <option value="1" selected="@(transactions.TransactionMortgage==1)">无抵押信息</option>
+                        <option value="2" selected="@(transactions.TransactionMortgage==2)">有抵押信息</option>
                     </select>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="form-group">
                     <label>房本备份</label>
-                    <select class="selectpicker search-fields" name="choose-state">
-                        <option>已备份</option>
-                        <option>未备份</option>
+                    <select class="selectpicker search-fields" name="TransactionPOC">
+                        <option value="1" selected="@(transactions.TransactionPOC==1)">已备份</option>
+                        <option value="2" selected="@(transactions.TransactionPOC==1)">未备份</option>
                     </select>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="form-group">
-                    <label>产权所有人</label>
-                    <input type="text" class="input-text" name="zip" placeholder="姓名">
+                    <label>产权所有</label>
+                    <input type="text" class="input-text" name="TransactionPropertyright" placeholder="非公有" value="@transactions.TransactionPropertyright">
                 </div>
             </div>
         </div>
         <h4 class="bg-grea-3">上传图片</h4>
         <div class="row pad-20">
             <div class="col-lg-12">
-                <div id="myDropZone" class="dropzone dropzone-design">
-                    <div class="dz-default dz-message"><span>拖拽上传</span></div>
-                </div>
+                @{
+                    foreach (var item in sImg)
+                    {
+                        <input type="hidden" class="input-text" name="ID" value="@item.ID">
+                        <img src="~/Content/Selling/@item.Photo" width="80px" height="120px" />
+                    }
+                }
+            </div>
+        </div>
+        <h4 class="bg-grea-3">更新图片</h4>
+        <div class="row pad-20">
+            <div class="col-lg-12">
+                <input type="file" name="Photo" multiple="multiple" class="form-control update_file" />
             </div>
         </div>
         <h4 class="bg-grea-3">交通出行</h4>
+        <input type="hidden" class="input-text" name="SellingID" value="@selling.SellingID">
         <div class="row pad-20">
             <div class="col-lg-12">
-                <textarea class="input-text" name="message" placeholder="请详细介绍"></textarea>
+                <textarea class="input-text" name="SellingTraffic" placeholder="请详细介绍">@selling.SellingTraffic</textarea>
             </div>
         </div>
         <h4 class="bg-grea-3">周边配套</h4>
         <div class="row pad-20">
             <div class="col-lg-12">
-                <textarea class="input-text" name="message" placeholder="请详细介绍"></textarea>
+                <textarea class="input-text" name="SellingInfrastructure" placeholder="请详细介绍">@selling.SellingInfrastructure</textarea>
             </div>
         </div>
         <h4 class="bg-grea-3">税费服务</h4>
         <div class="row pad-20">
             <div class="col-lg-12">
-                <textarea class="input-text" name="message" placeholder="请详细介绍"></textarea>
+                <textarea class="input-text" name="SellingTaxation" placeholder="请详细介绍">@selling.SellingTaxation</textarea>
             </div>
         </div>
         <h4 class="bg-grea-3">户型介绍</h4>
         <div class="row pad-20">
             <div class="col-lg-12">
-                <textarea class="input-text" name="message" placeholder="请详细介绍"></textarea>
+                <textarea class="input-text" name="SellingIntroduce" placeholder="请详细介绍">@selling.SellingIntroduce</textarea>
             </div>
         </div>
         <h4 class="bg-grea-3">小区介绍</h4>
         <div class="row pad-20">
             <div class="col-lg-12">
-                <textarea class="input-text" name="message" placeholder="请详细介绍"></textarea>
+                <textarea class="input-text" name="SellingVillage" placeholder="请详细介绍">@selling.SellingVillage</textarea>
             </div>
         </div>
-        <h4 class="bg-grea-3">交易状态</h4>
-        <div class="col-lg-4 col-md-4 col-sm-12">
-            <div class="form-group">
-                <label>交易状态</label>
-                <select class="selectpicker search-fields" name="choose-state">
-                    <option>待售</option>
-                    <option>出售</option>
-                    <option>下架</option>
-                </select>
+        <h4 class="bg-grea-3">人员指定</h4>
+        <div class="row pad-2">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="form-group">
+                    <label>订单状态</label>
+                    <select class="selectpicker search-fields" name="TransactionStatus">
+                        <option value="0" selected="@(sell.TransactionStatus==0)">待售</option>
+                        <option value="1" selected="@(sell.TransactionStatus==1)">在售</option>
+                        <option value="2" selected="@(sell.TransactionStatus==2)">下架</option>
+                    </select>
+                </div>
             </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12">
-            <input type="button" class="btn btn-md button-theme" value="确定修改">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="form-group">
+                    <label>提交时间</label>
+                    <input type="text" class="input-text" name="NewTime" value="@sell.NewTime">
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="form-group">
+                    <label>联系方式</label>
+                    <input type="text" class="input-text" name="Phone" value="@sell.Phone">
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12" style="margin-top:22px;">
+                <input type="submit" class="btn btn-md button-theme" value="提交财产" style="width:280px">
+            </div>
         </div>
     </form>
 </div>
-
 

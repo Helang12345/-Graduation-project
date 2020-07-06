@@ -3,28 +3,92 @@
     ViewBag.Title = "Order";
     Layout = "~/Views/Shared/_Backstage.cshtml";
 }
+@using Models;
+@{
+    List<Sell> sells = ViewBag.MySell;
 
-<div class="dashboard-list">
-    <h3>我的财产 </h3>
-    <table class="manage-table">
-        <tbody>
-            <tr class="responsive-table">
-                <td class="listing-photoo">
-                    <img src="~/Content/Image/首页/a1.jpg" alt="listing-photo" class="img-fluid">
-                </td>
-                <td class="title-container">
-                    <h2><a href="#">古风公寓</a></h2>
-                    <h5 class="d-none d-xl-block d-lg-block d-md-block"><i class="flaticon-pin"></i> 丹桂苑C栋 </h5>
-                    <h6 class="table-property-price">租金：$900 / 每月</h6>
-                    <h6 class="table-property-price">入住方式：出售</h6>
-                </td>
-                <td class="expire-date">4.01.2018</td>
-                @*<td class="action">
-                    <a href="#"><i class="fa fa-pencil"></i> 修改</a>
-                    <a href="#" class="delete"><i class="fa fa-remove"></i> 删除</a>
-                </td>*@
-            </tr>
+}
+    <div class="dashboard-list">
+        <h3>我的财产 </h3>
 
-        </tbody>
-    </table>
-</div>
+        @foreach (var item in sells)
+        {
+            <div class="property-box-2">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-5 col-pad">
+                            <div class="property-thumbnail">
+                                <a href="~/Controllers/Selling/Index?SellID=@item.SellID" class="property-img">
+                                    @{ if (@item.SImg.Count() == 0)
+                                        {
+                                            <img src="~/Content/Selling/waneng1.jpg" alt="properties" class="img-fluid">
+                                        }
+                                        else
+                                        {
+                                            <img src="~/Content/Selling/@item.SImg.FirstOrDefault().Photo" alt="properties" class="img-fluid">
+                                        }
+                                    }
+                                    <div class="price-box"><span>@item.SellPrice 元</span> 平</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-pad align-self-center">
+                            <div class="detail">
+                                <h3 class="title">
+                                    <a href="/Selling/Index?SellID=@item.SellID">@item.SellAddress / @item.SellVillage</a>
+                                </h3>
+
+                                <h5 class="location">@item.SellHStructurechar</h5>
+                                <ul class="facilities-list clearfix">
+                                    <li>
+                                        房屋朝向：
+                                        @if (item.SellOrientation == 1)
+                                        {
+                                            @:坐北朝南
+                                        }
+                                        else if (item.SellOrientation == 2)
+                                        {
+                                            @:坐南朝北
+                                        }
+                                        else if (item.SellOrientation == 3)
+                                        {
+                                            @:坐东朝西
+                                        }
+                                        else
+                                        {
+                                            @:坐西朝东
+                                        }
+                                    </li>
+                                    <li>
+                                        装修情况：@item.SellRenovation
+                                    </li>
+                                    <li>
+                                        实际面积：@item.SellAreaTo
+                                    </li>
+                                    <li>
+                                        看房时间：
+                                        @if (item.SellTime == 1)
+                                        {
+                                            @:上午
+                                        }
+                                        else if (item.SellTime == 2)
+                                        {
+                                            @:下午
+                                        }
+                                        else if (item.SellTime == 3)
+                                        {
+                                            @:晚上
+                                        }
+                                        else
+                                        {
+                                            @:全天
+                                        }
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        }
+
+    </div>

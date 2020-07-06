@@ -27,7 +27,7 @@ namespace Models
         public string LeaseVillage { get; set; }
         public Nullable<int> LeaseFloor { get; set; }
         public Nullable<decimal> LeaseArea { get; set; }
-        public Nullable<System.DateTime> LeaseMaintain { get; set; }
+        public string LeaseMaintain { get; set; }
         public string LeaseHStructure { get; set; }
         public Nullable<decimal> LeasePrice { get; set; }
         public Nullable<int> LeaseLease { get; set; }
@@ -35,13 +35,15 @@ namespace Models
         public Nullable<int> LeaseParkinglot { get; set; }
         public Nullable<int> LeaseOrientation { get; set; }
         public Nullable<int> LeaseElevator { get; set; }
-        public string LeaseWaterint { get; set; }
-        public string LeaseElectric { get; set; }
-        public string LeaseGas { get; set; }
-        public string LeaseHeating { get; set; }
+        public Nullable<int> LeaseWaterint { get; set; }
+        public Nullable<int> LeaseElectric { get; set; }
+        public Nullable<int> LeaseGas { get; set; }
+        public Nullable<int> LeaseHeating { get; set; }
         public Nullable<int> LeaseLeaseTerm { get; set; }
         public Nullable<int> LeaseTime { get; set; }
         public Nullable<int> TransactionStatus { get; set; }
+        public string NewTime { get; set; }
+        public string Phone { get; set; }
         public Nullable<int> UserID { get; set; }
         public Nullable<int> SalesmanID { get; set; }
         public Nullable<int> UState { get; set; }

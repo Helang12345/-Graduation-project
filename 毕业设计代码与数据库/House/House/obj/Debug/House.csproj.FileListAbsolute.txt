@@ -268,3 +268,7 @@ E:\毕业项目\毕业设计代码与数据库\House\House\bin\DAL.dll
 E:\毕业项目\毕业设计代码与数据库\House\House\bin\DAL.pdb
 E:\毕业项目\毕业设计代码与数据库\House\House\bin\DAL.dll.config
 E:\毕业项目\毕业设计代码与数据库\House\House\bin\zh-Hans\EntityFramework.SqlServer.resources.dll
+E:\毕业项目\毕业设计代码与数据库\House\House\bin\PagedList.dll
+E:\毕业项目\毕业设计代码与数据库\House\House\bin\PagedList.Mvc.dll
+E:\毕业项目\毕业设计代码与数据库\House\House\bin\PagedList.xml
+E:\毕业项目\毕业设计代码与数据库\House\House\bin\PagedList.Mvc.xml

@@ -23,6 +23,7 @@ namespace Models
         public Nullable<int> FacilitiesBed { get; set; }
         public Nullable<int> FacilitiesWIFI { get; set; }
         public Nullable<int> FacilitiesNaturalgas { get; set; }
+        public Nullable<int> FacilitiesHeater { get; set; }
         public Nullable<int> FacilitiesHeating { get; set; }
         public Nullable<int> LeaseID { get; set; }
     

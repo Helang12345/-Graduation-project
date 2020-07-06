@@ -5,11 +5,25 @@
 }
 
 <style>
+    .aaaaa {
+        margin-bottom: 50px;
+        margin-top: 50px;
+        height: 600px;
+        overflow: hidden;
+        /*border: 1px solid red;*/
+    }
 
+    .left {
+        float: left;
+        width: 40%;
+        /*border: 1px solid red;*/
+    }
 
-    .xiangiqng {
-        height: 1800px;
-        margin-top: 100px;
+    .right {
+        float: left;
+        width: 50%;
+        /*border: 1px solid red;*/
+        margin-left: 50%;
     }
 
     .total {
@@ -178,195 +192,395 @@
     }
 
     .stable td {
-        width: 250px;
+        width: 450px;
         height: 40px;
     }
+
     .content__article__info2 {
-    overflow:hidden;
-    margin-top:50px;
+        overflow: hidden;
+        margin-top: 50px;
     }
+
     .oneline {
-        margin-top:30px;
+        margin-top: 30px;
         width: 200px;
         height: 100px;
         float: left;
         line-height: 60px;
         text-align: center;
     }
+     .content__title {
+        margin-top: 30px;
+        margin-bottom: 5px;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 40px;
+        color: #101d37;
+    }
 </style>
+<link href="~/Content/style.css" rel="stylesheet" />
+@using Models;
+@{
+    Lease lease = ViewBag.Only;
+    Facilities facilities = ViewBag.Facilities;
+    List<LImg> imgs = ViewBag.LImg;
+}
 <script src="~/Content/jquery-1.8.3.min.js"></script>
 <link href="~/Content/shouye.css" rel="stylesheet" />
 <script src="~/Content/modernizr-custom-v2.7.1.min.js"></script>
+<div class="container">
+    <p class="content__title">
+        @if (lease.LeaseLease == 1)
+        {
+            @:整租
+        }
+        else
+        {
+            @:合租
+        }
+
+        ·  @lease.LeaseVillage   @lease.LeaseHStructure
+        @if (lease.LeaseOrientation == 1)
+        {
+            @:坐北朝南
+        }
+        else if (lease.LeaseOrientation == 2)
+        {
+            @:坐南朝北
+        }
+        else if (lease.LeaseOrientation == 3)
+        {
+            @:坐东朝西
+        }
+        else
+        {
+            @:坐西朝东
+        }
+
+    </p>
+</div>
 <div class="xiangiqng container">
     @*图片部分*@
-    <div class="bleft">
-        <div class="Xcontent">
-            <ul class="Xcontent01">
-                <div class="Xcontent06"><img src="~/images/shangpinxiangqing/X1.png"></div>
-                <li class="Xcontent08">
-                    <div class="Xcontent07"><img src="~/images/shangpinxiangqing/X1.png"></div>
-                    <div class="Xcontent09"><img src="~/images/shangpinxiangqing/X7.png"></div>
-                    <div class="Xcontent10"><img src="~/images/shangpinxiangqing/X8.png"></div>
-                    <div class="Xcontent11"><img src="~/images/shangpinxiangqing/X9.png"></div>
-                    <div class="Xcontent12"><img src="~/images/shangpinxiangqing/X10.png"></div>
-                </li>
-                <li class="Xcontent13">
-                    <div>
-                        <div class="price ">
-                            <div class="total">540万</div>
-                            <div class="ptext">
-                                <div class="unitPrice">
-                                    <span class="unitPriceValue">47586<i>元/平米</i></span>
-                                </div>
-                                <div class="">
-                                    <span class="taxtext">首付及贷款情况请咨询经纪人</span><i></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="houseInfo">
-                            <div class="room">
-                                <div class="mainInfo">
-                                    3室2厅
-                                </div>
-                                <div class="subInfo">
-                                    中楼层/共17层
-                                </div>
-                            </div>
-                            <div class="type">
-                                <div class="mainInfo" title="南 北">
-                                    南 北
-                                </div>
-                                <div class="subInfo">
-                                    平层/精装
-                                </div>
-                            </div>
-                            <div class="area">
-                                <div class="mainInfo">
-                                    113.48平米
-                                </div>
-                                <div class="subInfo">
-                                    2008年建/板塔结合
-                                </div>
-                            </div>
-                            <a class="img"><img src="~/Content/Image/首页/1573111250229.png">诚心卖，省心买</a>
-                        </div>
-                        <div class="aroundInfo">
-                            <div class="communityName">
-                                <i></i>
-                                <span class="label">小区名称</span>
-                                <a href="/xiaoqu/1111027375871/" target="_blank" class="info ">北京北</a>
-                                <a href="#around" class="map">地图</a>
-                            </div>
-                            <div class="areaName">
-                                <i></i>
-                                <span class="label">所在区域</span>
-                                <span class="info">
-                                    <a href="/ershoufang/changping/" target="_blank">昌平</a>&nbsp;
-                                    <a href="/ershoufang/lishuiqiao1/" target="_blank">立水桥</a>&nbsp;五至六环
-                                </span>
-                                <a href="https://bj.lianjia.com/ditiefang/li649s20600/" class="supplement" title="近5号线立水桥站" style="color: #394043; ">近5号线立水桥站</a>
-                            </div>
-                            <div class="visitTime">
-                                <i></i>
-                                <span class="label">看房时间</span>
-                                <span class="info">有租户需预约</span>
-                            </div>
-                            <div class="houseRecord">
-                                <span class="label">链家编号</span>
-                                <span class="info">
-                                    101103170066
-                                    <span class="jubao" data-lj_evtid="16224" data-lj_action_sourcetype="二手房源详情页举报按钮曝光" data-lj_action_event="ItemExpo" data-lj_action_pid="lianjiaweb">
-                                        <a href="javascript:;" class="report LOGCLICK" data-lj_evtid="16225" data-lj_action_sourcetype="二手房源详情页举报按钮点击" data-lj_action_event="WebClick" data-lj_action_pid="lianjiaweb" data-hasuserreport="1">举报</a>
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="component-agent-es-pc-6">
-                            <div class="brokerInfo">
-                                <a class="" href="https://dianpu.lianjia.com/1000000010091687" target="_blank">
-                                    <img class="agent-img" src="~/Content/Image/Sale/p1.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="brokerInfoText">
-                                <div class="brokerName">
-                                    <a class="brokerNameA" href="#" target="_blank">
-                                        冯雪涛
-                                    </a>
-                                    <div class="dy">
-                                        <span class="dy_tag">恋家</span>
-                                    </div>
-                                </div>
-                                <div class="evaluate" id="evaluate">
-                                    <span>评分:4.9</span>
-                                    <span>/61次评价</span>
-                                </div>
-                                <div class="phone">
-                                    4008893219
-                                    <span class="phone-text">
-                                        转
-                                    </span>
-                                    50994
-
-                                </div>
-                            </div>
-                            <div class="weapp-code">
-                                <img class="img-wrapper" src="~/Content/Image/Sale/W1.png">
-                                <div class="qrcode-wrapper">
-                                    微信扫码拨号
-                                </div>
-                            </div>
-                        </div>
+    <div class="aaaaa">
+        <div class="left">
+            <div class="wrap">
+                <div class="biger" id="biger"></div>
+                <div class="imgs">
+                    <div class="main" id="main">
+                        <div class="mask" id="mask"></div>
                     </div>
-                </li>
-            </ul>
+                    <ul class="smaller" id="smaller"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="right" >
+            <div class="price ">
+                <div class="total">
+                    @if (lease.LeaseLease == 1)
+                    {
+                        @:整租
+                    }
+                    else
+                    {
+                        @:合租
+                    }
+                </div>
+                <div class="ptext">
+                    <div class="unitPrice">
+                        <span class="unitPriceValue">@lease.LeasePrice<i>元/每月</i></span>
+                    </div>
+                    <div class="">
+                        <span class="taxtext">相关信息请咨询经纪人</span><i></i>
+                    </div>
+                </div>
+            </div>
+            <div class="houseInfo">
+                <div class="room">
+                    <div class="mainInfo">
+                        @lease.LeaseHStructure
+                    </div>
+                    <div class="subInfo">
+                        @lease.LeaseFloor 层
+                    </div>
+                </div>
+                <div class="type">
+                    <div class="mainInfo" title="南 北">
+                        @if (lease.LeaseOrientation == 1)
+                        {
+                            @:坐北朝南
+                        }
+                        else if (lease.LeaseOrientation == 2)
+                        {
+                            @:坐南朝北
+                        }
+                        else if (lease.LeaseOrientation == 3)
+                        {
+                            @:坐东朝西
+                        }
+                        else
+                        {
+                            @:坐西朝东
+                        }
+                    </div>
+                    <div class="subInfo">
+                        @if (lease.LeaseCheckin == 1)
+                        {
+                            @:入住
+                        }
+                        else
+                        {
+                            @:需整理
+                        }
+                    </div>
+                </div>
+                <div class="area">
+                    <div class="mainInfo">
+                        @lease.LeaseArea 平米
+                    </div>
+                    <div class="subInfo">
+                        @lease.LeaseMaintain
+                    </div>
+                </div>
+                <a class="aimg">@*<img src="~/Content/Image/首页/1573111250229.png">*@诚心卖，省心买</a>
+            </div>
+            <div class="aroundInfo">
+                <div class="communityName">
+                    <i></i>
+                    <span class="label">所在城市</span>
+                    <span class="info ">@lease.LeaseAddress</span>
+                </div>
+                <div class="areaName">
+                    <i></i>
+                    <span class="label">小区名称</span>
+                    <span class="info ">@lease.LeaseVillage</span>
+                </div>
+                <div class="visitTime">
+                    <i></i>
+                    <span class="label">看房时间</span>
+                    <span class="info">
+                        @if (lease.LeaseTime == 1)
+                        {
+                            @:上午（8:00-12:00）
+                        }
+                        else if (lease.LeaseTime == 2)
+                        {
+                            @:下午（13:00-17:00）
+                        }
+                        else if (lease.LeaseTime == 3)
+                        {
+                            @:晚上（17:00-22:00）
+                        }
+                        else
+                        {
+                            @:全天（8:00-22:00）
+                        }
+                    </span>
+                </div>
+                <div class="houseRecord">
+                    @{ if (Session["Userds"] != null && ViewBag.a != 0)
+                        {
+                            <a href="/Lease/RFollow?id=@lease.LeaseID" style="color:black">取消收藏</a>
+                        }
+                        else
+                        {
+                            <a href="/Lease/SFollow?id=@lease.LeaseID" style="color:black">我要收藏</a>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="component-agent-es-pc-6" style="z-index:-1;">
+                <div class="brokerInfo">
+                    <a class="" href="https://dianpu.lianjia.com/1000000010091687" target="_blank">
+                        <img class="agent-img" src="~/Content/Image/Sale/p1.jpg" alt="">
+                    </a>
+                </div>
+                <div class="brokerInfoText">
+                    <div class="phone">
+                        销售：@lease.Salesman.SalesmanName
+                    </div>
+                    <div class="phone">
+                        电话：@lease.Salesman.SalesmanPhone
+                    </div>
+                    <div class="phone">
+                        微信：@lease.Salesman.SalesmanVX
+                    </div>
+                </div>
+                <div class="weapp-code">
+                    <img class="img-wrapper" src="~/Content/Image/Sale/W1.png">
+                    <div class="qrcode-wrapper">
+                        微信扫码加好友
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     @*基本信息*@
     <div class="basic">
         <div class="" style="width:900px;">
-            <h3 style="margin-bottom:20px;margin-top:20px;">基本信息</h3>
+            <h3 style="margin-bottom:20px;margin-top:20px;font-size:24px;font-weight:600">基本信息</h3>
             <div class="introContent">
                 <div class="base">
                     <div class="basecontent" style="margin-bottom:20px;">
                         <table class="stable" style="font-size:14px;">
                             <tr>
                                 <td>基本信息</td>
-                                <td>面积&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                <td>朝向&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                <td>面积&nbsp;&nbsp;&nbsp;&nbsp;@lease.LeaseArea</td>
+                                <td>
+                                    朝向&nbsp;&nbsp;&nbsp;&nbsp;
+                                    @if (lease.LeaseOrientation == 1)
+                                    {
+                                        @:坐北朝南
+                                    }
+                                    else if (lease.LeaseOrientation == 2)
+                                    {
+                                        @:坐南朝北
+                                    }
+                                    else if (lease.LeaseOrientation == 3)
+                                    {
+                                        @:坐东朝西
+                                    }
+                                    else
+                                    {
+                                        @:坐西朝东
+                                    }
+                                </td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>维护&nbsp;&nbsp;&nbsp;&nbsp;189m</td>
-                                <td>入住&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                <td>维护&nbsp;&nbsp;&nbsp;&nbsp;@lease.LeaseMaintain</td>
+                                <td>
+                                    入住&nbsp;&nbsp;&nbsp;&nbsp;
+                                    @if (lease.LeaseCheckin == 1)
+                                    {
+                                        @:拎包入住
+                                    }
+                                    else
+                                    {
+                                        @:需购生活用品
+                                    }
+                                </td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>楼层</td>
-                                <td>电梯</td>
+                                <td>楼层&nbsp;&nbsp;&nbsp;&nbsp;@lease.LeaseFloor</td>
+                                <td>
+                                    电梯&nbsp;&nbsp;&nbsp;&nbsp;
+                                    @if (lease.LeaseElevator == 1)
+                                    {
+                                        @:有
+                                    }
+                                    else
+                                    {
+                                        @:无
+                                    }
+                                </td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>车位</td>
-                                <td>用水</td>
+                                <td>
+                                    车位&nbsp;&nbsp;&nbsp;&nbsp;
+                                    @if (lease.LeaseParkinglot == 1)
+                                    {
+                                        @:有
+                                    }
+                                    else
+                                    {
+                                        @:无
+                                    }
+                                </td>
+                                <td>
+                                    用水&nbsp;&nbsp;&nbsp;&nbsp;
+                                    @if (lease.LeaseWaterint == 1)
+                                    {
+                                        @:民水
+                                    }
+                                    else
+                                    {
+                                        @:其他
+                                    }
+                                </td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>用电</td>
-                                <td>燃气</td>
+                                <td>
+                                    用电&nbsp;&nbsp;&nbsp;&nbsp;@if (lease.LeaseParkinglot == 1)
+                                    {
+                                        @:民电
+                                    }
+                                    else
+                                    {
+                                        @:其他
+                                    }
+                                </td>
+                                <td>
+                                    燃气&nbsp;&nbsp;&nbsp;&nbsp;@if (lease.LeaseParkinglot == 1)
+                                    {
+                                        @:天然气
+                                    }
+                                    else if (lease.LeaseParkinglot == 2)
+                                    {
+                                        @:液化气
+                                    }
+                                    else 
+                                    {
+                                        @:电力
+                                    }
+                                </td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>采暖</td>
+                                <td>
+                                    采暖&nbsp;&nbsp;&nbsp;&nbsp;@if (lease.LeaseHeating == 1)
+                                    {
+                                        @:集中供暖
+                                    }
+                                    else
+                                    {
+                                        @:自给自足
+                                    }
+                                </td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>租期</td>
+                                <td>
+                                    租期&nbsp;&nbsp;&nbsp;&nbsp;
+                                    @if (lease.LeaseLeaseTerm == 1)
+                                    {
+                                        @:月租
+                                    }
+                                    else if (lease.LeaseLeaseTerm == 2)
+                                    {
+                                        @:季租
+                                    }
+                                    else
+                                    {
+                                        @:租年
+                                    }
+                                </td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>看房</td>
+                                <td>
+                                    看房&nbsp;&nbsp;&nbsp;&nbsp;
+                                    @if (lease.LeaseTime == 1)
+                                    {
+                                        @:上午（8:00-12:00）
+                                    }
+                                    else if (lease.LeaseTime == 2)
+                                    {
+                                        @:下午（13:00-17:00）
+                                    }
+                                    else if (lease.LeaseTime == 3)
+                                    {
+                                        @:晚上（17:00-22:00）
+                                    }
+                                    else
+                                    {
+                                        @:全天（8:00-22:00）
+                                    }
+                                </td>
                                 <td></td>
                             </tr>
                         </table>
@@ -378,89 +592,268 @@
         </div>
     </div>
     @*配套设置*@
-<ul class="content__article__info2">
-    <h3 class="">配套设施</h3>
-    <li class="fl oneline  ">
-        <img src="~/Content/Image/Sale/xyj.jpg" style="width:40px;height:40px; " />
-        <p >洗衣机</p>
-    </li>
-    <li class="fl oneline  ">
-        <img src="~/Content/Image/Sale/kt1.jpg" style="width:40px;height:40px; " />
-        <p>空调</p>
-    </li>
-    <li class="fl oneline  ">
-        <img src="~/Content/Image/Sale/yg.jpg" style="width:40px;height:40px; " />
-        <p>衣柜</p>
-    </li>
-    <li class="fl oneline  ">
-        <img src="~/Content/Image/Sale/ds.jpg" style="width:40px;height:40px;" />
-        <p>电视</p>
-    </li>
-    <li class="fl oneline  ">
-        <img src="~/Content/Image/Sale/bx.jpg" style="width:40px;height:40px; " />
-        <p>冰箱</p>
-    </li>
-    <li class="fl oneline  ">
-        <img src="~/Content/Image/Sale/xyj.jpg" style="width:40px;height:40px; " />
-        <p>热水器</p>
-    </li>
-    <li class="fl oneline  ">
-        <img src="~/Content/Image/Sale/xyj.jpg" style="width:40px;height:40px; " />
-        <p>床</p>
-    </li>
-    <li class="fl oneline  ">
-        <img src="~/Content/Image/Sale/xyj.jpg" style="width:40px;height:40px; " />
-        <p>暖气</p>
-    </li>
-    <li class="fl oneline facility_no ">
-        <img src="~/Content/Image/Sale/xyj.jpg" style="width:40px;height:40px; " />
-        <p>宽带</p>
-    </li>
-    <li class="fl oneline  ">
-        <img src="~/Content/Image/Sale/xyj.jpg" style="width:40px;height:40px; " />
-        <p>天然气</p>
-    </li>
-</ul>
+<div class="aaaaaaaa" style="margin-bottom:100px;">
+    <ul class="content__article__info2">
+        <h3 style="font-size:24px;font-weight:600" >配套设施</h3>
+        <li class="fl oneline  ">
+            @{
+                if (facilities.FacilitiesWashing == 1)
+                {
+                    <img src="~/Content/Image/Sale/xyj.jpg" style="width:40px;height:40px; " />
+                }
+                else
+                {
+                    <img src="~/Content/Image/Sale/xyj.jpg" style="width:40px;height:40px; opacity:0.5" />
+                }
+            }
+
+            <p>洗衣机</p>
+        </li>
+        <li class="fl oneline  ">
+            @{
+                if (facilities.Facilitiesairconditioner == 1)
+                {
+                    <img src="~/Content/Image/Sale/kt1.jpg" style="width:40px;height:40px; " />
+                }
+                else
+                {
+                    <img src="~/Content/Image/Sale/kt1.jpg" style="width:40px;height:40px; opacity:0.5" />
+                }
+            }
+
+            <p>空调</p>
+        </li>
+        <li class="fl oneline  ">
+            @{
+                if (facilities.Facilitieswardrobe == 1)
+                {
+                    <img src="~/Content/Image/Sale/yg.jpg" style="width:40px;height:40px; " />
+                }
+                else
+                {
+                    <img src="~/Content/Image/Sale/yg.jpg" style="width:40px;height:40px; opacity:0.5" />
+                }
+            }
+
+            <p>衣柜</p>
+        </li>
+        <li class="fl oneline  ">
+            @{
+                if (facilities.FacilitiesTV == 1)
+                {
+                    <img src="~/Content/Image/Sale/ds.jpg" style="width:40px;height:40px;" />
+                }
+                else
+                {
+                    <img src="~/Content/Image/Sale/ds.jpg" style="width:40px;height:40px;opacity:0.5" />
+                }
+            }
+
+            <p>电视</p>
+        </li>
+        <li class="fl oneline  ">
+            @{
+                if (facilities.FacilitiesRefrigerator == 1)
+                {
+                    <img src="~/Content/Image/Sale/bx.jpg" style="width:40px;height:40px; " />
+                }
+                else
+                {
+                    <img src="~/Content/Image/Sale/bx.jpg" style="width:40px;height:40px;opacity:0.5 " />
+                }
+            }
+
+            <p>冰箱</p>
+        </li>
+        <li class="fl oneline  ">
+            @{
+                if (facilities.FacilitiesHeater == 1)
+                {
+                    <img src="~/Content/Image/Sale/rsq.jpg" style="width:40px;height:40px; " />
+                }
+                else
+                {
+                    <img src="~/Content/Image/Sale/rsq.jpg" style="width:40px;height:40px;opacity:0.5 " />
+                }
+            }
+            <p>热水器</p>
+        </li>
+        <li class="fl oneline  ">
+            @{
+                if (facilities.FacilitiesBed == 1)
+                {
+                    <img src="~/Content/Image/Sale/c.jpg" style="width:40px;height:40px; " />
+                }
+                else
+                {
+                    <img src="~/Content/Image/Sale/c.jpg" style="width:40px;height:40px;opacity:0.5 " />
+                }
+            }
+
+            <p>床</p>
+        </li>
+        <li class="fl oneline  ">
+            @{
+                if (facilities.FacilitiesHeating == 1)
+                {
+                    <img src="~/Content/Image/Sale/nq.jpg" style="width:40px;height:40px; " />
+                }
+                else
+                {
+                    <img src="~/Content/Image/Sale/nq.jpg" style="width:40px;height:40px; opacity:0.5" />
+                }
+            }
+
+            <p>暖气</p>
+        </li>
+        <li class="fl oneline facility_no ">
+            @{
+                if (facilities.FacilitiesWIFI == 1)
+                {
+                    <img src="~/Content/Image/Sale/kd.jpg" style="width:40px;height:40px; " />
+                }
+                else
+                {
+                    <img src="~/Content/Image/Sale/kd.jpg" style="width:40px;height:40px; opacity:0.5" />
+                }
+            }
+
+            <p>宽带</p>
+        </li>
+        <li class="fl oneline  ">
+            @{
+                if (facilities.FacilitiesNaturalgas == 1)
+                {
+                    <img src="~/Content/Image/Sale/trq.jpg" style="width:40px;height:40px; " />
+                }
+                else
+                {
+                    <img src="~/Content/Image/Sale/trq.jpg" style="width:40px;height:40px;opacity:0.5 " />
+                }
+            }
+
+            <p>天然气</p>
+        </li>
+    </ul>
+</div>
 </div>
 
-@section scripts{
+@section scripts
+    {
     <script>
-        $(document).ready(function () {
-            var $miaobian = $('.Xcontent08>div');
-            var $huantu = $('.Xcontent06>img');
-            var $miaobian1 = $('.Xcontent26>div');
-            $miaobian.mousemove(function () { miaobian(this); });
-            $miaobian1.click(function () { miaobian1(this); });
-            function miaobian(thisMb) {
-                for (var i = 0; i < $miaobian.length; i++) {
-                    $miaobian[i].style.borderColor = '#dedede';
+        window.onload = function () {
+            var biger = document.getElementById('biger');
+            var main = document.getElementById('main');
+            var smaller = document.getElementById('smaller');
+            var mask = document.getElementById('mask');
+            var wrap = biger.parentNode;
+            var imgArr = [
+                //{ "path": "../../Content/Selling/a1.jpg" },
+                //{ "path": "../../Content/Selling/a2.jpg" }
+                    @{
+                        for (int i = 0; i < imgs.Count(); i++)
+                        {
+                            if (i == imgs.Count())
+                            {
+                            @:{ "path": "../../Content/Renting/@imgs[i].Photo" }
+                            }
+                            else {
+                            @:{ "path": "../../Content/Renting/@imgs[i].Photo" },
+                            }
+                        }
+                    }
+                ];
+                                var imgSum = imgArr.length;
+                                if (imgSum > 5) {
+                                    imgSum = 5;
+                                }
+                                for (var i = 0; i < imgSum; i++) {
+                                    var lis = document.createElement('li');
+                                    var imgs = document.createElement('img');
+                                    imgs.src = imgArr[i].path;
+                                    lis.appendChild(imgs);
+                                    smaller.appendChild(lis);
+                                }
+                                var mainImg = document.createElement('img');
+                                var bigImg = document.createElement('img');
+                                var liArr = smaller.children;
+                                bigImg.src = mainImg.src = liArr[0].children[0].src;
+                                main.insertBefore(mainImg, mask);
+                                biger.appendChild(bigImg);
+                                var bigPic = biger.children[0];
+                                liArr[0].className = 'current';
+                                for (var i = 0; i < liArr.length; i++) {
+                                    liArr[i].index = i;
+                                    liArr[i].onclick = function () {
+                                        this.className = 'current';
+                                        bigPic.src = main.children[0].src = this.children[0].src;
+                                        for (var j = 0; j < liArr.length; j++) {
+                                            if (this != liArr[j]) {
+                                                liArr[j].removeAttribute('class');
+                                                liArr[j].removeAttribute('className');
+                                            }
+                                        }
+                                    }
+                                }
+                                main.onmouseenter = function () {
+                                    mask.style.display = 'block';
+                                    biger.style.display = 'block';
+                                }
+                                main.onmouseleave = function () {
+                                    mask.style.display = 'none';
+                                    biger.style.display = 'none';
+                                }
+                                main.onmousemove = function (e) {
+                                    var e = e || window.event;
+                            var pagex = e.pageX || scroll().left + e.clientX;
+                var pagey = e.pageY || scroll().top + e.clientY;
+                            pagex = pagex - wrap.offsetLeft - mask.offsetWidth / 2;;
+                pagey = pagey - wrap.offsetTop - mask.offsetHeight / 2;
+                if (pagex < 0) {
+                    pagex = 0;
                 }
-                thisMb.style.borderColor = '#cd2426';
-
-                $huantu[0].src = thisMb.children[0].src;
+                if (pagey < 0) {
+                    pagey = 0;
+                }
+                if (pagex >
+                    main.offsetWidth - mask.offsetWidth) {
+                    pagex = main.offsetWidth - mask.offsetWidth;
+                }
+                if (pagey > main.offsetHeight - mask.offsetHeight) {
+                    pagey = main.offsetHeight - mask.offsetHeight;
+                }
+                mask.style.left = pagex + 'px';
+                mask.style.top = pagey + 'px';
+                var scale = (bigPic.offsetWidth - biger.offsetWidth) / (main.offsetWidth - mask.offsetWidth);
+                    var xx = pagex * scale;
+                    var yy = pagey * scale;
+                    bigPic.style.left = -xx + 'px';
+                bigPic.style.top = -yy + 'px';
             }
-            function miaobian1(thisMb1) {
-                for (var i = 0; i < $miaobian1.length; i++) {
-                    $miaobian1[i].style.borderColor = '#dedede';
-                }
-                //		thisMb.style.borderColor = '#cd2426';
-                $miaobian.css('border-color', '#dedede');
-                thisMb1.style.borderColor = '#cd2426';
-                $huantu[0].src = thisMb1.children[0].src;
-            }
-            $(".Xcontent33").click(function () {
-                var value = parseInt($('.input').val()) + 1;
-                $('.input').val(value);
-            })
+        }
 
-            $(".Xcontent32").click(function () {
-                var num = $(".input").val()
-                if (num > 0) {
-                    $(".input").val(num - 1);
+        // 屏幕滚动
+        function scroll() {
+            if (window.pageXOffset != undefined) {
+                return {
+                    "left": window.pageXOffset,
+                    "top": window.pageYOffset
                 }
-            })
-        })
+            } else if (document.compatMode != 'BackCompat') {
+                return {
+                    "left": document.body.scrollLeft,
+                    "top": document.body.scrollTop
+                }
+            } else {
+                return {
+                    "left": document.documentElement.scrollLeft,
+                    "top": document.documentElement.scrollTop
+                }
+            }
+        }
+
     </script>
 }
+
 
 

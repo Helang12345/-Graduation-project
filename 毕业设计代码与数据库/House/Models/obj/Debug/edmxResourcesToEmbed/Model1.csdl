@@ -13,9 +13,10 @@
     <Property Name="FacilitiesBed" Type="Int32" />
     <Property Name="FacilitiesWIFI" Type="Int32" />
     <Property Name="FacilitiesNaturalgas" Type="Int32" />
+    <Property Name="FacilitiesHeater" Type="Int32" />
     <Property Name="FacilitiesHeating" Type="Int32" />
     <Property Name="LeaseID" Type="Int32" />
-    <NavigationProperty Name="Lease" Relationship="Self.FK__Facilitie__Lease__398D8EEE" FromRole="Facilities" ToRole="Lease" />
+    <NavigationProperty Name="Lease" Relationship="Self.FK__Facilitie__Lease__3A81B327" FromRole="Facilities" ToRole="Lease" />
   </EntityType>
   <EntityType Name="LCollection">
     <Key>
@@ -24,8 +25,8 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="LeaseID" Type="Int32" />
     <Property Name="UserID" Type="Int32" />
-    <NavigationProperty Name="Lease" Relationship="Self.FK__LCollecti__Lease__3F466844" FromRole="LCollection" ToRole="Lease" />
-    <NavigationProperty Name="Userd" Relationship="Self.FK__LCollecti__UserI__403A8C7D" FromRole="LCollection" ToRole="Userd" />
+    <NavigationProperty Name="Lease" Relationship="Self.FK__LCollecti__Lease__403A8C7D" FromRole="LCollection" ToRole="Lease" />
+    <NavigationProperty Name="Userd" Relationship="Self.FK__LCollecti__UserI__412EB0B6" FromRole="LCollection" ToRole="Userd" />
   </EntityType>
   <EntityType Name="Lease">
     <Key>
@@ -36,7 +37,7 @@
     <Property Name="LeaseVillage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="LeaseFloor" Type="Int32" />
     <Property Name="LeaseArea" Type="Decimal" Precision="12" Scale="2" />
-    <Property Name="LeaseMaintain" Type="DateTime" Precision="0" />
+    <Property Name="LeaseMaintain" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="LeaseHStructure" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="LeasePrice" Type="Decimal" Precision="12" Scale="2" />
     <Property Name="LeaseLease" Type="Int32" />
@@ -44,21 +45,23 @@
     <Property Name="LeaseParkinglot" Type="Int32" />
     <Property Name="LeaseOrientation" Type="Int32" />
     <Property Name="LeaseElevator" Type="Int32" />
-    <Property Name="LeaseWaterint" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="LeaseElectric" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="LeaseGas" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="LeaseHeating" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LeaseWaterint" Type="Int32" />
+    <Property Name="LeaseElectric" Type="Int32" />
+    <Property Name="LeaseGas" Type="Int32" />
+    <Property Name="LeaseHeating" Type="Int32" />
     <Property Name="LeaseLeaseTerm" Type="Int32" />
     <Property Name="LeaseTime" Type="Int32" />
     <Property Name="TransactionStatus" Type="Int32" />
+    <Property Name="NewTime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="UserID" Type="Int32" />
     <Property Name="SalesmanID" Type="Int32" />
     <Property Name="UState" Type="Int32" />
-    <NavigationProperty Name="Facilities" Relationship="Self.FK__Facilitie__Lease__398D8EEE" FromRole="Lease" ToRole="Facilities" />
-    <NavigationProperty Name="LCollection" Relationship="Self.FK__LCollecti__Lease__3F466844" FromRole="Lease" ToRole="LCollection" />
+    <NavigationProperty Name="Facilities" Relationship="Self.FK__Facilitie__Lease__3A81B327" FromRole="Lease" ToRole="Facilities" />
+    <NavigationProperty Name="LCollection" Relationship="Self.FK__LCollecti__Lease__403A8C7D" FromRole="Lease" ToRole="LCollection" />
     <NavigationProperty Name="Salesman" Relationship="Self.FK__Lease__SalesmanI__2D27B809" FromRole="Lease" ToRole="Salesman" />
     <NavigationProperty Name="Userd" Relationship="Self.FK__Lease__UserID__2C3393D0" FromRole="Lease" ToRole="Userd" />
-    <NavigationProperty Name="LImg" Relationship="Self.FK__LImg__LeaseID__3C69FB99" FromRole="Lease" ToRole="LImg" />
+    <NavigationProperty Name="LImg" Relationship="Self.FK__LImg__LeaseID__3D5E1FD2" FromRole="Lease" ToRole="LImg" />
   </EntityType>
   <EntityType Name="LImg">
     <Key>
@@ -67,7 +70,7 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="LeaseID" Type="Int32" />
     <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Lease" Relationship="Self.FK__LImg__LeaseID__3C69FB99" FromRole="LImg" ToRole="Lease" />
+    <NavigationProperty Name="Lease" Relationship="Self.FK__LImg__LeaseID__3D5E1FD2" FromRole="LImg" ToRole="Lease" />
   </EntityType>
   <EntityType Name="Salesman">
     <Key>
@@ -79,9 +82,8 @@
     <Property Name="SalesmanPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="SalesmanEmail" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="SalesmanVX" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="SalesmanLoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="SalesmanPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="SalesmanPhoto" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="UState" Type="Int32" />
     <NavigationProperty Name="Lease" Relationship="Self.FK__Lease__SalesmanI__2D27B809" FromRole="Salesman" ToRole="Lease" />
     <NavigationProperty Name="Sell" Relationship="Self.FK__Sell__SalesmanID__1A14E395" FromRole="Salesman" ToRole="Sell" />
@@ -108,15 +110,17 @@
     <Property Name="SellAreaTo" Type="Decimal" Precision="12" Scale="2" />
     <Property Name="SellPrice" Type="Decimal" Precision="12" Scale="2" />
     <Property Name="SellPriceTo" Type="Decimal" Precision="12" Scale="2" />
-    <Property Name="SellAType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="SellBStructure" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SellAType" Type="Int32" />
+    <Property Name="SellBStructure" Type="Int32" />
     <Property Name="SellHStructurechar" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="SellRenovation" Type="Int32" />
     <Property Name="SellScale" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="SellHeating" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SellHeating" Type="Int32" />
     <Property Name="SellOrientation" Type="Int32" />
     <Property Name="SellTime" Type="Int32" />
     <Property Name="TransactionStatus" Type="Int32" />
+    <Property Name="NewTime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="UserID" Type="Int32" />
     <Property Name="SalesmanID" Type="Int32" />
     <Property Name="UState" Type="Int32" />
@@ -155,13 +159,13 @@
     </Key>
     <Property Name="TransactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TransactionTime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="TransactionCommodity" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TransactionCommodity" Type="Int32" />
     <Property Name="TransactionOldTransaction" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="TransactionPurpose" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="TransactionYears" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="TransactionPropertyright" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
-    <Property Name="TransactionMortgage" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="TransactionPOC" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="TransactionMortgage" Type="Int32" />
+    <Property Name="TransactionPOC" Type="Int32" />
     <Property Name="SellID" Type="Int32" />
     <NavigationProperty Name="Sell" Relationship="Self.FK__Transacti__SellI__20C1E124" FromRole="Transactions" ToRole="Sell" />
   </EntityType>
@@ -173,18 +177,18 @@
     <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="UserSex" Type="Int32" />
     <Property Name="UserPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="SalesmanEmail" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="SalesmanVX" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="UserLoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserdEmail" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserdVX" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="UserPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Photo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="Role" Type="Int32" />
     <Property Name="UState" Type="Int32" />
-    <NavigationProperty Name="LCollection" Relationship="Self.FK__LCollecti__UserI__403A8C7D" FromRole="Userd" ToRole="LCollection" />
+    <NavigationProperty Name="LCollection" Relationship="Self.FK__LCollecti__UserI__412EB0B6" FromRole="Userd" ToRole="LCollection" />
     <NavigationProperty Name="Lease" Relationship="Self.FK__Lease__UserID__2C3393D0" FromRole="Userd" ToRole="Lease" />
     <NavigationProperty Name="SCollection" Relationship="Self.FK__SCollecti__UserI__276EDEB3" FromRole="Userd" ToRole="SCollection" />
     <NavigationProperty Name="Sell" Relationship="Self.FK__Sell__UserID__1920BF5C" FromRole="Userd" ToRole="Sell" />
   </EntityType>
-  <Association Name="FK__Facilitie__Lease__398D8EEE">
+  <Association Name="FK__Facilitie__Lease__3A81B327">
     <End Role="Lease" Type="Self.Lease" Multiplicity="0..1" />
     <End Role="Facilities" Type="Self.Facilities" Multiplicity="*" />
     <ReferentialConstraint>
@@ -196,7 +200,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__LCollecti__Lease__3F466844">
+  <Association Name="FK__LCollecti__Lease__403A8C7D">
     <End Role="Lease" Type="Self.Lease" Multiplicity="0..1" />
     <End Role="LCollection" Type="Self.LCollection" Multiplicity="*" />
     <ReferentialConstraint>
@@ -208,7 +212,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__LCollecti__UserI__403A8C7D">
+  <Association Name="FK__LCollecti__UserI__412EB0B6">
     <End Role="Userd" Type="Self.Userd" Multiplicity="0..1" />
     <End Role="LCollection" Type="Self.LCollection" Multiplicity="*" />
     <ReferentialConstraint>
@@ -244,7 +248,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__LImg__LeaseID__3C69FB99">
+  <Association Name="FK__LImg__LeaseID__3D5E1FD2">
     <End Role="Lease" Type="Self.Lease" Multiplicity="0..1" />
     <End Role="LImg" Type="Self.LImg" Multiplicity="*" />
     <ReferentialConstraint>
@@ -340,7 +344,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="HouseEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="HouseEntities2" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Facilities" EntityType="Self.Facilities" />
     <EntitySet Name="LCollection" EntityType="Self.LCollection" />
     <EntitySet Name="Lease" EntityType="Self.Lease" />
@@ -352,15 +356,15 @@
     <EntitySet Name="SImg" EntityType="Self.SImg" />
     <EntitySet Name="Transactions" EntityType="Self.Transactions" />
     <EntitySet Name="Userd" EntityType="Self.Userd" />
-    <AssociationSet Name="FK__Facilitie__Lease__398D8EEE" Association="Self.FK__Facilitie__Lease__398D8EEE">
+    <AssociationSet Name="FK__Facilitie__Lease__3A81B327" Association="Self.FK__Facilitie__Lease__3A81B327">
       <End Role="Lease" EntitySet="Lease" />
       <End Role="Facilities" EntitySet="Facilities" />
     </AssociationSet>
-    <AssociationSet Name="FK__LCollecti__Lease__3F466844" Association="Self.FK__LCollecti__Lease__3F466844">
+    <AssociationSet Name="FK__LCollecti__Lease__403A8C7D" Association="Self.FK__LCollecti__Lease__403A8C7D">
       <End Role="Lease" EntitySet="Lease" />
       <End Role="LCollection" EntitySet="LCollection" />
     </AssociationSet>
-    <AssociationSet Name="FK__LCollecti__UserI__403A8C7D" Association="Self.FK__LCollecti__UserI__403A8C7D">
+    <AssociationSet Name="FK__LCollecti__UserI__412EB0B6" Association="Self.FK__LCollecti__UserI__412EB0B6">
       <End Role="Userd" EntitySet="Userd" />
       <End Role="LCollection" EntitySet="LCollection" />
     </AssociationSet>
@@ -372,7 +376,7 @@
       <End Role="Userd" EntitySet="Userd" />
       <End Role="Lease" EntitySet="Lease" />
     </AssociationSet>
-    <AssociationSet Name="FK__LImg__LeaseID__3C69FB99" Association="Self.FK__LImg__LeaseID__3C69FB99">
+    <AssociationSet Name="FK__LImg__LeaseID__3D5E1FD2" Association="Self.FK__LImg__LeaseID__3D5E1FD2">
       <End Role="Lease" EntitySet="Lease" />
       <End Role="LImg" EntitySet="LImg" />
     </AssociationSet>

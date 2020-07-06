@@ -12,3 +12,7 @@ E:\毕业项目\毕业设计代码与数据库\House\DAL\obj\Debug\DAL.csproj.Co
 E:\毕业项目\毕业设计代码与数据库\House\DAL\bin\Debug\DAL.dll.config
 E:\毕业项目\毕业设计代码与数据库\House\DAL\bin\Debug\EntityFramework.SqlServer.dll
 E:\毕业项目\毕业设计代码与数据库\House\DAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\毕业项目\毕业设计代码与数据库\House\DAL\bin\Debug\PagedList.dll
+E:\毕业项目\毕业设计代码与数据库\House\DAL\bin\Debug\PagedList.Mvc.dll
+E:\毕业项目\毕业设计代码与数据库\House\DAL\bin\Debug\PagedList.xml
+E:\毕业项目\毕业设计代码与数据库\House\DAL\bin\Debug\PagedList.Mvc.xml
