@@ -14,12 +14,11 @@ namespace House.Controllers
 {
     public class SellingController : Controller
     {
-        HouseEntities2 db = new HouseEntities2();
+        HouseEntities db = new HouseEntities();
         //SellingHousesBLL bll = new SellingHousesBLL();
         
         //出售界面
         // GET: Selling
-
         public ActionResult Index(int SellID)
         {
             //var SellID = 1;
@@ -114,7 +113,7 @@ namespace House.Controllers
                 //每页显示多少条
                 int pageSize = 5;
                 //排序
-                List<Sell> kk = db.Sell.OrderBy(p => p.SellID).ToList();
+                List<Sell> kk = db.Sell.OrderBy(p => p.SellID).Where(p => p.TransactionStatus == 1).ToList();
 
                 ///通过ToPagedList扩展方法进行分页  
                 IPagedList<Sell> usePageList = kk.ToPagedList(pageNumber, pageSize);
@@ -200,7 +199,7 @@ namespace House.Controllers
                 //每页显示多少条
                 int pageSize = 5;
                 //排序
-                List<Sell> kk = db.Sell.OrderBy(p => p.SellID).ToList();
+                List<Sell> kk = db.Sell.OrderBy(p => p.SellID).Where(p=>p.TransactionStatus==1).ToList();
 
                 ///通过ToPagedList扩展方法进行分页  
                 IPagedList<Sell> usePageList = kk.ToPagedList(pageNumber, pageSize);
@@ -209,6 +208,11 @@ namespace House.Controllers
             }
            
         }
+        /// <summary>
+        /// 添加关注的方法
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult SFollow(int? id) 
         {
             Userd userd = Session["Userds"] as Userd;
@@ -223,6 +227,11 @@ namespace House.Controllers
                 return RedirectToAction("Index", "Login");
             }
         }
+        /// <summary>
+        /// 取消关注
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult RFollow(int? id) 
         {
             Userd userd = Session["Userds"] as Userd;

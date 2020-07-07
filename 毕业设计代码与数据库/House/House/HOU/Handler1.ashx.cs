@@ -12,7 +12,7 @@ namespace House.HOU
     /// </summary>
     public class Handler1 : IHttpHandler
     {
-        HouseEntities2 db = new HouseEntities2();
+        HouseEntities db = new HouseEntities();
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/plain";

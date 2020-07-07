@@ -16,7 +16,7 @@ namespace BLL
             return LeaseHousesDAL.LeaseList();
         }
         /// <summary>
-        /// 单独查询
+        /// 单独查询，显示详情
         /// </summary>
         /// <param name="LeaseID"></param>
         /// <returns></returns>
@@ -24,10 +24,20 @@ namespace BLL
         {
             return LeaseHousesDAL.Only(LeaseID);
         }
+        /// <summary>
+        /// 单独查询
+        /// </summary>
+        /// <param name="LeaseID"></param>
+        /// <returns></returns>
         public static Facilities OnlyFacilities(int LeaseID)
         {
             return LeaseHousesDAL.OnlyFacilities(LeaseID);
         }
+        /// <summary>
+        /// 单独查询
+        /// </summary>
+        /// <param name="LeaseID"></param>
+        /// <returns></returns>
         public static List<LImg> OnlyLImg(int LeaseID)
         {
             return LeaseHousesDAL.OnlyLImg(LeaseID);
@@ -65,14 +75,32 @@ namespace BLL
         {
             return LeaseHousesDAL.Newest();
         }
+        /// <summary>
+        /// 查询关注
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="UserID"></param>
+        /// <returns></returns>
         public static List<LCollection> SFollow(int id, int UserID)
         {
             return LeaseHousesDAL.SFollow(id, UserID);
         }
+        /// <summary>
+        /// 添加关注
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="UserID"></param>
+        /// <returns></returns>
         public static int AddSFollow(int id, int UserID)
         {
             return LeaseHousesDAL.AddSFollow(id, UserID);
         }
+        /// <summary>
+        /// 取消关注
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="UserID"></param>
+        /// <returns></returns>
         public static int DeleSFollow(int id, int UserID)
         {
             LeaseHousesDAL dal = new LeaseHousesDAL();

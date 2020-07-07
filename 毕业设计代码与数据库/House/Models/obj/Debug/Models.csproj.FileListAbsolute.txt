@@ -10,4 +10,3 @@ E:\毕业项目\毕业设计代码与数据库\House\Models\obj\Debug\Models.csp
 E:\毕业项目\毕业设计代码与数据库\House\Models\obj\Debug\Models.dll
 E:\毕业项目\毕业设计代码与数据库\House\Models\obj\Debug\Models.pdb
 E:\毕业项目\毕业设计代码与数据库\House\Models\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
-E:\毕业项目\毕业设计代码与数据库\House\Models\obj\Debug\Models.csprojAssemblyReference.cache

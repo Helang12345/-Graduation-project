@@ -69,9 +69,9 @@ namespace House.Controllers
         /// 修改售房信息
         /// </summary>
         /// <returns></returns>
-        public ActionResult EditSelling(/*int SellID*/)
+        public ActionResult EditSelling(int SellID)
         {
-            int SellID = 1;
+            //int SellID = 1;
             //判断销售是否登录
             Salesman salesman = Session["Salesman"] as Salesman;
             if (salesman == null)
@@ -92,9 +92,9 @@ namespace House.Controllers
         /// 修改租房信息
         /// </summary>
         /// <returns></returns>
-        public ActionResult EditLease(/*int LeaseID*/)
+        public ActionResult EditLease(int LeaseID)
         {
-            int LeaseID = 1;
+            //int LeaseID = 1;
             //判断销售是否登录
             Salesman salesman = Session["Salesman"] as Salesman;
             if (salesman == null)

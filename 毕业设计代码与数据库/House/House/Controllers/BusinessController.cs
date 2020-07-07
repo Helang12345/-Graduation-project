@@ -79,6 +79,7 @@ namespace House.Controllers
             }
             else
             {
+                ViewBag.MyLease = bLL.MyLease(userd.UserID);
                 ViewBag.MySell = bLL.MySell(userd.UserID);
                 return View();
             }
@@ -154,6 +155,12 @@ namespace House.Controllers
             }
 
         }
+        /// <summary>
+        /// 添加租房信息
+        /// </summary>
+        /// <param name="lease"></param>
+        /// <param name="facilities"></param>
+        /// <returns></returns>
         public ActionResult AddLease(Lease lease, Facilities facilities)
         {
             

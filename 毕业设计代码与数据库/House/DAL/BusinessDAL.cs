@@ -11,19 +11,34 @@ namespace DAL
 {
     public class BusinessDAL
     {
-        HouseEntities2 db = new HouseEntities2();
+        HouseEntities db = new HouseEntities();
+        /// <summary>
+        /// 添加售房表
+        /// </summary>
+        /// <param name="sell"></param>
+        /// <returns></returns>
         public int SellsAdd(Sell sell)
         {
             db.Sell.Add(sell);
             int a = db.SaveChanges();
             return a;
         }
+        /// <summary>
+        /// 添加卖点表
+        /// </summary>
+        /// <param name="selling"></param>
+        /// <returns></returns>
         public int SellingAdd(Selling selling)
         {
             db.Selling.Add(selling);
             int a = db.SaveChanges();
             return a;
         }
+        /// <summary>
+        /// 添加交易属性表
+        /// </summary>
+        /// <param name="transactions"></param>
+        /// <returns></returns>
         public int TransactionsAdd(Transactions transactions)
         {
             db.Transactions.Add(transactions);
@@ -78,6 +93,15 @@ namespace DAL
             return db.Sell.Where(p=>p.UserID==id).ToList();
         }
         /// <summary>
+        /// 我的资产
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public List<Lease> MyLease(int id)
+        {
+            return db.Lease.Where(p => p.UserID == id).ToList();
+        }
+        /// <summary>
         /// 查询个人信息
         /// </summary>
         /// <param name="id"></param>
@@ -86,6 +110,12 @@ namespace DAL
         {
             return db.Userd.Where(p => p.UserID == id).ToList();
         }
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="newpassword1"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public int EditPassword(string newpassword1,int id) 
         {
             db.Userd.Find(id).UserPassword = newpassword1;
@@ -99,6 +129,11 @@ namespace DAL
             userd.UserdVX = SalesmanVX;
             return db.SaveChanges();
         }
+        /// <summary>
+        /// 修改联系方式
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public List<SCollection> Follow(int id) 
         {
             return db.SCollection.Where(p=>p.UserID==id).ToList();

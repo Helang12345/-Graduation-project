@@ -11,7 +11,7 @@ UserID int identity(1,1) primary key not null,--编号
 UserName nvarchar(20) not null,--姓名
 UserSex int default(0),--性别，0为男，1为女
 UserPhone nvarchar(20) not null,--电话
-UserdEmail nvarchar(20) not null,--邮箱
+UserdEmail nvarchar(200) not null,--邮箱
 UserdVX nvarchar(20) not null,--微信
 UserPassword nvarchar(50) not null,--密码
 Photo nvarchar(20),--销售头像
@@ -25,7 +25,7 @@ SalesmanID int identity(1,1) primary key not null,--编号
 SalesmanName nvarchar(20) not null,--姓名
 SalesmanSex int default(0),--性别，0为男，1为女
 SalesmanPhone nvarchar(20) not null,--电话
-SalesmanEmail nvarchar(20) not null,--邮箱 
+SalesmanEmail nvarchar(200) not null,--邮箱 
 SalesmanVX nvarchar(20) not null,--微信
 SalesmanPassword nvarchar(50) not null,--密码
 Photo nvarchar(20),--销售头像
@@ -52,7 +52,7 @@ SellHeating int,--供暖方式（1集中供暖，2自给自足）
 SellOrientation int,--房屋朝向
 SellTime int,--看房时间
 TransactionStatus int default(0),--交易状态状态，0默认审核待售，1表示出售，2表示下架
-NewTime nvarchar(20),--提交时间
+NewTime date,--提交时间
 Phone nvarchar(20),--联系方式
 UserID int foreign key (UserID) references Userd (UserID),--房主
 SalesmanID int foreign key (SalesmanID) references Salesman (SalesmanID),--销售
@@ -121,7 +121,7 @@ LeaseHeating int,--供暖
 LeaseLeaseTerm int,--租期
 LeaseTime int,--看房时间
 TransactionStatus int default(0),--交易状态状态，0默认审核待售，1表示出售，2表示下架
-NewTime nvarchar(20),--提交时间
+NewTime date,--提交时间
 Phone nvarchar(20),--联系方式
 UserID int foreign key (UserID) references Userd (UserID),--房主
 SalesmanID int foreign key (SalesmanID) references Salesman (SalesmanID),--销售
@@ -282,6 +282,8 @@ insert into SCollection values(1,1),(2,1),(1,3),(1,2)
 insert into LCollection values(1,1),(2,1),(1,3),(1,2)
 
 select * from SImg where  SellID=10
-select * from Sell
-select * from LImg 
-select * from SImg 
+select * from Lease where TransactionStatus=1
+select * from Sell where TransactionStatus=1 Order By NewTime
+select * from Userd 
+
+alter table Lease alter column  NewTime date

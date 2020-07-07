@@ -49,7 +49,7 @@
     <Property Name="LeaseLeaseTerm" Type="int" />
     <Property Name="LeaseTime" Type="int" />
     <Property Name="TransactionStatus" Type="int" />
-    <Property Name="NewTime" Type="nvarchar" MaxLength="20" />
+    <Property Name="NewTime" Type="date" />
     <Property Name="Phone" Type="nvarchar" MaxLength="20" />
     <Property Name="UserID" Type="int" />
     <Property Name="SalesmanID" Type="int" />
@@ -71,7 +71,7 @@
     <Property Name="SalesmanName" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="SalesmanSex" Type="int" />
     <Property Name="SalesmanPhone" Type="nvarchar" MaxLength="20" Nullable="false" />
-    <Property Name="SalesmanEmail" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="SalesmanEmail" Type="nvarchar" MaxLength="200" Nullable="false" />
     <Property Name="SalesmanVX" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="SalesmanPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Photo" Type="nvarchar" MaxLength="20" />
@@ -106,7 +106,7 @@
     <Property Name="SellOrientation" Type="int" />
     <Property Name="SellTime" Type="int" />
     <Property Name="TransactionStatus" Type="int" />
-    <Property Name="NewTime" Type="nvarchar" MaxLength="20" />
+    <Property Name="NewTime" Type="date" />
     <Property Name="Phone" Type="nvarchar" MaxLength="20" />
     <Property Name="UserID" Type="int" />
     <Property Name="SalesmanID" Type="int" />
@@ -155,7 +155,7 @@
     <Property Name="UserName" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="UserSex" Type="int" />
     <Property Name="UserPhone" Type="nvarchar" MaxLength="20" Nullable="false" />
-    <Property Name="UserdEmail" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="UserdEmail" Type="nvarchar" MaxLength="200" Nullable="false" />
     <Property Name="UserdVX" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="UserPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Photo" Type="nvarchar" MaxLength="20" />

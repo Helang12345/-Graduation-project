@@ -12,7 +12,7 @@ namespace BLL
 {
     public class SellingHousesBLL
     {
-        HouseEntities2 db = new HouseEntities2();
+        HouseEntities db = new HouseEntities();
         //SellingHousesDAL dal = new SellingHousesDAL();
         public static List<Sell> SellsList()
         {
@@ -89,14 +89,32 @@ namespace BLL
         {
             return SellingHousesDAL.Newest();
         }
+        /// <summary>
+        /// 查询关注
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="UserID"></param>
+        /// <returns></returns>
         public static List<SCollection> SFollow(int id, int UserID) 
         {
             return SellingHousesDAL.SFollow(id, UserID);
         }
+        /// <summary>
+        /// 添加关注
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="UserID"></param>
+        /// <returns></returns>
         public static int AddSFollow(int id, int UserID) 
         {
             return SellingHousesDAL.AddSFollow(id, UserID);
         }
+        /// <summary>
+        /// 取消关注
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="UserID"></param>
+        /// <returns></returns>
         public static int DeleSFollow(int id, int UserID)
         {
             SellingHousesDAL dal = new SellingHousesDAL();

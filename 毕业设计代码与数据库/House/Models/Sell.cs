@@ -40,7 +40,7 @@ namespace Models
         public Nullable<int> SellOrientation { get; set; }
         public Nullable<int> SellTime { get; set; }
         public Nullable<int> TransactionStatus { get; set; }
-        public string NewTime { get; set; }
+        public Nullable<System.DateTime> NewTime { get; set; }
         public string Phone { get; set; }
         public Nullable<int> UserID { get; set; }
         public Nullable<int> SalesmanID { get; set; }

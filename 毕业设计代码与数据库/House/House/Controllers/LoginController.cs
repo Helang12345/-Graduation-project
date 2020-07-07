@@ -44,6 +44,9 @@ namespace House.Controllers
         /// <returns></returns>
         public ActionResult Loginmethod(string SalesmanEmail, string Password,int? Role)
         {
+            //点击注销按钮，清空 Session
+            Session["Userds"] = null;
+            Session["Salesman"] = null;
             if (Role == 1)
             {
 
@@ -86,6 +89,17 @@ namespace House.Controllers
             //跳转到登录界面
             return RedirectToAction("Index","HomePage");
 
+        }
+        public ActionResult Add(Userd userd) 
+        {
+            if (bll.AddUserd(userd))
+            {
+                return RedirectToAction("Index", "HomePage");
+            }
+            else 
+            {
+                return Content("<script>alert('注册失败')</script>");
+            }
         }
     }
 }

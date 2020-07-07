@@ -9,7 +9,7 @@ namespace DAL
 {
     public class SaleDAL
     {
-        HouseEntities2 db = new HouseEntities2();
+        HouseEntities db = new HouseEntities();
         /// <summary>
         /// 查询个人信息
         /// </summary>
@@ -17,7 +17,7 @@ namespace DAL
         /// <returns></returns>
         public List<Salesman> MyInformation(int id)
         {
-            return db.Salesman.Where(p => p.SalesmanID == id).ToList();
+            return db.Salesman.Where(p => p.SalesmanID == id&&p.UState==0).ToList();
         }
         /// <summary>
         /// 修改密码
@@ -53,7 +53,7 @@ namespace DAL
         /// <returns></returns>
         public List<Sell> SOrder(int id)
         {
-            return db.Sell.Where(p => p.SalesmanID == id).ToList();
+            return db.Sell.Where(p => p.SalesmanID == id&&p.TransactionStatus==1).OrderByDescending(p=>p.SellID).ToList();
         }
         /// <summary>
         /// 通过销售ID查询该销售的订单（租房）
@@ -62,7 +62,7 @@ namespace DAL
         /// <returns></returns>
         public List<Lease> LOrder(int id)
         {
-            return db.Lease.Where(p => p.SalesmanID == id).ToList();
+            return db.Lease.Where(p => p.SalesmanID == id&&p.TransactionStatus==1).OrderByDescending(p=>p.LeaseID).ToList();
         }
        
 
@@ -132,6 +132,14 @@ namespace DAL
         {
             return db.LImg.Where(p => p.LeaseID == id).ToList();
         }
+        /// <summary>
+        /// 修改订单
+        /// </summary>
+        /// <param name="sell"></param>
+        /// <param name="selling"></param>
+        /// <param name="transactions"></param>
+        /// <param name="sImg"></param>
+        /// <returns></returns>
         public bool EditSELL(Sell sell, Selling selling, Transactions transactions, SImg sImg) 
         {
             db.Entry(sell).State = System.Data.Entity.EntityState.Modified;
@@ -151,6 +159,13 @@ namespace DAL
                 return false;
             }
         }
+        /// <summary>
+        /// 修改租房订单
+        /// </summary>
+        /// <param name="lease"></param>
+        /// <param name="facilities"></param>
+        /// <param name="lImg"></param>
+        /// <returns></returns>
         public bool EditLEASE(Lease lease, Facilities facilities, LImg lImg)
         {
             db.Entry(lease).State = System.Data.Entity.EntityState.Modified;

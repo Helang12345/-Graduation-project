@@ -8,17 +8,42 @@ using DAL;
 
 namespace BLL
 {
-  public  class LoginBLL
+    public class LoginBLL
     {
         //实例化DAL层
         LoginDAL dal = new LoginDAL();
-        public Userd Userds(string Loginname, string Password) 
+        /// <summary>
+        /// 登录
+        /// </summary>
+        /// <param name="Loginname"></param>
+        /// <param name="Password"></param>
+        /// <returns></returns>
+        public Userd Userds(string Loginname, string Password)
         {
             return dal.Userds(Loginname, Password);
         }
+        /// <summary>
+        /// 登录
+        /// </summary>
+        /// <param name="Loginname"></param>
+        /// <param name="Password"></param>
+        /// <returns></returns>
         public Salesman Salesman(string Loginname, string Password)
         {
             return dal.Salesman(Loginname, Password);
         }
+        /// <summary>
+        /// 新增用户
+        /// </summary>
+        /// <param name="Role"></param>
+        /// <param name="Name"></param>
+        /// <param name="Email"></param>
+        /// <param name="Password"></param>
+        /// <returns></returns>
+        public bool AddUserd(Userd userd)
+        {
+            return dal.AddUserd(userd);
+        }
+       
     }
 }

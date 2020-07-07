@@ -52,7 +52,7 @@
     <Property Name="LeaseLeaseTerm" Type="Int32" />
     <Property Name="LeaseTime" Type="Int32" />
     <Property Name="TransactionStatus" Type="Int32" />
-    <Property Name="NewTime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="NewTime" Type="DateTime" Precision="0" />
     <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="UserID" Type="Int32" />
     <Property Name="SalesmanID" Type="Int32" />
@@ -80,7 +80,7 @@
     <Property Name="SalesmanName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="SalesmanSex" Type="Int32" />
     <Property Name="SalesmanPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="SalesmanEmail" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SalesmanEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="SalesmanVX" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="SalesmanPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Photo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
@@ -119,7 +119,7 @@
     <Property Name="SellOrientation" Type="Int32" />
     <Property Name="SellTime" Type="Int32" />
     <Property Name="TransactionStatus" Type="Int32" />
-    <Property Name="NewTime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="NewTime" Type="DateTime" Precision="0" />
     <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="UserID" Type="Int32" />
     <Property Name="SalesmanID" Type="Int32" />
@@ -177,7 +177,7 @@
     <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="UserSex" Type="Int32" />
     <Property Name="UserPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="UserdEmail" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserdEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="UserdVX" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="UserPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Photo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
@@ -344,7 +344,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="HouseEntities2" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="HouseEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Facilities" EntityType="Self.Facilities" />
     <EntitySet Name="LCollection" EntityType="Self.LCollection" />
     <EntitySet Name="Lease" EntityType="Self.Lease" />
