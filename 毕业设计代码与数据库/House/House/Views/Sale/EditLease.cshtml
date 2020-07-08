@@ -10,10 +10,11 @@
 }
 <div class="submit-address dashboard-list">
     <h4 class="bg-grea-3">发布租房信息</h4>
-    <form method="post" action="EditLEASE">
+    <form method="post" action="EditLEASE" enctype="multipart/form-data" id="formlease">
         <input type="hidden" class="input-text" name="UState" value="0">
         <input type="hidden" class="input-text" name="NewTime" value="@DateTime.Now">
         <input type="hidden" class="input-text" name="LeaseID" value="@lease.LeaseID">
+        <input type="hidden" class="input-text" name="SalesmanID" value="@lease.SalesmanID">
         <input type="hidden" class="input-text" name="FacilitiesID" value="@facilities.FacilitiesID">
         <h4 class="bg-grea-3">基本信息</h4>
         <div class="search-contents-sidebar">
@@ -23,47 +24,47 @@
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>财产名称</label>
-                        <input type="text" class="input-text" name="UserID" value="@lease.Userd.UserName">
+                        <input type="text" class="input-text" name="UserID" value="@lease.Userd.UserName" required="required">
                     </div>
                     <div class="form-group">
                         <label>所在城市</label>
-                        <input type="text" class="input-text" name="LeaseAddress" placeholder="城市名称" value="@lease.LeaseAddress">
+                        <input type="text" class="input-text" name="LeaseAddress" placeholder="城市名称" value="@lease.LeaseAddress" required="required">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>所在小区</label>
-                        <input type="text" class="input-text" name="LeaseVillage" placeholder="小区名" value="@lease.LeaseVillage">
+                        <input type="text" class="input-text" name="LeaseVillage" placeholder="小区名" value="@lease.LeaseVillage" required="required">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>所在楼层</label>
-                        <input type="text" class="input-text" name="LeaseFloor" placeholder="？层" value="@lease.LeaseFloor">
+                        <input type="text" class="input-text" name="LeaseFloor" placeholder="？层" value="@lease.LeaseFloor" required="required">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>面积</label>
-                        <input type="text" class="input-text" name="LeaseArea" placeholder="平米" value="@lease.LeaseArea">
+                        <input type="text" class="input-text" name="LeaseArea" placeholder="平米" value="@lease.LeaseArea" required="required">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>维护时间</label>
-                        <input type="text" class="input-text" name="LeaseMaintain" placeholder="年/月/日" value="@lease.LeaseMaintain">
+                        <input type="text" class="input-text" name="LeaseMaintain" placeholder="年/月/日" value="@lease.LeaseMaintain" required="required">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>房屋类型</label>
-                        <input type="text" class="input-text" name="LeaseHStructure" placeholder="？室？厅" value="@lease.LeaseHStructure">
+                        <input type="text" class="input-text" name="LeaseHStructure" placeholder="？室？厅" value="@lease.LeaseHStructure" required="required">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>租金</label>
-                        <input type="text" class="input-text" name="LeasePrice" placeholder="每月" value="@lease.LeasePrice">
+                        <input type="text" class="input-text" name="LeasePrice" placeholder="每月" value="@lease.LeasePrice" required="required">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
@@ -178,7 +179,7 @@
         <div class="row pad-2">
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox1" type="checkbox" name="FacilitiesWashing" value="@facilities.FacilitiesWashing">
+                    <input id="checkbox1" type="checkbox" name="FacilitiesWashing" value="@facilities.FacilitiesWashing" checked="@(facilities.FacilitiesWashing==0)">
                     <label for="checkbox1">
                         洗衣机
                     </label>
@@ -186,7 +187,7 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox2" type="checkbox" name="Facilitiesairconditioner" value="@facilities.Facilitiesairconditioner">
+                    <input id="checkbox2" type="checkbox" name="Facilitiesairconditioner" value="@facilities.Facilitiesairconditioner" checked="@(facilities.Facilitiesairconditioner==0)">
                     <label for="checkbox2">
                         空调
                     </label>
@@ -194,7 +195,7 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox4" type="checkbox" name="Facilitieswardrobe" value="@facilities.Facilitieswardrobe">
+                    <input id="checkbox4" type="checkbox" name="Facilitieswardrobe" value="@facilities.Facilitieswardrobe" checked="@(facilities.Facilitieswardrobe==0)">
                     <label for="checkbox4">
                         衣柜
                     </label>
@@ -202,7 +203,7 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox5" type="checkbox" name="FacilitiesTV" value="@facilities.FacilitiesTV">
+                    <input id="checkbox5" type="checkbox" name="FacilitiesTV" value="@facilities.FacilitiesTV" checked="@(facilities.FacilitiesTV==0)">
                     <label for="checkbox5">
                         电视
                     </label>
@@ -210,7 +211,7 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox7" type="checkbox" name="FacilitiesRefrigerator" value="@facilities.FacilitiesRefrigerator">
+                    <input id="checkbox7" type="checkbox" name="FacilitiesRefrigerator" value="@facilities.FacilitiesRefrigerator" checked="@(facilities.FacilitiesRefrigerator==0)">
                     <label for="checkbox7">
                         冰箱
                     </label>
@@ -218,7 +219,7 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox8" type="checkbox" name="FacilitiesBed" value="@facilities.FacilitiesBed">
+                    <input id="checkbox8" type="checkbox" name="FacilitiesBed" value="@facilities.FacilitiesBed" checked="@(facilities.FacilitiesBed==0)">
                     <label for="checkbox8">
                         床
                     </label>
@@ -226,7 +227,7 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox3" type="checkbox" name="FacilitiesWIFI" value="@facilities.FacilitiesWIFI">
+                    <input id="checkbox3" type="checkbox" name="FacilitiesWIFI" value="@facilities.FacilitiesWIFI" checked="@(facilities.FacilitiesWIFI==0)">
                     <label for="checkbox3">
                         WiFi
                     </label>
@@ -234,7 +235,7 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox6" type="checkbox" name="FacilitiesNaturalgas" value="@facilities.FacilitiesNaturalgas">
+                    <input id="checkbox6" type="checkbox" name="FacilitiesNaturalgas" value="@facilities.FacilitiesNaturalgas" checked="@(facilities.FacilitiesNaturalgas==0)">
                     <label for="checkbox6">
                         天然气
                     </label>
@@ -242,7 +243,7 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox9" type="checkbox" name="FacilitiesHeating" value="@facilities.FacilitiesHeating">
+                    <input id="checkbox9" type="checkbox" name="FacilitiesHeating" value="@facilities.FacilitiesHeating" checked="@(facilities.FacilitiesHeating==0)">
                     <label for="checkbox9">
                         暖气
                     </label>
@@ -250,21 +251,23 @@
             </div>
         </div>
         <h4 class="bg-grea-3">上传图片</h4>
-        <div class="row pad-20">
-            <div class="col-lg-12">
-                @{
-                    foreach (var item in imgs)
-                    {
-                        <input type="hidden" class="input-text" name="ID" value="@item.ID">
-                        <img src="~/Content/Selling/@item.Photo" width="80px" height="120px" />
-                    }
-                }
-            </div>
+        <div class="publish-detail-item" style="height:400px;width:100%;">
+            @foreach (var item in imgs)
+            {
+                <div style="width:500px;margin-bottom:15px;float:left;margin-top:40px " class="col-lg-12">
+                    <div class="col-lg-12">
+                        <img src="~/Content/Renting/@item.Photo" width="120" height="80" />
+                        <a href="/Sale/Updata_g_deleteimg2/@item.ID?LeaseID=@lease.LeaseID " class="btn btn-danger" style="color:white;margin-top: 15px;margin-left:50px;">删除</a>
+                    </div>
+                </div>
+            }
+
         </div>
         <h4 class="bg-grea-3">更新图片</h4>
         <div class="row pad-20">
             <div class="col-lg-12">
                 <input type="file" name="Photo" multiple="multiple" class="form-control update_file" />
+                <input type="hidden" name="LeaseID" value="@lease.LeaseID" />
             </div>
         </div>
         <h4 class="bg-grea-3">人员指定</h4>
@@ -282,13 +285,13 @@
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="form-group">
                     <label>提交时间</label>
-                    <input type="text" class="input-text" name="NewTime" value="@lease.NewTime">
+                    <input type="text" class="input-text" name="NewTime" value="@lease.NewTime" required="required">
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="form-group">
                     <label>联系方式</label>
-                    <input type="text" class="input-text" name="Phone" value="@lease.Phone">
+                    <input type="text" class="input-text" name="Phone" value="@lease.Phone" required="required">
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12" style="margin-top:22px;">

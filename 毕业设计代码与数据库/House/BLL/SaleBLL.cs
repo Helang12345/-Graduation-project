@@ -154,9 +154,9 @@ namespace BLL
         /// <param name="transactions"></param>
         /// <param name="sImg"></param>
         /// <returns></returns>
-        public bool EditSELL(Sell sell ,Selling selling ,Transactions transactions,SImg sImg) 
+        public bool EditSELL(Sell sell ,Selling selling ,Transactions transactions) 
         {
-            return dal.EditSELL(sell,selling,transactions,sImg);
+            return dal.EditSELL(sell,selling,transactions);
         }
     /// <summary>
     /// 修改改租房信息
@@ -167,9 +167,27 @@ namespace BLL
     /// <param name="sImg"></param>
     /// <param name="id"></param>
     /// <returns></returns>
-        public bool EditLEASE(Lease lease, Facilities facilities,  LImg  lImg)
+        public bool EditLEASE(Lease lease, Facilities facilities)
         {
-            return dal.EditLEASE(lease,facilities,lImg);
+            return dal.EditLEASE(lease,facilities);
+        }
+        /// <summary>
+        /// 删除图片
+        /// </summary>
+        /// <param name="sImg"></param>
+        /// <returns></returns>
+        public bool Updata_g_deleteimg( int ID, int SellID) 
+        {
+            return dal.Updata_g_deleteimg(ID,SellID);
+        }
+        /// <summary>
+        /// 删除图片
+        /// </summary>
+        /// <param name="sImg"></param>
+        /// <returns></returns>
+        public bool Updata_g_deleteimg2(int ID, int LeaseID)
+        {
+            return dal.Updata_g_deleteimg2(ID, LeaseID);
         }
     }
 }

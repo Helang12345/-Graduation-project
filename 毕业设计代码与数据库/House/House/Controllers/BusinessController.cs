@@ -13,6 +13,7 @@ namespace House.Controllers
 
     public class BusinessController : Controller
     {
+        HouseEntities db = new HouseEntities();
         BusinessBLL bLL = new BusinessBLL();
         // GET: Business
         /// <summary>
@@ -196,7 +197,6 @@ namespace House.Controllers
                     {
                         Request.Files[i].SaveAs(Server.MapPath("~/Content/Selling/" + Request.Files[i].FileName));
                     }
-
                 }
             }
             //添加配套设施
@@ -251,5 +251,51 @@ namespace House.Controllers
                 return Content("<script>alert('修改失败');history.go(-1)</script>");
             }
         }
+        /// <summary>
+        /// 修改图片
+        /// </summary>
+        /// <param name="userd"></param>
+        /// <returns></returns>
+        public ActionResult EditUserd(Userd userd) 
+        {
+            int a = 0;
+            Userd userds = db.Userd.Find(userd.UserID);
+            //添加商品图片
+            if (Request.Files.Count > 0)
+            {
+                string[] fileTypeStr = { "image/gif", "image/png", "image/jpeg", "image/jpg", "image/bmp" };
+                List<string> strlist = new List<string>();
+                for (int i = 0; i < Request.Files.Count; i++)
+                {
+                    if (fileTypeStr.Contains(Request.Files[i].ContentType))
+                    {
+                        string fileName = Path.GetFileName(Request.Files[i].FileName);
+                        userds.Photo = fileName;
+                        db.Entry(userds).State = System.Data.Entity.EntityState.Modified;//修改
+                        a = db.SaveChanges();
+                    }
+                }
+                if (a > 0)
+                {
+                    //保存文件
+                    //应用程序需要有服务器UploadFile文件夹的读写权限
+                    for (int i = 0; i < Request.Files.Count; i++)
+                    {
+                        Request.Files[i].SaveAs(Server.MapPath("~/Content/Photo/" + Request.Files[i].FileName));
+                    }
+                    Session["Userd"] = db.Userd.Find(userd.UserID);
+                    return Content("<script>alert('修改成功');history.go(-1)</script>");
+                }
+                else 
+                {
+                    return Content("<script>alert('上传失败');history.go(-1)</script>");
+                }
+            }
+            else 
+            {
+                return Content("<script>alert('修改失败');history.go(-1)</script>");
+            }
+        }
+       
     }
 }

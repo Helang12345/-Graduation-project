@@ -70,22 +70,22 @@
                             <!-- Form start-->
                             <form action="Add" method="post">
                                 <div class="form-group">
-                                    <input type="text" name="UserName" class="input-text" placeholder="姓名">
+                                    <input type="text" name="UserName" class="input-text" placeholder="姓名" required="required">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" name="UserdEmail" class="input-text" placeholder="电子邮箱地址">
+                                    <input type="email" name="UserdEmail" class="input-text" placeholder="电子邮箱地址" required="required">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="UserPassword" class="input-text" placeholder="密码">
+                                    <input type="password" name="UserPassword" class="input-text" placeholder="密码" required="required">
                                 </div>
-                                <div class="form-group">
+                                @*<div class="form-group">
                                     <input type="password" name="password1" class="input-text" placeholder="确定密码">
+                                </div>*@
+                                <div class="form-group">
+                                    <input type="text" name="UserPhone" class="input-text" placeholder="电话" required="required">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="UserPhone" class="input-text" placeholder="电话">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" name="UserdVX" class="input-text" placeholder="微信">
+                                    <input type="text" name="UserdVX" class="input-text" placeholder="微信" required="required">
                                 </div>
                                 <div class="form-group">
                                     <select class="selectpicker search-fields" name="UserSex">

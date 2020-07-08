@@ -5,42 +5,39 @@
 
 }
 @using Models;
-@{ 
-   List<Userd> userds = ViewBag.MyInformation;
+@{
+    List<Userd> userds = ViewBag.MyInformation;
 }
 <div class="dashboard-list">
     <h3 class="heading">个人资料详细信息</h3>
     <div class="dashboard-message contact-2 bdr clearfix">
-        <div class="row">
-            <div class="col-lg-3 col-md-3">
-                <!-- Edit profile photo -->
-                <div class="edit-profile-photo">
-                    @{
-                        if (userds[0].Photo == null)
-                        {
-                            <img src="~/Content/img/avatar/avatar-6.jpg" alt="profile-photo" class="img-fluid">
+        <form action="EditUserd" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-lg-3 col-md-3">
+                    <!-- Edit profile photo -->
+                    <div class="edit-profile-photo">
+                        @{
+                            if (userds[0].Photo == null)
+                            {
+                                <img src="~/Content/img/avatar/avatar-6.jpg" alt="profile-photo" class="img-fluid">
+                            }
+                            else
+                            {
+                                <img src="~/Content/Photo/@userds[0].Photo" alt="profile-photo" class="img-fluid">
+                            }
                         }
-                        else
-                        {
-                            <img src="~/Content/Photo/@userds[0].Photo" alt="profile-photo" class="img-fluid">
-                        }
-                    }
-
-                    <div class="change-photo-btn">
-                        <div class="photoUpload">
-                            <span><i class="fa fa-upload"></i> 上传照片</span>
-                            <input type="file" class="upload">
+                        <div class="col-lg-8">
+                            <input type="file" name="Photo" multiple="multiple" class="form-control update_file" />
+                            <input type="hidden" name="UserId" value="@userds[0].UserID" />
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-9 col-md-9">
-                <form action="#" method="GET" enctype="multipart/form-data">
+                <div class="col-lg-9 col-md-9">
                     <div class="row">
                         <div class="col-lg-6 col-md-6">
                             <div class="form-group name">
                                 <label>你的名字</label>
-                                <input type="text" name="UserName" class="form-control" value="@userds[0].UserName" style="color:black"/>
+                                <input type="text" name="UserName" class="form-control" value="@userds[0].UserName" style="color:black" />
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6">
@@ -61,20 +58,25 @@
                         <div class="col-lg-6 col-md-6">
                             <div class="form-group number">
                                 <label>用户名</label>
-                                <input type="email" name="SalesmanEmail" class="form-control" value="@userds[0].UserdEmail" style="color:black">
+                                <input type="email" name="UserdEmail" class="form-control" value="@userds[0].UserdEmail" style="color:black">
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="send-btn">
+                                <button type="submit" class="btn btn-md button-theme">修改头像</button>
                             </div>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 <div class="row">
     <div class="col-md-6">
         <div class="dashboard-list">
             <h3 class="heading">更改密码</h3>
-            <div class="dashboard-message contact-2" >
+            <div class="dashboard-message contact-2">
                 <form action="EditPassword" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-lg-12">

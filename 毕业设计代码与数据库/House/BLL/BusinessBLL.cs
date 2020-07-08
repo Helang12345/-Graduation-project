@@ -161,6 +161,10 @@ namespace BLL
         {
             return dal.AddSImg(id, strlist);
         }
+        public bool AddPhono(int id, List<string> strlist)
+        {
+            return dal.AddPhono(id, strlist);
+        }
         /// <summary>
         /// 添加图片
         /// </summary>

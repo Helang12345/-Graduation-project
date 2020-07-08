@@ -51,7 +51,7 @@ namespace DAL
         /// <returns></returns>
         public List<Sell> Last() 
         {
-            return db.Sell.OrderByDescending(p => p.SellID).Take(1).ToList();
+            return db.Sell.OrderByDescending(p => p.SellID).Where(p=>p.UState == 0).Take(1).ToList();
         }
         /// <summary>
         /// 添加租房信息
@@ -81,7 +81,7 @@ namespace DAL
         /// <returns></returns>
         public List<Lease> Last2() 
         {
-            return db.Lease.OrderByDescending(p => p.LeaseID).Take(1).ToList();
+            return db.Lease.OrderByDescending(p => p.LeaseID).Where(p => p.UState == 0).Take(1).ToList();
         }
         /// <summary>
         /// 查询我的资产
@@ -90,7 +90,7 @@ namespace DAL
         /// <returns></returns>
         public List<Sell> MySell(int id)
         {
-            return db.Sell.Where(p=>p.UserID==id).ToList();
+            return db.Sell.Where(p=>p.UserID==id&&p.UState==0).ToList();
         }
         /// <summary>
         /// 我的资产
@@ -99,7 +99,7 @@ namespace DAL
         /// <returns></returns>
         public List<Lease> MyLease(int id)
         {
-            return db.Lease.Where(p => p.UserID == id).ToList();
+            return db.Lease.Where(p => p.UserID == id&&p.UState==0).ToList();
         }
         /// <summary>
         /// 查询个人信息
@@ -108,7 +108,7 @@ namespace DAL
         /// <returns></returns>
         public List<Userd> MyInformation(int id) 
         {
-            return db.Userd.Where(p => p.UserID == id).ToList();
+            return db.Userd.Where(p => p.UserID == id&&p.UState==0).ToList();
         }
         /// <summary>
         /// 修改密码
@@ -130,7 +130,7 @@ namespace DAL
             return db.SaveChanges();
         }
         /// <summary>
-        /// 修改联系方式
+        /// 查询联系方式
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -141,6 +141,28 @@ namespace DAL
         public List<Salesman> SelectMan() 
         {
             return db.Salesman.ToList();
+        }
+        /// <summary>
+        /// 修改头像
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="strlist"></param>
+        /// <returns></returns>
+        public bool AddPhono(int id, List<string> strlist)
+        {
+            foreach (var item in strlist)
+            {
+                db.Userd.Add(new Userd { UserID = id, Photo = item });
+            }
+            int a = db.SaveChanges();
+            if (a > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         /// <summary>
         /// 添加图片

@@ -7,7 +7,7 @@
 
     <div class="submit-address dashboard-list">
         <h4 class="bg-grea-3">发布租房信息</h4>
-        <form method="post" action="AddLease" enctype="multipart/form-data" id="form">
+        <form method="post" action="AddLease" enctype="multipart/form-data" id="formlease">
             <input type="hidden" class="input-text" name="TransactionStatus" value="0">
             <input type="hidden" class="input-text" name="UState" value="0">
             <input type="hidden" class="input-text" name="NewTime" value="@DateTime.Now">
@@ -19,43 +19,43 @@
                     <div class="col-lg-4 col-md-4 col-sm-12">
                         <div class="form-group">
                             <label>所在城市</label>
-                            <input type="text" class="input-text" name="LeaseAddress" placeholder="城市名称">
+                            <input type="text" class="input-text" name="LeaseAddress" placeholder="城市名称" required="required">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12">
                         <div class="form-group">
                             <label>所在小区</label>
-                            <input type="text" class="input-text" name="LeaseVillage" placeholder="小区名">
+                            <input type="text" class="input-text" name="LeaseVillage" placeholder="小区名" required="required">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12">
                         <div class="form-group">
                             <label>所在楼层</label>
-                            <input type="text" class="input-text" name="LeaseFloor" placeholder="？层">
+                            <input type="text" class="input-text" name="LeaseFloor" placeholder="？层" required="required">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12">
                         <div class="form-group">
                             <label>面积</label>
-                            <input type="text" class="input-text" name="LeaseArea" placeholder="平米">
+                            <input type="text" class="input-text" name="LeaseArea" placeholder="平米" required="required">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12">
                         <div class="form-group">
                             <label>维护时间</label>
-                            <input type="text" class="input-text" name="LeaseMaintain" placeholder="年/月/日">
+                            <input type="text" class="input-text" name="LeaseMaintain" placeholder="年/月/日" required="required">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12">
                         <div class="form-group">
                             <label>房屋类型</label>
-                            <input type="text" class="input-text" name="LeaseHStructure" placeholder="？室？厅">
+                            <input type="text" class="input-text" name="LeaseHStructure" placeholder="？室？厅" required="required">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12">
                         <div class="form-group">
                             <label>租金</label>
-                            <input type="text" class="input-text" name="LeasePrice" placeholder="每月">
+                            <input type="text" class="input-text" name="LeasePrice" placeholder="每月" required="required">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12">
@@ -266,7 +266,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>联系方式</label>
-                        <input type="text" class="input-text" name="Phone">
+                        <input type="text" class="input-text" name="Phone" required="required">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12" style="margin-top:22px;">

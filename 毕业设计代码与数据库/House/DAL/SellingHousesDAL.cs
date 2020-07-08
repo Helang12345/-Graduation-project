@@ -16,7 +16,7 @@ namespace DAL
         /// <returns></returns>
         public static List<Sell> SellsList()
         {
-            return db.Sell.Where(p=>p.TransactionStatus==1).ToList(); ;
+            return db.Sell.Where(p=>p.UState==0).ToList(); ;
         }
         /// <summary>
         /// 查询详情
@@ -25,7 +25,7 @@ namespace DAL
         /// <returns></returns>
         public static Sell Only(int SellID)
         {
-            return db.Sell.SingleOrDefault(p => p.SellID == SellID&& p.TransactionStatus == 1);
+            return db.Sell.SingleOrDefault(p => p.SellID == SellID&& p.UState == 0);
         }
         /// <summary>
         /// 查询详情
@@ -64,7 +64,7 @@ namespace DAL
         public static List<Sell> Higtlow()
         {
             //降序排列
-            return db.Sell.Where(p => p.TransactionStatus == 1).OrderByDescending(p => p.SellPrice).ToList();
+            return db.Sell.Where(p => p.UState == 0).OrderByDescending(p => p.SellPrice).ToList();
         }
         /// <summary>
         /// 接个排序从低到高
@@ -73,7 +73,7 @@ namespace DAL
         public static List<Sell> Lowthig()
         {
             //升序排列
-            return db.Sell.Where(p => p.TransactionStatus == 1).OrderBy(p => p.SellPrice).ToList();
+            return db.Sell.Where(p => p.UState == 0).OrderBy(p => p.SellPrice).ToList();
         }
         /// <summary>
         /// 最新排序
@@ -82,7 +82,7 @@ namespace DAL
         public static List<Sell> Newest()
         {
             //降序排列
-            return db.Sell.Where(p => p.TransactionStatus == 1).OrderByDescending(p => p.NewTime).ToList();
+            return db.Sell.Where(p => p.UState == 0).OrderByDescending(p => p.NewTime).ToList();
         }
         /// <summary>
         /// 最旧排序
@@ -91,7 +91,7 @@ namespace DAL
         public static List<Sell> Oldest()
         {
             //升序排列
-            return db.Sell.Where(p => p.TransactionStatus == 1).OrderBy(p => p.NewTime).ToList();
+            return db.Sell.Where(p => p.UState == 0).OrderBy(p => p.NewTime).ToList();
         }
         /// <summary>
         /// 查询关注

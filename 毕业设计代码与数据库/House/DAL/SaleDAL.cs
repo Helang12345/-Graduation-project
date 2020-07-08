@@ -53,7 +53,7 @@ namespace DAL
         /// <returns></returns>
         public List<Sell> SOrder(int id)
         {
-            return db.Sell.Where(p => p.SalesmanID == id&&p.TransactionStatus==1).OrderByDescending(p=>p.SellID).ToList();
+            return db.Sell.Where(p => p.SalesmanID == id&&p.UState==0).OrderByDescending(p=>p.SellID).ToList();
         }
         /// <summary>
         /// 通过销售ID查询该销售的订单（租房）
@@ -62,7 +62,7 @@ namespace DAL
         /// <returns></returns>
         public List<Lease> LOrder(int id)
         {
-            return db.Lease.Where(p => p.SalesmanID == id&&p.TransactionStatus==1).OrderByDescending(p=>p.LeaseID).ToList();
+            return db.Lease.Where(p => p.SalesmanID == id&&p.UState==0).OrderByDescending(p=>p.LeaseID).ToList();
         }
        
 
@@ -140,17 +140,15 @@ namespace DAL
         /// <param name="transactions"></param>
         /// <param name="sImg"></param>
         /// <returns></returns>
-        public bool EditSELL(Sell sell, Selling selling, Transactions transactions, SImg sImg) 
+        public bool EditSELL(Sell sell, Selling selling, Transactions transactions) 
         {
             db.Entry(sell).State = System.Data.Entity.EntityState.Modified;
             int a = db.SaveChanges();
             db.Entry(selling).State = System.Data.Entity.EntityState.Modified;
             int b = db.SaveChanges();
-            db.Entry(sImg).State = System.Data.Entity.EntityState.Modified;
-             int c = db.SaveChanges();
             db.Entry(transactions).State = System.Data.Entity.EntityState.Modified;
             int d = db.SaveChanges();
-            if (d>0&&a>0&&b>0&&c>0)
+            if (d>0&&a>0&&b>0)
             {
                 return true;
             }
@@ -166,15 +164,51 @@ namespace DAL
         /// <param name="facilities"></param>
         /// <param name="lImg"></param>
         /// <returns></returns>
-        public bool EditLEASE(Lease lease, Facilities facilities, LImg lImg)
+        public bool EditLEASE(Lease lease, Facilities facilities)
         {
             db.Entry(lease).State = System.Data.Entity.EntityState.Modified;
             int a = db.SaveChanges();
             db.Entry(facilities).State = System.Data.Entity.EntityState.Modified;
             int b = db.SaveChanges();
-            db.Entry(lImg).State = System.Data.Entity.EntityState.Modified;
-            int c = db.SaveChanges();
-            if ( a > 0 && b > 0 && c > 0)
+            if ( a > 0 && b > 0 )
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        /// <summary>
+        /// 删除图片
+        /// </summary>
+        /// <param name="sImg"></param>
+        /// <returns></returns>
+        public bool Updata_g_deleteimg(int ID, int SellID) 
+        {
+            var sImg = db.SImg.SingleOrDefault(p => p.ID == ID && p.SellID == SellID);
+            db.SImg.Remove(sImg);
+            int a= db.SaveChanges();
+            if (a > 0 )
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        /// <summary>
+        /// 删除图片
+        /// </summary>
+        /// <param name="sImg"></param>
+        /// <returns></returns>
+        public bool Updata_g_deleteimg2(int ID, int LeaseID)
+        {
+            var lImg = db.LImg.SingleOrDefault(p => p.ID == ID && p.LeaseID == LeaseID);
+            db.LImg.Remove(lImg);
+            int a = db.SaveChanges();
+            if (a > 0)
             {
                 return true;
             }

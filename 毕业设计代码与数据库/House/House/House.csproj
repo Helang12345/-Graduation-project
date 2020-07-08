@@ -137,7 +137,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\LeaseController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -259,6 +258,7 @@
     <Content Include="Content\Photo\a1.jpg" />
     <Content Include="Content\Photo\a2.jpg" />
     <Content Include="Content\Photo\a3.jpg" />
+    <Content Include="Content\Photo\avatar-1.jpg" />
     <Content Include="Content\Renting\a1.jpg" />
     <Content Include="Content\Renting\a2.jpg" />
     <Content Include="Content\Renting\a3.jpg" />

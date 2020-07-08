@@ -5,66 +5,61 @@
 }
 @using Models;
 @{
-    //Models.Userd userds = Session["Userds"] as Userd;
-    //Models.Salesman salesman = Session["Salesman"] as Salesman;
+    Models.Userd userds = Session["Userds"] as Userd;
+    Models.Salesman salesman = Session["Salesman"] as Salesman;
 }
 <div class="submit-address dashboard-list">
     <h4 class="bg-grea-3">发布售房信息</h4>
-    <form method="post" action="AddSell" >
+    <form method="post" action="AddSell" enctype="multipart/form-data" id="formsell">
         <h4 class="bg-grea-3">基本信息</h4>
-        <input type="hidden" class="input-text" name="UserID" value="1">
+        @*<input type="hidden" class="input-text" name="UserID" value="1">*@
         <input type="hidden" class="input-text" name="TransactionStatus" value="0">
         <input type="hidden" class="input-text" name="UState" value="0">
-        @*<input type="hidden" class="input-text" name="UserID" value="@userds.UserID">*@
+        <input type="hidden" class="input-text" name="UserID" value="@userds.UserID">
         <input type="hidden" class="input-text" name="NewTime" value="@DateTime.Now">
         <div class="search-contents-sidebar">
             <div class="row pad-2">
-                @*<div class="col-lg-4 col-md-4 col-sm-12">
-                        <div class="form-group">
-                            <input type="hidden" class="input-text" name="SalesmanID" value="@salesman.SalesmanID">
-                            <input type="hidden" class="input-text" name="SalesmanID" value="1">
-                        </div>
-                    </div>*@
+                
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>所在城市</label>
-                        <input type="text" class="input-text" name="SellAddress" placeholder="城市名称">
+                        <input type="text" class="input-text" name="SellAddress" placeholder="城市名称" required="required" >
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>所在小区</label>
-                        <input type="text" class="input-text" name="SellVillage" placeholder="小区名">
+                        <input type="text" class="input-text" name="SellVillage" placeholder="小区名" required="required">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>所在楼层</label>
-                        <input type="text" class="input-text" name="SellFloor" placeholder="？层">
+                        <input type="text" class="input-text" name="SellFloor" placeholder="？层" required="required">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>房屋面积</label>
-                        <input type="text" class="input-text" name="SellArea" placeholder="平米">
+                        <input type="text" class="input-text" name="SellArea" placeholder="平米" required="required">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>实际面积</label>
-                        <input type="text" class="input-text" name="SellAreaTo" placeholder="平米">
+                        <input type="text" class="input-text" name="SellAreaTo" placeholder="平米" required="required">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>价格</label>
-                        <input type="text" class="input-text" name="SellPrice" placeholder="每平">
+                        <input type="text" class="input-text" name="SellPrice" placeholder="每平" required="required">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>总价格</label>
-                        <input type="text" class="input-text" name="SellPriceTo" placeholder="万元">
+                        <input type="text" class="input-text" name="SellPriceTo" placeholder="元" required="required">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
@@ -88,7 +83,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>房屋类型</label>
-                        <input type="text" class="input-text" name="SellHStructurechar" placeholder="？室？厅">
+                        <input type="text" class="input-text" name="SellHStructurechar" placeholder="？室？厅" required="required">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
@@ -103,7 +98,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>梯户情况</label>
-                        <input type="text" class="input-text" name="SellScale" placeholder="？梯？户">
+                        <input type="text" class="input-text" name="SellScale" placeholder="？梯？户" required="required">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
@@ -144,19 +139,19 @@
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="form-group">
                     <label>房屋年限</label>
-                    <input type="text" class="input-text" name="TransactionYears" placeholder="默认为70-以住年限">
+                    <input type="text" class="input-text" name="TransactionYears" placeholder="默认为70-以住年限" required="required">
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="form-group">
                     <label>上架时间</label>
-                    <input type="text" class="input-text" name="TransactionTime" placeholder="年/月/日">
+                    <input type="text" class="input-text" name="TransactionTime" placeholder="年/月/日" required="required">
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="form-group">
                     <label>上次交易时间</label>
-                    <input type="text" class="input-text" name="TransactionOldTransaction" placeholder="年/月/日">
+                    <input type="text" class="input-text" name="TransactionOldTransaction" placeholder="年/月/日" required="required">
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12">
@@ -195,12 +190,6 @@
                     </select>
                 </div>
             </div>
-            @*<div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="form-group">
-                        <label>产权所有人</label>
-                        <input type="text" class="input-text" name="zip" placeholder="姓名">
-                    </div>
-                </div>*@
         </div>
         <h4 class="bg-grea-3">上传图片</h4>
         <div class="row pad-20">
@@ -257,7 +246,7 @@
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="form-group">
                     <label>联系方式</label>
-                    <input type="text" class="input-text" name="Phone">
+                    <input type="text" class="input-text" name="Phone" required="required">
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12" style="margin-top:22px;">

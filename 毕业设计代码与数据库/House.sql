@@ -281,9 +281,11 @@ insert into SCollection values(1,1),(2,1),(1,3),(1,2)
 
 insert into LCollection values(1,1),(2,1),(1,3),(1,2)
 
-select * from SImg where  SellID=10
-select * from Lease where TransactionStatus=1
+select * from Sell
+select * from Lease where TransactionStatus=1and SalesmanID=1
 select * from Sell where TransactionStatus=1 Order By NewTime
-select * from Userd 
-
+select * from Salesman 
+select * from SImg 
+select * from LImg 
 alter table Lease alter column  NewTime date
+select * from Userd

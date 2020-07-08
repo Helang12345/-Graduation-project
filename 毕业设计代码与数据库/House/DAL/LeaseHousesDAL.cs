@@ -19,7 +19,7 @@ namespace DAL
         /// <returns></returns>
         public static List<Lease> LeaseList()
         {
-            return db.Lease.Where(p=>p.TransactionStatus==1).ToList(); ;
+            return db.Lease.Where(p=>p.UState==0).ToList(); ;
         }
         /// <summary>
         /// 单独查询，显示详情
@@ -28,7 +28,7 @@ namespace DAL
         /// <returns></returns>
         public static Lease Only(int LeaseID)
         {
-            return db.Lease.SingleOrDefault(p => p.LeaseID == LeaseID&&p.TransactionStatus==1);
+            return db.Lease.SingleOrDefault(p => p.LeaseID == LeaseID&&p.UState==0);
         }
         /// <summary>
         /// 单独查询
@@ -57,7 +57,7 @@ namespace DAL
         public static List<Lease> Higtlow()
         {
             //降序排列
-            return db.Lease.OrderByDescending(p => p.LeasePrice).Where(p => p.TransactionStatus == 1).ToList();
+            return db.Lease.OrderByDescending(p => p.LeasePrice).Where(p => p.UState == 0).ToList();
         }
         /// <summary>
         /// 接个排序从低到高
@@ -66,7 +66,7 @@ namespace DAL
         public static List<Lease> Lowthig()
         {
             //升序排列
-            return db.Lease.OrderBy(p => p.LeasePrice).Where(p => p.TransactionStatus == 1).ToList();
+            return db.Lease.OrderBy(p => p.LeasePrice).Where(p => p.UState == 0).ToList();
         }
         /// <summary>
         /// 最新排序
@@ -75,7 +75,7 @@ namespace DAL
         public static List<Lease> Newest()
         {
             //降序排列
-            return db.Lease.OrderByDescending(p => p.NewTime).Where(p => p.TransactionStatus == 1).ToList();
+            return db.Lease.OrderByDescending(p => p.NewTime).Where(p => p.UState == 0).ToList();
         }
         /// <summary>
         /// 最旧排序
@@ -84,7 +84,7 @@ namespace DAL
         public static List<Lease> Oldest()
         {
             //升序排列
-            return db.Lease.OrderBy(p => p.NewTime).Where(p => p.TransactionStatus == 1).ToList();
+            return db.Lease.OrderBy(p => p.NewTime).Where(p => p.UState == 0).ToList();
         }
        /// <summary>
        /// 查询关注
