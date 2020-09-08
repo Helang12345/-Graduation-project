@@ -57,7 +57,7 @@ namespace House.Controllers
                 }
                 else
                 {
-                    return Content("<script>alert('账号或密码不正确');history.go(-1)</script>");
+                    return Content("<script>alert('账号或密码不正确');history.go(-1);</script>");
                 }
             }
             else if (Role == 2)
@@ -66,6 +66,18 @@ namespace House.Controllers
                 {
                     Session["Salesman"] = bll.Salesman(SalesmanEmail, Password);
                     return RedirectToAction("Index", "HomePage");
+                }
+                else
+                {
+                    return Content("<script>alert('账号或密码不正确');history.go(-1)</script>");
+                }
+            }
+            else if (Role == 3)
+            {
+                if (bll.Userds2(SalesmanEmail, Password) != null)
+                {
+                    Session["Userds"] = bll.Userds2(SalesmanEmail, Password);
+                    return RedirectToAction("Index", "Shopowner");
                 }
                 else
                 {
@@ -92,13 +104,17 @@ namespace House.Controllers
         }
         public ActionResult Add(Userd userd) 
         {
-            if (bll.AddUserd(userd))
+            if (bll.AddUserd(userd) == 1)
             {
                 return RedirectToAction("Index", "HomePage");
             }
+            else if (bll.AddUserd(userd) == 2)
+            {
+                return Content("<script>alert('注册失败');history.go(-1);</script>");
+            }
             else 
             {
-                return Content("<script>alert('注册失败')</script>");
+                return Content("<script>alert('账号已存在');history.go(-1);</script>");
             }
         }
     }

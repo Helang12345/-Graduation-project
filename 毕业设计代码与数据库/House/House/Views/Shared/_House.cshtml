@@ -123,20 +123,39 @@
                         </li>
                         @*我的账户标签*@
                         @{
-                            if (salesman == null &&userds != null)
+                            if (salesman == null && userds != null)
                             {
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        我的账户
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <li><a class="dropdown-item" href="../Login/PassWord">忘记密码</a></li>
-                                        <li><a class="dropdown-item" href="../Business/Information">个人信息</a></li>
-                                        <li><a class="dropdown-item" href="../Business/Property">我的财产</a></li>
-                                        <li><a class="dropdown-item" href="../Business/Follow">我的关注</a></li>
-                                        <li><a class="dropdown-item" href="../Business/Index">添加售房</a></li>
-                                    </ul>
-                                </li>
+                                if (userds.Role == 0)
+                                {
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            我的账户
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <li><a class="dropdown-item" href="../Login/PassWord">忘记密码</a></li>
+                                            <li><a class="dropdown-item" href="../Business/Information">个人信息</a></li>
+                                            <li><a class="dropdown-item" href="../Business/Property">我的财产</a></li>
+                                            <li><a class="dropdown-item" href="../Business/Follow">我的关注</a></li>
+                                            <li><a class="dropdown-item" href="../Business/Index">添加售房</a></li>
+                                        </ul>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            我的账户
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <li><a class="dropdown-item" href="../Login/PassWord">忘记密码</a></li>
+                                            <li><a class="dropdown-item" href="../Shopowner/Information">个人信息</a></li>
+                                            <li><a class="dropdown-item" href="../Shopowner/SellSelect">售房订单</a></li>
+                                            <li><a class="dropdown-item" href="../Shopowner/LeaseSelect">租房订单</a></li>
+                                            <li><a class="dropdown-item" href="../Shopowner/UserdSelect">用户列表</a></li>
+                                            <li><a class="dropdown-item" href="../Shopowner/SalesmanSelect">销售列表</a></li>
+                                        </ul>
+                                    </li>
+                                }
 
                             }
                             else if (salesman != null && userds == null)
@@ -156,7 +175,7 @@
                             else
                             {
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="../Login/Index" id="navbarDropdownMenuLink7" >
+                                    <a class="nav-link dropdown-toggle" href="../Login/Index" id="navbarDropdownMenuLink7">
                                         我的账户
                                     </a>
                                 </li>
@@ -174,9 +193,19 @@
                             }
                             else if (userds != null && salesman == null)
                             {
-                                <a class="nav-link" href="../Business/Information">
-                                    <i class="flaticon-logout"></i>@userds.UserName 欢迎回来
-                                </a>
+                                if (userds.Role == 0)
+                                {
+                                    <a class="nav-link" href="../Business/Information">
+                                        <i class="flaticon-logout"></i>@userds.UserName 欢迎回来
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a class="nav-link" href="../Shopowner/Index">
+                                        <i class="flaticon-logout"></i>@userds.UserName 欢迎回来
+                                    </a>
+                                }
+
                             }
                             else
                             {

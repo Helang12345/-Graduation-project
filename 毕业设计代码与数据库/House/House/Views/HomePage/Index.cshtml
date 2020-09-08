@@ -259,7 +259,7 @@
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
                     <div class="team-1">
                         <div class="team-photo">
-                            <img src="~/Content/Photo/@item.Photo" alt="agent" class="img-fluid">
+                            <img src="~/Content/Photo/@item.Photo" alt="agent" class="img-fluid" style="width:300px;height:220px;">
 
                         </div>
                         <div class="team-details">
@@ -289,17 +289,17 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="property-box">
                             <div class="property-thumbnail">
-                                <a href="../Lease/LeaseAll" class="property-img">
+                                <a href="../Lease/Index?LeaseID=@item.LeaseID" class="property-img">
                                     <div class="price-box"><span>@item.LeasePrice 元</span> 每月</div>
                                     <img class="d-block w-100" src="~/Content/Renting/@item.LImg.FirstOrDefault().Photo" alt="properties" style="width:100%; height:250px;">
                                 </a>
                             </div>
                             <div class="detail">
                                 <h1 class="title">
-                                    <a href="../Lease/LeaseAll">@item.LeaseAddress/@item.LeaseVillage</a>
+                                    <a href="../Lease/Index?LeaseID=@item.LeaseID">@item.LeaseAddress/@item.LeaseVillage</a>
                                 </h1>
                                 <div class="location">
-                                    <a href="../Lease/LeaseAll">
+                                    <a href="../Lease/Index?LeaseID=@item.LeaseID">
                                         @item.LeaseHStructure
                                     </a>
                                 </div>
@@ -331,7 +331,7 @@
 
                                     </li>
                                     <li>
-                                        上架时间：@item.NewTime
+                                        时间：@string.Format("{0:D}",item.NewTime)
                                     </li>
                                 </ul>
                             </div>
@@ -360,17 +360,17 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="property-box">
                             <div class="property-thumbnail">
-                                <a href="../Selling/SellAll" class="property-img">
+                                <a href="../Selling/Index?SellID=@item.SellID" class="property-img">
                                     <div class="price-box"><span>@item.SellPrice 元</span> 每平</div>
                                     <img class="d-block w-100" src="~/Content/Selling/@item.SImg.FirstOrDefault().Photo" alt="properties" style="width:100%; height:250px;">
                                 </a>
                             </div>
                             <div class="detail">
                                 <h1 class="title">
-                                    <a href="../Selling/SellAll">@item.SellAddress/@item.SellVillage</a>
+                                    <a href="../Selling/Index?SellID=@item.SellID">@item.SellAddress/@item.SellVillage</a>
                                 </h1>
                                 <div class="location">
-                                    <a href="../Selling/SellAll">
+                                    <a href="../Selling/Index?SellID=@item.SellID">
                                         @item.SellHStructurechar
                                     </a>
                                 </div>
@@ -409,7 +409,7 @@
                                         实际面积：@item.SellAreaTo
                                     </li>
                                     <li>
-                                        上架时间：@item.NewTime
+                                        时间：@string.Format("{0:D}", item.NewTime)
                                     </li>
                                 </ul>
                             </div>

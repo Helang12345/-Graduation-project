@@ -142,6 +142,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SaleController.cs" />
     <Compile Include="Controllers\SellingController.cs" />
+    <Compile Include="Controllers\ShopownerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -305,6 +306,8 @@
     <Content Include="Content\Renting\i5.jpg" />
     <Content Include="Content\Renting\i6.jpg" />
     <Content Include="Content\Renting\waneng1.jpg" />
+    <Content Include="Content\Renting\xiugai1.jpg" />
+    <Content Include="Content\Renting\xiugai2.jpg" />
     <Content Include="Content\Selling\a1.jpg" />
     <Content Include="Content\Selling\a2.jpg" />
     <Content Include="Content\Selling\a3.jpg" />
@@ -351,6 +354,8 @@
     <Content Include="Content\Selling\i4.png" />
     <Content Include="Content\Selling\i5.jpg" />
     <Content Include="Content\Selling\waneng1.jpg" />
+    <Content Include="Content\Selling\xiugai1.jpg" />
+    <Content Include="Content\Selling\xiugai2.jpg" />
     <Content Include="Content\shouye.css" />
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
@@ -403,6 +408,7 @@
     <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\linearicons\fonts\Linearicons-Free.woff2" />
     <Content Include="HOU\Handler1.ashx" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -561,6 +567,15 @@
     <Content Include="Views\Selling\SellAll.cshtml" />
     <Content Include="Views\Lease\LeaseAll.cshtml" />
     <Content Include="Views\Business\Indexs.cshtml" />
+    <Content Include="Views\Shared\Shopowner.cshtml" />
+    <Content Include="Views\Shopowner\Index.cshtml" />
+    <Content Include="Views\Shopowner\SellSelect.cshtml" />
+    <Content Include="Views\Shopowner\LeaseSelect.cshtml" />
+    <Content Include="Views\Shopowner\UserdSelect.cshtml" />
+    <Content Include="Views\Shopowner\SalesmanSelect.cshtml" />
+    <Content Include="Views\Shopowner\AddSalesman.cshtml" />
+    <Content Include="Views\Shopowner\Information.cshtml" />
+    <Content Include="Views\Business\Property2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

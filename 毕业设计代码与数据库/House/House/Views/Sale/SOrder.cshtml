@@ -4,32 +4,77 @@
     Layout = "~/Views/Shared/_Sale.cshtml";
 }
 @using Models;
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<Sell>
+<link href="~/Content/page.css" rel="stylesheet" />
 <div class="dashboard-list">
     <h3>订单管理 </h3>
-    <table class="manage-table">
-        <tbody>
-            @{
-                foreach (var item in ViewBag.SOrder as List<Sell>)
-                {
+    @foreach (var item in Model)
+    {
+        <div class="property-box-2">
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-pad">
+                    <div class="property-thumbnail">
+                        <a href="EditSelling?SellID=@item.SellID" class="property-img">
+                            <img src="~/Content/Selling/@item.SImg.FirstOrDefault().Photo" alt="properties" class="img-fluid" style="width:580px;height:350px">
+                            <div class="price-box"><span>@item.SellPrice 元</span> 平</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-pad align-self-center">
+                    <div class="detail">
+                        <h3 class="title">
+                            <a href="/Selling/Index?SellID=@item.SellID">@item.SellHStructurechar</a>
+                        </h3>
+                        <h5 class="location">
+                            <a href="#">
+                                <i class="flaticon-pin"></i>@item.SellAddress / @item.SellVillage
+                            </a>
+                        </h5>
+                        <h5 class="location"></h5>
+                        <ul class="facilities-list clearfix">
+                            <li>
+                                房屋朝向：
+                                @if (item.SellOrientation == 1)
+                                {
+                                    @:坐北朝南
+                                }
+                                else if (item.SellOrientation == 2)
+                                {
+                                    @:坐南朝北
+                                }
+                                else if (item.SellOrientation == 3)
+                                {
+                                    @:坐东朝西
+                                }
+                                else
+                                {
+                                    @:坐西朝东
+                                }
+                            </li>
+                            <li>
+                                装修情况：
+                                @if (item.SellRenovation == 1)
+                                {
+                                    @:精装
+                                }
+                                else
+                                {
+                                    @:毛坯
+                                }
 
-                    <tr class="responsive-table">
-                        <td class="listing-photoo">
-                            @if (@item.SImg.Count() == 0)
-                            {
-                                <img src="~/Content/Selling/waneng1.jpg" alt="listing-photo" class="img-fluid">
-                            }
-                            else
-                            {
-                                <img src="~/Content/Selling/@item.SImg.FirstOrDefault().Photo" alt="listing-photo" class="img-fluid">
-                            }
-                        </td>
-                        <td class="title-container">
-                            <h2><a href="../Selling/Index?SellID=@item.SellID">@item.SellAddress/@item.SellVillage</a></h2>
-                            <h5 class="d-none d-xl-block d-lg-block d-md-block">@item.SellHStructurechar </h5>
-                            <h6 class="table-property-price">价格：@item.SellPrice /每平</h6>
-                            <h6 class="table-property-price">联系方式：@item.Phone</h6>
-                            <h6 class="table-property-price">
-                                状态：
+                            </li>
+                            <li>
+                                房屋主人：@item.Userd.UserName
+                            </li>
+                            <li>
+                                上架时间：@string.Format("{0:d}", item.NewTime)
+
+                            </li>
+                            <li><a href="EditSelling?SellID=@item.SellID"><i class="fa fa-pencil"></i> 修改</a></li>
+                            <li>
+                                <label>订单状态：</label>
                                 @if (item.TransactionStatus == 0)
                                 {
                                     @:待售
@@ -42,19 +87,16 @@
                                 {
                                     @:下架
                                 }
-                            </h6>
-                        </td>
-                        <td class="expire-date">@item.NewTime</td>
-                        <td class="action">
-                            <a href="EditSelling?SellID=@item.SellID"><i class="fa fa-pencil"></i> 修改</a>
-                            <a href="#" class="delete"><i class="fa fa-remove"></i> 删除</a>
-                        </td>
-                    </tr>
-
-                }
-            }
-
-        </tbody>
-    </table>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<!-- 分页 -->
+<div class="pagination-box p-box-2 text-center">
+    @Html.PagedListPager(Model, page => Url.Action("SOrder", new { page }))
 </div>
 

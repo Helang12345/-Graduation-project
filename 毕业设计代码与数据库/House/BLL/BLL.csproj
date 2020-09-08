@@ -48,6 +48,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SaleBLL.cs" />
     <Compile Include="SellingHousesBLL.cs" />
+    <Compile Include="ShopownerBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

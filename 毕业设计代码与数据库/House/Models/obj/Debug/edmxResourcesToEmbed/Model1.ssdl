@@ -142,7 +142,6 @@
     <Property Name="TransactionOldTransaction" Type="nvarchar" MaxLength="20" />
     <Property Name="TransactionPurpose" Type="nvarchar" MaxLength="20" />
     <Property Name="TransactionYears" Type="nvarchar" MaxLength="20" />
-    <Property Name="TransactionPropertyright" Type="nvarchar" MaxLength="2000" />
     <Property Name="TransactionMortgage" Type="int" />
     <Property Name="TransactionPOC" Type="int" />
     <Property Name="SellID" Type="int" />

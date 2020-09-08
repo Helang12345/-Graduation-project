@@ -28,6 +28,16 @@ namespace BLL
         /// <param name="Loginname"></param>
         /// <param name="Password"></param>
         /// <returns></returns>
+        public Userd Userds2(string Loginname, string Password)
+        {
+            return dal.Userds2(Loginname, Password);
+        }
+        /// <summary>
+        /// 登录
+        /// </summary>
+        /// <param name="Loginname"></param>
+        /// <param name="Password"></param>
+        /// <returns></returns>
         public Salesman Salesman(string Loginname, string Password)
         {
             return dal.Salesman(Loginname, Password);
@@ -40,7 +50,7 @@ namespace BLL
         /// <param name="Email"></param>
         /// <param name="Password"></param>
         /// <returns></returns>
-        public bool AddUserd(Userd userd)
+        public int AddUserd(Userd userd)
         {
             return dal.AddUserd(userd);
         }

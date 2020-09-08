@@ -142,22 +142,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Transactions">
-      <EntityTypeMapping TypeName="HouseModel.Transactions">
-        <MappingFragment StoreEntitySet="Transactions">
-          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
-          <ScalarProperty Name="TransactionTime" ColumnName="TransactionTime" />
-          <ScalarProperty Name="TransactionCommodity" ColumnName="TransactionCommodity" />
-          <ScalarProperty Name="TransactionOldTransaction" ColumnName="TransactionOldTransaction" />
-          <ScalarProperty Name="TransactionPurpose" ColumnName="TransactionPurpose" />
-          <ScalarProperty Name="TransactionYears" ColumnName="TransactionYears" />
-          <ScalarProperty Name="TransactionPropertyright" ColumnName="TransactionPropertyright" />
-          <ScalarProperty Name="TransactionMortgage" ColumnName="TransactionMortgage" />
-          <ScalarProperty Name="TransactionPOC" ColumnName="TransactionPOC" />
-          <ScalarProperty Name="SellID" ColumnName="SellID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Userd">
       <EntityTypeMapping TypeName="HouseModel.Userd">
         <MappingFragment StoreEntitySet="Userd">
@@ -171,6 +155,21 @@
           <ScalarProperty Name="Photo" ColumnName="Photo" />
           <ScalarProperty Name="Role" ColumnName="Role" />
           <ScalarProperty Name="UState" ColumnName="UState" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="HouseModel.Transactions">
+        <MappingFragment StoreEntitySet="Transactions">
+          <ScalarProperty Name="SellID" ColumnName="SellID" />
+          <ScalarProperty Name="TransactionPOC" ColumnName="TransactionPOC" />
+          <ScalarProperty Name="TransactionMortgage" ColumnName="TransactionMortgage" />
+          <ScalarProperty Name="TransactionYears" ColumnName="TransactionYears" />
+          <ScalarProperty Name="TransactionPurpose" ColumnName="TransactionPurpose" />
+          <ScalarProperty Name="TransactionOldTransaction" ColumnName="TransactionOldTransaction" />
+          <ScalarProperty Name="TransactionCommodity" ColumnName="TransactionCommodity" />
+          <ScalarProperty Name="TransactionTime" ColumnName="TransactionTime" />
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

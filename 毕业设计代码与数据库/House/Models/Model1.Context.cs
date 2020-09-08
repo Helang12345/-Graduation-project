@@ -34,7 +34,7 @@ namespace Models
         public virtual DbSet<Sell> Sell { get; set; }
         public virtual DbSet<Selling> Selling { get; set; }
         public virtual DbSet<SImg> SImg { get; set; }
-        public virtual DbSet<Transactions> Transactions { get; set; }
         public virtual DbSet<Userd> Userd { get; set; }
+        public virtual DbSet<Transactions> Transactions { get; set; }
     }
 }

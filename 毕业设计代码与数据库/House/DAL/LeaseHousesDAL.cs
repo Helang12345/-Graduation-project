@@ -57,7 +57,7 @@ namespace DAL
         public static List<Lease> Higtlow()
         {
             //降序排列
-            return db.Lease.OrderByDescending(p => p.LeasePrice).Where(p => p.UState == 0).ToList();
+            return db.Lease.Where(p => p.UState == 0 && p.TransactionStatus == 1).OrderByDescending(p=>p.LeasePrice).ToList();
         }
         /// <summary>
         /// 接个排序从低到高
@@ -66,7 +66,7 @@ namespace DAL
         public static List<Lease> Lowthig()
         {
             //升序排列
-            return db.Lease.OrderBy(p => p.LeasePrice).Where(p => p.UState == 0).ToList();
+            return db.Lease.Where(p => p.UState == 0 && p.TransactionStatus == 1).OrderBy(p => p.LeasePrice).ToList();
         }
         /// <summary>
         /// 最新排序
@@ -75,7 +75,7 @@ namespace DAL
         public static List<Lease> Newest()
         {
             //降序排列
-            return db.Lease.OrderByDescending(p => p.NewTime).Where(p => p.UState == 0).ToList();
+            return db.Lease.Where(p => p.UState == 0 && p.TransactionStatus == 1).OrderByDescending(p => p.NewTime).ToList();
         }
         /// <summary>
         /// 最旧排序
@@ -84,7 +84,7 @@ namespace DAL
         public static List<Lease> Oldest()
         {
             //升序排列
-            return db.Lease.OrderBy(p => p.NewTime).Where(p => p.UState == 0).ToList();
+            return db.Lease.Where(p => p.UState == 0 && p.TransactionStatus == 1).OrderBy(p => p.NewTime).ToList();
         }
        /// <summary>
        /// 查询关注

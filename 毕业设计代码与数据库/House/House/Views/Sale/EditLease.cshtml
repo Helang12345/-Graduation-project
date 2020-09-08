@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_Sale.cshtml";
 }
 @using Models;
-@{ 
+@{
     Lease lease = ViewBag.SLease;
     Facilities facilities = ViewBag.SFacilities;
     List<LImg> imgs = ViewBag.SLImg;
@@ -26,6 +26,8 @@
                         <label>财产名称</label>
                         <input type="text" class="input-text" name="UserID" value="@lease.Userd.UserName" required="required">
                     </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>所在城市</label>
                         <input type="text" class="input-text" name="LeaseAddress" placeholder="城市名称" value="@lease.LeaseAddress" required="required">
@@ -176,10 +178,10 @@
             </div>
         </div>
         <h4 class="bg-grea-3">配套设施</h4>
-        <div class="row pad-2">
+       <div class="row pad-2">
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox1" type="checkbox" name="FacilitiesWashing" value="@facilities.FacilitiesWashing" checked="@(facilities.FacilitiesWashing==0)">
+                    <input id="checkbox1" type="checkbox" value="FacilitiesWashing" name="list" checked="@(facilities.FacilitiesWashing==1)">
                     <label for="checkbox1">
                         洗衣机
                     </label>
@@ -187,7 +189,7 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox2" type="checkbox" name="Facilitiesairconditioner" value="@facilities.Facilitiesairconditioner" checked="@(facilities.Facilitiesairconditioner==0)">
+                    <input id="checkbox2" type="checkbox" value="Facilitiesairconditioner" name="list" checked="@(facilities.Facilitiesairconditioner==1)">
                     <label for="checkbox2">
                         空调
                     </label>
@@ -195,7 +197,7 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox4" type="checkbox" name="Facilitieswardrobe" value="@facilities.Facilitieswardrobe" checked="@(facilities.Facilitieswardrobe==0)">
+                    <input id="checkbox4" type="checkbox" value="Facilitieswardrobe" name="list" checked="@(facilities.Facilitieswardrobe==1)">
                     <label for="checkbox4">
                         衣柜
                     </label>
@@ -203,7 +205,7 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox5" type="checkbox" name="FacilitiesTV" value="@facilities.FacilitiesTV" checked="@(facilities.FacilitiesTV==0)">
+                    <input id="checkbox5" type="checkbox" value="FacilitiesTV" name="list" checked="@(facilities.FacilitiesTV==1)">
                     <label for="checkbox5">
                         电视
                     </label>
@@ -211,7 +213,7 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox7" type="checkbox" name="FacilitiesRefrigerator" value="@facilities.FacilitiesRefrigerator" checked="@(facilities.FacilitiesRefrigerator==0)">
+                    <input id="checkbox7" type="checkbox" value="FacilitiesRefrigerator" name="list" checked="@(facilities.FacilitiesRefrigerator==1)">
                     <label for="checkbox7">
                         冰箱
                     </label>
@@ -219,7 +221,7 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox8" type="checkbox" name="FacilitiesBed" value="@facilities.FacilitiesBed" checked="@(facilities.FacilitiesBed==0)">
+                    <input id="checkbox8" type="checkbox" value="FacilitiesBed" name="list" checked="@(facilities.FacilitiesBed==1)">
                     <label for="checkbox8">
                         床
                     </label>
@@ -227,7 +229,7 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox3" type="checkbox" name="FacilitiesWIFI" value="@facilities.FacilitiesWIFI" checked="@(facilities.FacilitiesWIFI==0)">
+                    <input id="checkbox3" type="checkbox" value="FacilitiesWIFI" name="list" checked="@(facilities.FacilitiesWIFI==1)">
                     <label for="checkbox3">
                         WiFi
                     </label>
@@ -235,7 +237,7 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox6" type="checkbox" name="FacilitiesNaturalgas" value="@facilities.FacilitiesNaturalgas" checked="@(facilities.FacilitiesNaturalgas==0)">
+                    <input id="checkbox6" type="checkbox" value="FacilitiesNaturalgas" name="list" checked="@(facilities.FacilitiesNaturalgas==1)">
                     <label for="checkbox6">
                         天然气
                     </label>
@@ -243,9 +245,17 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox9" type="checkbox" name="FacilitiesHeating" value="@facilities.FacilitiesHeating" checked="@(facilities.FacilitiesHeating==0)">
+                    <input id="checkbox9" type="checkbox" name="list" value="FacilitiesHeating"  checked="@(facilities.FacilitiesHeating==1)">
                     <label for="checkbox9">
                         暖气
+                    </label>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="checkbox checkbox-theme checkbox-circle">
+                    <input id="checkbox10" type="checkbox" name="list" value="FacilitiesHeater" checked="@(facilities.FacilitiesHeater==1)"/>
+                    <label for="checkbox10">
+                        热水器
                     </label>
                 </div>
             </div>
@@ -285,7 +295,7 @@
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="form-group">
                     <label>提交时间</label>
-                    <input type="text" class="input-text" name="NewTime" value="@lease.NewTime" required="required">
+                    <input type="text" class="input-text" name="NewTime" value="@string.Format("{0:d}", lease.NewTime)" required="required">
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12">
@@ -300,6 +310,3 @@
         </div>
     </form>
 </div>
-
-
-

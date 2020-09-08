@@ -19,9 +19,17 @@ namespace DAL
         /// <returns></returns>
         public int SellsAdd(Sell sell)
         {
-            db.Sell.Add(sell);
-            int a = db.SaveChanges();
-            return a;
+            int a = 0;
+            if (db.Sell.Where(p => p.SellAddress == sell.SellAddress && p.SellVillage == sell.SellVillage && p.SellFloor == sell.SellFloor && p.UserID == sell.UserID&&p.TransactionStatus!=2).Count() == 0)
+            {
+                db.Sell.Add(sell);
+                a = db.SaveChanges();
+                return a;
+            }
+            else 
+            {
+                return a;
+            }
         }
         /// <summary>
         /// 添加卖点表
@@ -30,6 +38,7 @@ namespace DAL
         /// <returns></returns>
         public int SellingAdd(Selling selling)
         {
+            
             db.Selling.Add(selling);
             int a = db.SaveChanges();
             return a;
@@ -60,9 +69,17 @@ namespace DAL
         /// <returns></returns>
         public int LeaseAdd( Lease lease) 
         {
-            db.Lease.Add(lease);
-            int a = db.SaveChanges();
-            return a;
+            int a = 0;
+            if (db.Lease.Where(p => p.LeaseAddress == lease.LeaseAddress && p.LeaseVillage == lease.LeaseVillage && p.LeaseFloor == lease.LeaseFloor && p.UserID == lease.UserID && p.TransactionStatus != 2).Count() == 0)
+            {
+                db.Lease.Add(lease);
+                a = db.SaveChanges();
+                return a;
+            }
+            else 
+            {
+                return a;
+            }
         }
         /// <summary>
         /// 添加租房的配套设施
@@ -121,6 +138,14 @@ namespace DAL
             db.Userd.Find(id).UserPassword = newpassword1;
             return db.SaveChanges();
         }
+        /// <summary>
+        /// 联系方式
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="UserPhone"></param>
+        /// <param name="SalesmanEmail"></param>
+        /// <param name="SalesmanVX"></param>
+        /// <returns></returns>
         public int EditContact(int id,string UserPhone, string SalesmanEmail,string SalesmanVX)
         {
             Userd userd = db.Userd.Find(id);

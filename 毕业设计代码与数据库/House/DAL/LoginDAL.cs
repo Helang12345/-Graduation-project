@@ -19,7 +19,17 @@ namespace DAL
         /// <returns></returns>
         public Userd Userds(string Loginname, string Password) 
         {
-            return db.Userd.SingleOrDefault(p => p.UserdEmail == Loginname && p.UserPassword == Password &&p.UState==0);
+            return db.Userd.SingleOrDefault(p => p.UserdEmail == Loginname && p.UserPassword == Password &&p.UState==0&&p.Role==0);
+        }
+        /// <summary>
+        /// 登录
+        /// </summary>
+        /// <param name="Loginname"></param>
+        /// <param name="Password"></param>
+        /// <returns></returns>
+        public Userd Userds2(string Loginname, string Password)
+        {
+            return db.Userd.SingleOrDefault(p => p.UserdEmail == Loginname && p.UserPassword == Password && p.UState == 0&p.Role==1);
         }
         /// <summary>
         /// 登录
@@ -39,18 +49,28 @@ namespace DAL
         /// <param name="Email"></param>
         /// <param name="Password"></param>
         /// <returns></returns>
-        public bool AddUserd(Userd userd)
+        public int AddUserd(Userd userd)
         {
-            db.Userd.Add(userd);
-            int a= db.SaveChanges();
-            if (a == 1)
-            {
-                return true;
-            }
-            else 
-            {
-                return false;
-            }
+            int a = 0;
+            //if (db.Userd.Where(p => p.UserdEmail == userd.UserdEmail).ToList() == null)
+            //{
+                db.Userd.Add(userd);
+                 a = db.SaveChanges();
+                if (a == 1)
+                {
+                    return a;
+                }
+                else
+                {
+                    a = 2;
+                    return a;
+                }
+            //}
+            //else 
+            //{
+            //    return a;
+            //}
+            
         }
        
     }

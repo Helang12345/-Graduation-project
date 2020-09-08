@@ -47,7 +47,7 @@ namespace House.Controllers
                 //每页显示多少条
                 int pageSize = 5;
                 //排序
-                List<Lease> kk = db.Lease.OrderBy(p => p.LeaseID).Where(p => p.TransactionStatus == 1).ToList();
+                List<Lease> kk = LeaseHousesBLL.Higtlow();
 
                 ///通过ToPagedList扩展方法进行分页  
                 IPagedList<Lease> usePageList = kk.ToPagedList(pageNumber, pageSize);
@@ -62,7 +62,7 @@ namespace House.Controllers
                 //每页显示多少条
                 int pageSize = 5;
                 //排序
-                List<Lease> kk = db.Lease.OrderBy(p => p.LeaseID).Where(p=>p.TransactionStatus==1).ToList();
+                List<Lease> kk = LeaseHousesBLL.Lowthig();
 
                 ///通过ToPagedList扩展方法进行分页  
                 IPagedList<Lease> usePageList = kk.ToPagedList(pageNumber, pageSize);
@@ -77,7 +77,7 @@ namespace House.Controllers
                 //每页显示多少条
                 int pageSize = 5;
                 //排序
-                List<Lease> kk = db.Lease.OrderBy(p => p.LeaseID).ToList();
+                List<Lease> kk = LeaseHousesBLL.Newest();
 
                 ///通过ToPagedList扩展方法进行分页  
                 IPagedList<Lease> usePageList = kk.ToPagedList(pageNumber, pageSize);
@@ -92,7 +92,7 @@ namespace House.Controllers
                 //每页显示多少条
                 int pageSize = 5;
                 //排序
-                List<Lease> kk = db.Lease.OrderBy(p => p.LeaseID).Where(p => p.TransactionStatus == 1).ToList();
+                List<Lease> kk = LeaseHousesBLL.Oldest();
 
                 ///通过ToPagedList扩展方法进行分页  
                 IPagedList<Lease> usePageList = kk.ToPagedList(pageNumber, pageSize);
@@ -107,7 +107,7 @@ namespace House.Controllers
                 //每页显示多少条
                 int pageSize = 5;
                 //排序
-                List<Lease> kk = db.Lease.OrderBy(p => p.LeaseID).Where(p => p.TransactionStatus == 1).ToList();
+                List<Lease> kk = LeaseHousesBLL.LeaseList();
 
                 ///通过ToPagedList扩展方法进行分页  
                 IPagedList<Lease> usePageList = kk.ToPagedList(pageNumber, pageSize);

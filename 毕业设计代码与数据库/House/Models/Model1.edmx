@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HouseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HouseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Facilities">
           <Key>
             <PropertyRef Name="FacilitiesID" />
@@ -147,7 +147,6 @@
           <Property Name="TransactionOldTransaction" Type="nvarchar" MaxLength="20" />
           <Property Name="TransactionPurpose" Type="nvarchar" MaxLength="20" />
           <Property Name="TransactionYears" Type="nvarchar" MaxLength="20" />
-          <Property Name="TransactionPropertyright" Type="nvarchar" MaxLength="2000" />
           <Property Name="TransactionMortgage" Type="int" />
           <Property Name="TransactionPOC" Type="int" />
           <Property Name="SellID" Type="int" />
@@ -388,8 +387,7 @@
             <End Role="Transactions" EntitySet="Transactions" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HouseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -522,7 +520,7 @@
           <NavigationProperty Name="Userd" Relationship="Self.FK__Sell__UserID__1920BF5C" FromRole="Sell" ToRole="Userd" />
           <NavigationProperty Name="Selling" Relationship="Self.FK__Selling__SellID__1DE57479" FromRole="Sell" ToRole="Selling" />
           <NavigationProperty Name="SImg" Relationship="Self.FK__SImg__SellID__239E4DCF" FromRole="Sell" ToRole="SImg" />
-          <NavigationProperty Name="Transactions" Relationship="Self.FK__Transacti__SellI__20C1E124" FromRole="Sell" ToRole="Transactions" />
+          <NavigationProperty Name="Transactions" Relationship="HouseModel.FK__Transacti__SellI__20C1E124" FromRole="Sell" ToRole="Transactions" />
         </EntityType>
         <EntityType Name="Selling">
           <Key>
@@ -545,22 +543,6 @@
           <Property Name="SellID" Type="Int32" />
           <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Sell" Relationship="Self.FK__SImg__SellID__239E4DCF" FromRole="SImg" ToRole="Sell" />
-        </EntityType>
-        <EntityType Name="Transactions">
-          <Key>
-            <PropertyRef Name="TransactionID" />
-          </Key>
-          <Property Name="TransactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TransactionTime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="TransactionCommodity" Type="Int32" />
-          <Property Name="TransactionOldTransaction" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="TransactionPurpose" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="TransactionYears" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="TransactionPropertyright" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
-          <Property Name="TransactionMortgage" Type="Int32" />
-          <Property Name="TransactionPOC" Type="Int32" />
-          <Property Name="SellID" Type="Int32" />
-          <NavigationProperty Name="Sell" Relationship="Self.FK__Transacti__SellI__20C1E124" FromRole="Transactions" ToRole="Sell" />
         </EntityType>
         <EntityType Name="Userd">
           <Key>
@@ -725,18 +707,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Transacti__SellI__20C1E124">
-          <End Role="Sell" Type="Self.Sell" Multiplicity="0..1" />
-          <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sell">
-              <PropertyRef Name="SellID" />
-            </Principal>
-            <Dependent Role="Transactions">
-              <PropertyRef Name="SellID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="HouseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Facilities" EntityType="Self.Facilities" />
           <EntitySet Name="LCollection" EntityType="Self.LCollection" />
@@ -747,7 +717,6 @@
           <EntitySet Name="Sell" EntityType="Self.Sell" />
           <EntitySet Name="Selling" EntityType="Self.Selling" />
           <EntitySet Name="SImg" EntityType="Self.SImg" />
-          <EntitySet Name="Transactions" EntityType="Self.Transactions" />
           <EntitySet Name="Userd" EntityType="Self.Userd" />
           <AssociationSet Name="FK__Facilitie__Lease__3A81B327" Association="Self.FK__Facilitie__Lease__3A81B327">
             <End Role="Lease" EntitySet="Lease" />
@@ -797,11 +766,39 @@
             <End Role="Sell" EntitySet="Sell" />
             <End Role="SImg" EntitySet="SImg" />
           </AssociationSet>
-          <AssociationSet Name="FK__Transacti__SellI__20C1E124" Association="Self.FK__Transacti__SellI__20C1E124">
+          <EntitySet Name="Transactions" EntityType="HouseModel.Transactions" />
+          <AssociationSet Name="FK__Transacti__SellI__20C1E124" Association="HouseModel.FK__Transacti__SellI__20C1E124">
             <End Role="Sell" EntitySet="Sell" />
             <End Role="Transactions" EntitySet="Transactions" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Transactions">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransactionTime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TransactionCommodity" Type="Int32" />
+          <Property Name="TransactionOldTransaction" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TransactionPurpose" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TransactionYears" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TransactionMortgage" Type="Int32" />
+          <Property Name="TransactionPOC" Type="Int32" />
+          <Property Name="SellID" Type="Int32" />
+          <NavigationProperty Name="Sell" Relationship="HouseModel.FK__Transacti__SellI__20C1E124" FromRole="Transactions" ToRole="Sell" />
+        </EntityType>
+        <Association Name="FK__Transacti__SellI__20C1E124">
+          <End Type="HouseModel.Sell" Role="Sell" Multiplicity="0..1" />
+          <End Type="HouseModel.Transactions" Role="Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sell">
+              <PropertyRef Name="SellID" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="SellID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -949,22 +946,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Transactions">
-            <EntityTypeMapping TypeName="HouseModel.Transactions">
-              <MappingFragment StoreEntitySet="Transactions">
-                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
-                <ScalarProperty Name="TransactionTime" ColumnName="TransactionTime" />
-                <ScalarProperty Name="TransactionCommodity" ColumnName="TransactionCommodity" />
-                <ScalarProperty Name="TransactionOldTransaction" ColumnName="TransactionOldTransaction" />
-                <ScalarProperty Name="TransactionPurpose" ColumnName="TransactionPurpose" />
-                <ScalarProperty Name="TransactionYears" ColumnName="TransactionYears" />
-                <ScalarProperty Name="TransactionPropertyright" ColumnName="TransactionPropertyright" />
-                <ScalarProperty Name="TransactionMortgage" ColumnName="TransactionMortgage" />
-                <ScalarProperty Name="TransactionPOC" ColumnName="TransactionPOC" />
-                <ScalarProperty Name="SellID" ColumnName="SellID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Userd">
             <EntityTypeMapping TypeName="HouseModel.Userd">
               <MappingFragment StoreEntitySet="Userd">
@@ -978,6 +959,21 @@
                 <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="Role" ColumnName="Role" />
                 <ScalarProperty Name="UState" ColumnName="UState" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transactions">
+            <EntityTypeMapping TypeName="HouseModel.Transactions">
+              <MappingFragment StoreEntitySet="Transactions">
+                <ScalarProperty Name="SellID" ColumnName="SellID" />
+                <ScalarProperty Name="TransactionPOC" ColumnName="TransactionPOC" />
+                <ScalarProperty Name="TransactionMortgage" ColumnName="TransactionMortgage" />
+                <ScalarProperty Name="TransactionYears" ColumnName="TransactionYears" />
+                <ScalarProperty Name="TransactionPurpose" ColumnName="TransactionPurpose" />
+                <ScalarProperty Name="TransactionOldTransaction" ColumnName="TransactionOldTransaction" />
+                <ScalarProperty Name="TransactionCommodity" ColumnName="TransactionCommodity" />
+                <ScalarProperty Name="TransactionTime" ColumnName="TransactionTime" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

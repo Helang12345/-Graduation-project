@@ -53,7 +53,7 @@ namespace DAL
         /// <returns></returns>
         public List<Sell> SOrder(int id)
         {
-            return db.Sell.Where(p => p.SalesmanID == id&&p.UState==0).OrderByDescending(p=>p.SellID).ToList();
+            return db.Sell.Where(p => p.SalesmanID == id&&p.UState==0).OrderByDescending(p=>p.NewTime).ToList();
         }
         /// <summary>
         /// 通过销售ID查询该销售的订单（租房）

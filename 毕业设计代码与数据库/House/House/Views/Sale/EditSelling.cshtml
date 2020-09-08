@@ -3,6 +3,9 @@
     Layout = "~/Views/Shared/_Sale.cshtml";
 }
 @using Models;
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<Sell>
 @{
     //Models.Userd userds = Session["Userds"] as Userd;
     //Models.Salesman salesman = Session["Salesman"] as Salesman;
@@ -15,6 +18,7 @@
     <h4 class="bg-grea-3">发布售房信息</h4>
     <form method="post" action="EditSELL" enctype="multipart/form-data" id="formsell">
         <h4 class="bg-grea-3">基本信息</h4>
+        <input type="hidden" class="input-text" name="UState" value="0">
         <input type="hidden" class="input-text" name="UserID" value="@sell.UserID">
         <input type="hidden" class="input-text" name="SalesmanID" value="@sell.SalesmanID">
         <input type="hidden" class="input-text" name="SellID" value="@sell.SellID">
@@ -22,7 +26,7 @@
             <div class="row pad-2">
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
-                        <label>财产名称</label>
+                        <label>房主名称</label>
                         <input type="text" class="input-text" name="UserID" value="@sell.Userd.UserName" required="required">
                     </div>
                 </div>
@@ -197,12 +201,6 @@
                     </select>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-12">
-                <div class="form-group">
-                    <label>产权所有</label>
-                    <input type="text" class="input-text" name="TransactionPropertyright" placeholder="非公有" value="@transactions.TransactionPropertyright" required="required">
-                </div>
-            </div>
         </div>
         <h4 class="bg-grea-3">上传图片</h4>
         <div class="publish-detail-item" style="height:400px;width:100%;">
@@ -211,13 +209,13 @@
                 <div style="width:500px;margin-bottom:15px;float:left;margin-top:40px " class="col-lg-12">
                     <div class="col-lg-12">
                         <img src="~/Content/Selling/@item.Photo" width="120" height="80" />
-                        <a href="/Sale/Updata_g_deleteimg/@item.ID?SellID=@item.SellID " class="btn btn-danger" style="color:white;margin-top: 15px;margin-left:50px;">删除</a>
+                        <a href="/Sale/Updata_g_deleteimg/@item.ID?SellID=@item.SellID " class="btn btn-danger" style="color:white;margin-top: 15px;margin-left:50px;" onclick="return confirm('你确定删除吗？')">删除</a>
                     </div>
                 </div>
             }
-           
+
         </div>
-        
+
         <h4 class="bg-grea-3">更新图片</h4>
         <div class="row pad-20">
             <div class="col-lg-12">
@@ -271,7 +269,7 @@
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="form-group">
                     <label>提交时间</label>
-                    <input type="text" class="input-text" name="NewTime" value="@sell.NewTime" required="required">
+                    <input type="text" class="input-text" name="NewTime" value="@string.Format("{0:d}", sell.NewTime)" required="required">
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12">
@@ -286,4 +284,3 @@
         </div>
     </form>
 </div>
-

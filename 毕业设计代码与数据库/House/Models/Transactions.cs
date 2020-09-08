@@ -20,7 +20,6 @@ namespace Models
         public string TransactionOldTransaction { get; set; }
         public string TransactionPurpose { get; set; }
         public string TransactionYears { get; set; }
-        public string TransactionPropertyright { get; set; }
         public Nullable<int> TransactionMortgage { get; set; }
         public Nullable<int> TransactionPOC { get; set; }
         public Nullable<int> SellID { get; set; }

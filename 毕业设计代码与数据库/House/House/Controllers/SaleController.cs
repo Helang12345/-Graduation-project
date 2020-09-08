@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Models;
 using BLL;
 using System.IO;
+using PagedList;
 
 namespace House.Controllers
 {
@@ -19,7 +20,7 @@ namespace House.Controllers
         /// 订单管理
         /// </summary>
         /// <returns></returns>
-        public ActionResult SOrder()
+        public ActionResult SOrder(int? page)
         {
             Salesman salesman = Session["Salesman"] as Salesman;
             if (salesman == null)
@@ -28,17 +29,21 @@ namespace House.Controllers
             }
             else
             {
-                ViewBag.SOrder = bLL.SOrder(salesman.SalesmanID);
-                return View();
+                var a = bLL.SOrder(salesman.SalesmanID);
+                int pageNumber = page ?? 1;
+                //每页显示多少条
+                int pageSize = 2;
+                ///通过ToPagedList扩展方法进行分页  
+                var usePageList = a.ToPagedList(pageNumber, pageSize);
+                return View(usePageList);
             }
-
         }
         // GET: Sale
         /// <summary>
         /// 订单管理
         /// </summary>
         /// <returns></returns>
-        public ActionResult LOrder()
+        public ActionResult LOrder(int? page)
         {
             Salesman salesman = Session["Salesman"] as Salesman;
             if (salesman == null)
@@ -47,8 +52,13 @@ namespace House.Controllers
             }
             else
             {
-                ViewBag.LOrder = bLL.LOrder(salesman.SalesmanID);
-                return View();
+                var a = bLL.LOrder(salesman.SalesmanID);
+                int pageNumber = page ?? 1;
+                //每页显示多少条
+                int pageSize = 2;
+                ///通过ToPagedList扩展方法进行分页  
+                var usePageList = a.ToPagedList(pageNumber, pageSize);
+                return View(usePageList);
             }
         }
         /// <summary>
@@ -165,6 +175,7 @@ namespace House.Controllers
         /// <returns></returns>
         public ActionResult EditSELL(Sell sell ,Selling selling, SImg sImg,Transactions transactions) 
         {
+            int a = sell.SellID;
             //添加商品图片
             if (Request.Files.Count > 0)
             {
@@ -191,7 +202,7 @@ namespace House.Controllers
             }
             if (bLL.EditSELL(sell, selling, transactions))
             {
-                return Content("<script>alert('修改成功');history.go(-1)</script>");
+                return RedirectToAction("EditSelling", "Sale", new { SellID = a });
             }
             else 
             {
@@ -207,8 +218,70 @@ namespace House.Controllers
         /// <param name="transactions"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult EditLEASE(Lease lease, Facilities facilities)
+        public ActionResult EditLEASE(Lease lease, string[] list)
         {
+            //初始化配套设置的值
+            Facilities fcs = new Facilities()
+            {
+                FacilitiesWashing = 0,
+                Facilitiesairconditioner = 0,
+                Facilitieswardrobe = 0,
+                FacilitiesTV = 0,
+                FacilitiesRefrigerator = 0,
+                FacilitiesBed = 0,
+                FacilitiesWIFI = 0,
+                FacilitiesNaturalgas = 0,
+                FacilitiesHeater = 0,
+                FacilitiesHeating = 0,
+                LeaseID=lease.LeaseID,
+                FacilitiesID=lease.LeaseID
+
+            };
+            //循环判断更新值
+            foreach (var item in list)
+            {
+                if (item == "FacilitiesWashing")
+                {
+                    fcs.FacilitiesWashing = 1;
+                }
+                if (item == "Facilitiesairconditioner")
+                {
+                    fcs.Facilitiesairconditioner = 1;
+                }
+                if (item == "Facilitieswardrobe")
+                {
+                    fcs.Facilitieswardrobe = 1;
+                }
+                if (item == "FacilitiesTV")
+                {
+                    fcs.FacilitiesTV = 1;
+                }
+                if (item == "FacilitiesRefrigerator")
+                {
+                    fcs.FacilitiesRefrigerator = 1;
+                }
+                if (item == "FacilitiesBed")
+                {
+                    fcs.FacilitiesBed = 1;
+                }
+                if (item == "FacilitiesWIFI")
+                {
+                    fcs.FacilitiesWIFI = 1;
+                }
+                if (item == "FacilitiesNaturalgas")
+                {
+                    fcs.FacilitiesNaturalgas = 1;
+                }
+                if (item == "FacilitiesHeater")
+                {
+                    fcs.FacilitiesHeater = 1;
+                }
+                if (item == "FacilitiesHeating")
+                {
+                    fcs.FacilitiesHeating = 1;
+                }
+            }
+            int a = lease.LeaseID;
             //添加商品图片
             if (Request.Files.Count > 0)
             {
@@ -233,9 +306,9 @@ namespace House.Controllers
 
                 }
             }
-            if (bLL.EditLEASE(lease,facilities))
+            if (bLL.EditLEASE(lease, fcs))
             {
-                return Content("<script>alert('修改成功');history.go(-1)</script>");
+                return RedirectToAction("EditLease", "Sale", new { LeaseID = a });
             }
             else
             {
@@ -246,7 +319,7 @@ namespace House.Controllers
         {
             if (bLL.Updata_g_deleteimg(ID,SellID))
             {
-                return Content("<script>alert('删除成功');history.go(-1)</script>");
+                return RedirectToAction("EditSelling", "Sale", new { SellID = SellID });
             }
             else
             {
@@ -257,7 +330,7 @@ namespace House.Controllers
         {
             if (bLL.Updata_g_deleteimg2(ID, LeaseID))
             {
-                return Content("<script>alert('删除成功');history.go(-1)</script>");
+                return RedirectToAction("EditLease", "Sale",new { LeaseID = LeaseID } );
             }
             else
             {
@@ -297,7 +370,7 @@ namespace House.Controllers
                         Request.Files[i].SaveAs(Server.MapPath("~/Content/Photo/" + Request.Files[i].FileName));
                     }
                     Session["Salesman"] = db.Salesman.Find(salesmans.SalesmanID);
-                    return Content("<script>alert('修改成功');history.go(-1)</script>");
+                    return Content("<script>alert('修改成功');history.back(-1)</script>");
                 }
                 else
                 {

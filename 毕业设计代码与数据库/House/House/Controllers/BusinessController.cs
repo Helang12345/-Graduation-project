@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Models;
 using BLL;
 using System.IO;
+using PagedList;
 
 //销售后台
 namespace House.Controllers
@@ -71,7 +72,7 @@ namespace House.Controllers
         /// 我的财产
         /// </summary>
         /// <returns></returns>
-        public ActionResult Property(Userd userd)
+        public ActionResult Property(Userd userd, int? page)
         {
             userd = Session["Userds"] as Userd;
             if (userd == null)
@@ -80,9 +81,38 @@ namespace House.Controllers
             }
             else
             {
-                ViewBag.MyLease = bLL.MyLease(userd.UserID);
-                ViewBag.MySell = bLL.MySell(userd.UserID);
-                return View();
+                var a = bLL.MySell(userd.UserID);
+                int pageNumber = page ?? 1;
+                //每页显示多少条
+                int pageSize = 2;
+                ///通过ToPagedList扩展方法进行分页  
+                var usePageList = a.ToPagedList(pageNumber, pageSize);
+                return View(usePageList);
+            }
+        }
+        /// <summary>
+        /// 我的财产
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Property2(Userd userd, int? page)
+        {
+            userd = Session["Userds"] as Userd;
+            if (userd == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+
+                var a = bLL.MyLease(userd.UserID);
+                int pageNumber = page ?? 1;
+                //每页显示多少条
+                int pageSize = 2;
+
+                ///通过ToPagedList扩展方法进行分页  
+                var usePageList = a.ToPagedList(pageNumber, pageSize);
+                return View(usePageList);
+
             }
         }
         /// <summary>
@@ -117,7 +147,7 @@ namespace House.Controllers
             }
             else
             {
-                return Content("<script>alert('添加失败');history.go(-1)</script>");
+                return Content("<script>alert('该房屋已经上传');history.go(-1)</script>");
             }
 
             int b = bLL.SellingAdd(selling, id);
@@ -146,7 +176,7 @@ namespace House.Controllers
 
                 }
             }
-                if (b == 1 && c == 1)
+            if (b == 1 && c == 1)
             {
                 return Content("<script>alert('添加成功');history.go(-1)</script>");
             }
@@ -154,7 +184,6 @@ namespace House.Controllers
             {
                 return Content("<script>alert('添加失败');history.go(-1)</script>");
             }
-
         }
         /// <summary>
         /// 添加租房信息
@@ -162,9 +191,64 @@ namespace House.Controllers
         /// <param name="lease"></param>
         /// <param name="facilities"></param>
         /// <returns></returns>
-        public ActionResult AddLease(Lease lease, Facilities facilities)
+        public ActionResult AddLease(Lease lease, string[] list)
         {
-            
+            Facilities fcs = new Facilities()
+            {
+                FacilitiesWashing = 0,
+                Facilitiesairconditioner = 0,
+                Facilitieswardrobe = 0,
+                FacilitiesTV = 0,
+                FacilitiesRefrigerator = 0,
+                FacilitiesBed = 0,
+                FacilitiesWIFI = 0,
+                FacilitiesNaturalgas = 0,
+                FacilitiesHeater = 0,
+                FacilitiesHeating = 0
+            };
+            foreach (var item in list)
+            {
+                if (item == "FacilitiesWashing")
+                {
+                    fcs.FacilitiesWashing = 1;
+                }
+                if (item == "Facilitiesairconditioner")
+                {
+                    fcs.Facilitiesairconditioner = 1;
+                }
+                if (item == "Facilitieswardrobe")
+                {
+                    fcs.Facilitieswardrobe = 1;
+                }
+                if (item == "FacilitiesTV")
+                {
+                    fcs.FacilitiesTV = 1;
+                }
+                if (item == "FacilitiesRefrigerator")
+                {
+                    fcs.FacilitiesRefrigerator = 1;
+                }
+                if (item == "FacilitiesBed")
+                {
+                    fcs.FacilitiesBed = 1;
+                }
+                if (item == "FacilitiesWIFI")
+                {
+                    fcs.FacilitiesWIFI = 1;
+                }
+                if (item == "FacilitiesNaturalgas")
+                {
+                    fcs.FacilitiesNaturalgas = 1;
+                }
+                if (item == "FacilitiesHeater")
+                {
+                    fcs.FacilitiesHeater = 1;
+                }
+                if (item == "FacilitiesHeating")
+                {
+                    fcs.FacilitiesHeating = 1;
+                }
+            }
             int id = 0;
             int a = bLL.LeaseAdd(lease);
             if (a == 1)
@@ -174,7 +258,7 @@ namespace House.Controllers
             }
             else
             {
-                return Content("<script>alert('添加失败');history.go(-1)</script>");
+                return Content("<script>alert('该房屋已经上传');history.go(-1)</script>");
             }
             //添加商品图片
             if (Request.Files.Count > 0)
@@ -200,7 +284,7 @@ namespace House.Controllers
                 }
             }
             //添加配套设施
-            int b = bLL.FacilitiesAdd(facilities, id);
+            int b = bLL.FacilitiesAdd(fcs, id);
             if (b == 1)
             {
                 return Content("<script>alert('添加成功');history.go(-1)</script>");
@@ -223,7 +307,7 @@ namespace House.Controllers
             int a = bLL.EditPassword(newpassword1, id, UserPassword);
             if (a == 1)
             {
-                return Content("<script>alert('修改成功');history.go(-1)</script>");
+                return RedirectToAction("Information", "Business");
             }
             else
             {
@@ -244,11 +328,11 @@ namespace House.Controllers
             int id = u.UserID;
             if (bLL.EditContact(id, UserPhone, SalesmanEmail, SalesmanVX) > 0)
             {
-                return Content("<script>alert('修改成功');history.go(-1)</script>");
+                return RedirectToAction("Information", "Business");
             }
             else
             {
-                return Content("<script>alert('修改失败');history.go(-1)</script>");
+                return Content("<script>alert('无数据更新，修改失败');history.go(-1)</script>");
             }
         }
         /// <summary>
@@ -256,7 +340,7 @@ namespace House.Controllers
         /// </summary>
         /// <param name="userd"></param>
         /// <returns></returns>
-        public ActionResult EditUserd(Userd userd) 
+        public ActionResult EditUserd(Userd userd)
         {
             int a = 0;
             Userd userds = db.Userd.Find(userd.UserID);
@@ -284,18 +368,20 @@ namespace House.Controllers
                         Request.Files[i].SaveAs(Server.MapPath("~/Content/Photo/" + Request.Files[i].FileName));
                     }
                     Session["Userd"] = db.Userd.Find(userd.UserID);
-                    return Content("<script>alert('修改成功');history.go(-1)</script>");
+
+                    return RedirectToAction("Information", "Business");
+
                 }
-                else 
+                else
                 {
                     return Content("<script>alert('上传失败');history.go(-1)</script>");
                 }
             }
-            else 
+            else
             {
                 return Content("<script>alert('修改失败');history.go(-1)</script>");
             }
         }
-       
+
     }
 }

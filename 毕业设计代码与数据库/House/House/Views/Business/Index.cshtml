@@ -17,13 +17,14 @@
         <input type="hidden" class="input-text" name="UState" value="0">
         <input type="hidden" class="input-text" name="UserID" value="@userds.UserID">
         <input type="hidden" class="input-text" name="NewTime" value="@DateTime.Now">
+        <input type="hidden" class="input-text" name="UState" value="0">
         <div class="search-contents-sidebar">
             <div class="row pad-2">
-                
+
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="form-group">
                         <label>所在城市</label>
-                        <input type="text" class="input-text" name="SellAddress" placeholder="城市名称" required="required" >
+                        <input type="text" class="input-text" name="SellAddress" placeholder="城市名称" required="required">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
@@ -246,7 +247,7 @@
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="form-group">
                     <label>联系方式</label>
-                    <input type="text" class="input-text" name="Phone" required="required">
+                    <input type="text" class="input-text" name="Phone" required="required" value="@userds.UserPhone">
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12" style="margin-top:22px;">
@@ -255,72 +256,4 @@
         </div>
     </form>
 </div>
-
-
-    <script type="text/javascript">
-        //选择图片，预览
-        function xmTanUploadImg(obj) {
-            var imgTypes = new Array();
-            imgTypes[0] = "JPG";
-            imgTypes[1] = "ICO";
-            imgTypes[2] = "PNG";
-            imgTypes[3] = "GIF";
-            imgTypes[4] = "JPEG";
-            imgTypes[5] = "TGA";
-            var num = 0;//选错图片格式的个数
-            var fl = obj.files.length;
-            if (fl <= 7) {
-
-                for (var i = 0; i < fl; i++) {
-                    var file = obj.files[i];
-                    //判断图片格式
-                    var filename = obj.files[i].name;
-                    imgType = filename.substring(filename.lastIndexOf(".") + 1, file.length)
-                    var reader = new FileReader();
-                    //判断是否是图片格式
-                    if (imgType.toUpperCase() == imgTypes[0] || imgType.toUpperCase() == imgTypes[1] || imgType.toUpperCase() == imgTypes[2] || imgType.toUpperCase() == imgTypes[3] || imgType.toUpperCase() == imgTypes[4] || imgType.toUpperCase() == imgTypes[5]) {
-                        reader.onload = function (e) {
-                            img = document.createElement("img");
-                            img.src = this.result;
-                            img.style.width = "80px";
-                            img.style.height = "100px";
-                            document.getElementById("showimg").appendChild(img);
-                            $("#upload").attr("disabled", false);
-                        }
-                    } else {
-                        num++;
-                        alert("你选择的图片格式不正确:" + num + "张图片格式不正确");
-                        $("#upload").attr("disabled", true);
-                    }
-
-                    reader.readAsDataURL(file);
-                }
-            } else {
-
-                alert("每次只能上传7张图片");
-            }
-
-        }
-
-        function Upload() {
-
-            var param = new FormData(($("#form")[0]));
-            $.ajax({
-                url: "../HOU/Handler1.ashx",
-                data: param,
-                type: "post",
-                processData: false,
-                contentType: false,
-                success: function (data) {
-                    alert(data)
-                },
-                error: function (e) {
-                    alert(e)
-                },
-
-
-            })
-        }
-    </script>
-
 

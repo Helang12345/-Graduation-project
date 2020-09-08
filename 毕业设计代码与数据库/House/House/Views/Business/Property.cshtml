@@ -4,92 +4,50 @@
     Layout = "~/Views/Shared/_Backstage.cshtml";
 }
 @using Models;
-@{
-    List<Sell> sells = ViewBag.MySell;
-    List<Lease> leases = ViewBag.MyLease;
-}
-    <div class="dashboard-list">
-        <h3>我的财产 </h3>
-        <h3>售房关注</h3>
-        @foreach (var item in sells)
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<Sell>
+<link href="~/Content/page.css" rel="stylesheet" />
+<div class="dashboard-list">
+    <h3>我的财产 </h3>
+    <h3>售房</h3>
+    @{
+        if (Model.Count == 0)
         {
             <div class="property-box-2">
                 <div class="row">
                     <div class="col-lg-5 col-md-5 col-pad">
                         <div class="property-thumbnail">
-                            <a href="~/Controllers/Selling/Index?SellID=@item.SellID" class="property-img">
-                                @{ if (@item.SImg.Count() == 0)
-                                    {
-                                        <img src="~/Content/Selling/waneng1.jpg" alt="properties" class="img-fluid" >
-                                    }
-                                    else
-                                    {
-                                        <img src="~/Content/Selling/@item.SImg.FirstOrDefault().Photo" alt="properties" class="img-fluid" >
-                                    }
-                                }
-                                <div class="price-box"><span>@item.SellPrice 元</span> 平</div>
+                            <a href="#" class="property-img">
+                                <img src="~/Content/Selling/waneng1.jpg" alt="properties" class="img-fluid" @*style="width:300px;height:220px;"*@>
+                                <div class="price-box"><span>--- 元</span> 平</div>
                             </a>
                         </div>
                     </div>
                     <div class="col-lg-7 col-md-7 col-pad align-self-center">
                         <div class="detail">
                             <h3 class="title">
-                                <a href="/Selling/Index?SellID=@item.SellID">@item.SellAddress / @item.SellVillage</a>
+                                <a href="#">没有满足要求的房屋哦</a>
                             </h3>
-
-                            <h5 class="location">@item.SellHStructurechar</h5>
+                            <h5 class="location">
+                                <a href="#">
+                                    <i class="flaticon-pin"></i>----
+                                </a>
+                            </h5>
                             <ul class="facilities-list clearfix">
                                 <li>
-                                    房屋朝向：
-                                    @if (item.SellOrientation == 1)
-                                    {
-                                        @:坐北朝南
-                                    }
-                                    else if (item.SellOrientation == 2)
-                                    {
-                                        @:坐南朝北
-                                    }
-                                    else if (item.SellOrientation == 3)
-                                    {
-                                        @:坐东朝西
-                                    }
-                                    else
-                                    {
-                                        @:坐西朝东
-                                    }
+                                    房屋朝向：----
+
                                 </li>
                                 <li>
-                                    装修情况：
-                                    @if (item.SellRenovation == 1)
-                                    {
-                                        @:精装
-                                    }
-                                    else
-                                    {
-                                        @:毛坯
-                                    }
+                                    装修情况：----
                                 </li>
                                 <li>
-                                    实际面积：@item.SellAreaTo
+                                    实际面积：----
                                 </li>
                                 <li>
-                                    看房时间：
-                                    @if (item.SellTime == 1)
-                                    {
-                                        @:上午
-                                    }
-                                    else if (item.SellTime == 2)
-                                    {
-                                        @:下午
-                                    }
-                                    else if (item.SellTime == 3)
-                                    {
-                                        @:晚上
-                                    }
-                                    else
-                                    {
-                                        @:全天
-                                    }
+                                    看房时间：----
+
 
                                 </li>
                             </ul>
@@ -98,92 +56,80 @@
                 </div>
             </div>
         }
-        <h3>租房关注</h3>
-        @foreach (var item in leases)
+        else
         {
-            <div class="property-box-2">
-                <div class="row">
-                    <div class="col-lg-5 col-md-5 col-pad">
-                        <div class="property-thumbnail">
-                            <a href="~/Controllers/Selling/Index?SellID=@item.LeaseID" class="property-img">
-                                @{ if (@item.LImg.Count() == 0)
-                                    {
-                                        <img src="~/Content/Selling/waneng1.jpg" alt="properties" class="img-fluid" >
-                                    }
-                                    else
-                                    {
-                                        <img src="~/Content/Selling/@item.LImg.FirstOrDefault().Photo" alt="properties" class="img-fluid" >
-                                    }
-                                }
-                                <div class="price-box"><span>@item.LeasePrice 元</span> 平</div>
-                            </a>
+            foreach (var item in Model)
+            {
+                <div class="property-box-2">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-5 col-pad">
+                            <div class="property-thumbnail">
+                                <a href="Index?SellID=@item.SellID" class="property-img">
+                                    <img src="~/Content/Selling/@item.SImg.FirstOrDefault().Photo" alt="properties" class="img-fluid" style="width:600px;height:350px">
+                                    <div class="price-box"><span>@item.SellPrice 元</span> 平</div>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-7 col-md-7 col-pad align-self-center">
-                        <div class="detail">
-                            <h3 class="title">
-                                <a href="/Selling/Index?SellID=@item.LeaseID">@item.LeaseAddress / @item.LeaseVillage</a>
-                            </h3>
+                        <div class="col-lg-7 col-md-7 col-pad align-self-center">
+                            <div class="detail">
+                                <h3 class="title">
+                                    <a href="/Selling/Index?SellID=@item.SellID">@item.SellHStructurechar</a>
+                                </h3>
+                                <h5 class="location">
+                                    <a href="#">
+                                        <i class="flaticon-pin"></i>@item.SellAddress / @item.SellVillage
+                                    </a>
+                                </h5>
+                                <h5 class="location"></h5>
+                                <ul class="facilities-list clearfix">
+                                    <li>
+                                        房屋朝向：
+                                        @if (item.SellOrientation == 1)
+                                        {
+                                            @:坐北朝南
+                                        }
+                                        else if (item.SellOrientation == 2)
+                                        {
+                                            @:坐南朝北
+                                        }
+                                        else if (item.SellOrientation == 3)
+                                        {
+                                            @:坐东朝西
+                                        }
+                                        else
+                                        {
+                                            @:坐西朝东
+                                        }
+                                    </li>
+                                    <li>
+                                        装修情况：
+                                        @if (item.SellRenovation == 1)
+                                        {
+                                            @:精装
+                                        }
+                                        else
+                                        {
+                                            @:毛坯
+                                        }
 
-                            <h5 class="location">@item.LeaseCheckin</h5>
-                            <ul class="facilities-list clearfix">
-                                <li>
-                                    房屋朝向：
-                                    @if (item.LeaseOrientation == 1)
-                                    {
-                                        @:坐北朝南
-                                    }
-                                    else if (item.LeaseOrientation == 2)
-                                    {
-                                        @:坐南朝北
-                                    }
-                                    else if (item.LeaseOrientation == 3)
-                                    {
-                                        @:坐东朝西
-                                    }
-                                    else
-                                    {
-                                        @:坐西朝东
-                                    }
-                                </li>
-                                <li>
-                                    装修情况：
-                                    @if (item.LeaseCheckin == 1)
-                                    {
-                                        @:拎包入住
-                                    }
-                                    else
-                                    {
-                                        @:需要打扫
-                                    }
-                                </li>
-                                <li>
-                                    实际面积：@item.LeaseArea
-                                </li>
-                                <li>
-                                    看房时间：
-                                    @if (item.LeaseTime == 1)
-                                    {
-                                        @:上午
-                                    }
-                                    else if (item.LeaseTime == 2)
-                                    {
-                                        @:下午
-                                    }
-                                    else if (item.LeaseTime == 3)
-                                    {
-                                        @:晚上
-                                    }
-                                    else
-                                    {
-                                        @:全天
-                                    }
+                                    </li>
+                                    <li>
+                                        房屋主人：@item.Userd.UserName
+                                    </li>
+                                    <li>
+                                        上架时间：@string.Format("{0:d}", item.NewTime)
 
-                                </li>
-                            </ul>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            }
         }
-    </div>
+    }
+</div>
+<!-- 分页 -->
+<div class="pagination-box p-box-2 text-center">
+    @Html.PagedListPager(Model, page => Url.Action("Property", new { page }))
+</div>

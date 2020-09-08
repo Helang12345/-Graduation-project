@@ -51,7 +51,7 @@ SellScale nvarchar(20),--梯户情况（1梯1户）
 SellHeating int,--供暖方式（1集中供暖，2自给自足）
 SellOrientation int,--房屋朝向
 SellTime int,--看房时间
-TransactionStatus int default(0),--交易状态状态，0默认审核待售，1表示出售，2表示下架
+TransactionStatus int default(0),--交易状态，0默认审核待售，1表示出售，2表示下架
 NewTime date,--提交时间
 Phone nvarchar(20),--联系方式
 UserID int foreign key (UserID) references Userd (UserID),--房主
@@ -281,11 +281,11 @@ insert into SCollection values(1,1),(2,1),(1,3),(1,2)
 
 insert into LCollection values(1,1),(2,1),(1,3),(1,2)
 
-select * from Sell
+select * from Sell where SellAddress='长沙'and SellVillage='丹桂苑'and SellFloor=1 and UserID=1 and TransactionStatus !=2
 select * from Lease where TransactionStatus=1and SalesmanID=1
 select * from Sell where TransactionStatus=1 Order By NewTime
 select * from Salesman 
 select * from SImg 
 select * from LImg 
 alter table Lease alter column  NewTime date
-select * from Userd
+select * from Userd where Role=1 and UState=0

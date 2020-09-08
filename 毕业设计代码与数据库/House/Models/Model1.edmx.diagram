@@ -14,7 +14,6 @@
         <EntityTypeShape EntityType="HouseModel.Sell" Width="1.5" PointX="3" PointY="14.5" IsExpanded="true" />
         <EntityTypeShape EntityType="HouseModel.Selling" Width="1.5" PointX="5.25" PointY="17.25" IsExpanded="true" />
         <EntityTypeShape EntityType="HouseModel.SImg" Width="1.5" PointX="5.25" PointY="20.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HouseModel.Transactions" Width="1.5" PointX="5.25" PointY="22.875" IsExpanded="true" />
         <EntityTypeShape EntityType="HouseModel.Userd" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
         <AssociationConnector Association="HouseModel.FK__Facilitie__Lease__3A81B327" ManuallyRouted="false" />
         <AssociationConnector Association="HouseModel.FK__LCollecti__Lease__403A8C7D" ManuallyRouted="false" />
@@ -28,7 +27,8 @@
         <AssociationConnector Association="HouseModel.FK__Sell__UserID__1920BF5C" ManuallyRouted="false" />
         <AssociationConnector Association="HouseModel.FK__Selling__SellID__1DE57479" ManuallyRouted="false" />
         <AssociationConnector Association="HouseModel.FK__SImg__SellID__239E4DCF" ManuallyRouted="false" />
-        <AssociationConnector Association="HouseModel.FK__Transacti__SellI__20C1E124" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HouseModel.Transactions" Width="1.5" PointX="5.25" PointY="23.125" />
+        <AssociationConnector Association="HouseModel.FK__Transacti__SellI__20C1E124" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -59,27 +59,27 @@
     <header class="main-header header-2 fixed-header">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand logo pad-0" href="index.html">
+                <a class="navbar-brand logo pad-0" href="../HomePage/index">
                     <img src="/logos/black-logo.png" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                   
+
                     <div class="navbar-buttons ml-auto d-none d-xl-block d-lg-block">
                         <ul>
                             <li>
                                 <div class="dropdown btns">
                                     <a class="dropdown-toggle" data-toggle="dropdown">
-                                        @if ( userds.Photo != null)
+                                        @if (userds.Photo != null)
                                         {
                                             <img src="~/Content/Photo/@userds.Photo" alt="avatar">
                                             @userds.UserName
                                         }
                                         else
                                         {
-                                            <img src="~/Content/Photo/a3.jpg" alt="avatar">
+                                            <img src="~/Content/img/avatar/avatar-6.jpg" alt="avatar">
                                         }
                                     </a>
                                     <div class="dropdown-menu">
@@ -112,12 +112,13 @@
                             <h4 style="font-size:18px;">导航</h4>
                             <ul>
                                 <li><a href="../HomePage/Index"><i class="flaticon-dashboard"></i> 首页</a></li>
-                                <li @*class="active"*@><a href="../Selling/SellList"><i class="flaticon-mail"></i> 房屋出售 @*<span class="nav-tag">5</span>*@</a></li>
-                                <li><a href="../Lease/LeaseDetails"><i class="flaticon-calendar"></i> 房屋出租</a></li>
+                                <li @*class="active"*@><a href="../Selling/SellAll"><i class="flaticon-mail"></i> 房屋出售 @*<span class="nav-tag">5</span>*@</a></li>
+                                <li><a href="../Lease/LeaseAll"><i class="flaticon-calendar"></i> 房屋出租</a></li>
                             </ul>
                             <h4 style="font-size:18px;">清单</h4>
                             <ul>
-                                <li><a href="../Business/Property"><i class="flaticon-apartment"></i>我的财产</a></li>
+                                <li><a href="../Business/Property"><i class="flaticon-apartment"></i>我的售房</a></li>
+                                <li><a href="../Business/Property2"><i class="flaticon-apartment"></i>我的租房</a></li>
                                 <li><a href="../Business/Follow"><i class="flaticon-heart"></i>我的关注</a></li>
                                 <li><a href="../Business/Index"><i class="flaticon-plus"></i>发布售房</a></li>
                                 <li><a href="../Business/LIndex"><i class="flaticon-plus"></i>发布租房</a></li>
@@ -195,5 +196,8 @@
     <script src="~/Scripts/js/ie10-viewport-bug-workaround.js"></script>
     <!-- Custom javascript -->
     <script src="~/Scripts/js/ie10-viewport-bug-workaround.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>
